@@ -1,0 +1,168 @@
+<!doctype html>
+<html dir="ltr" lang="en-US">
+
+	<head>
+		<title>Learn SWFObject : Provide SWFObject Embed Code to Your Visitors</title>
+	    <meta charset="utf-8" />
+		<meta name="description" content="Tutorials for using SWFObject &#8212; a standards-friendly SWF embedding system" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/wp-syntax.css" />
+	</head>
+
+	<body>
+
+    	<div id="header">
+			<h1><a href="../../index.html">Learn SWFObject</a></h1>
+			<p>Tutorials for using SWFObject &#8212; a standards-friendly SWF embedding system</p>
+        </div><!-- /header -->
+
+		<div id="wrapper">
+        <div id="content">
+
+				<div class="post" id="post-41">
+			<h1>Provide SWFObject Embed Code to Your Visitors</h1>
+			<p>Sites like YouTube make it easy to share videos by providing pre-configured embed code for visitors. If you&#8217;d like to offer embed code to your visitors, SWFObject&#8217;s <em>static</em> embed method is the most reliable cross-browser and standards-friendly way to embed a SWF. A sprinkle of JavaScript in your page can automagically &#8216;print&#8217; SWFObject embed code that your visitors can copy.</p>
+<h2>Step one: embed the SWF in your page so the visitor can see it</h2>
+<p>It&#8217;s a good idea to embed the SWF in your own page so visitors can see it for themselves. Since we plan to use JavaScript to write out the visitor&#8217;s embed code, we&#8217;ll use SWFObject&#8217;s <em>dynamic</em> publishing approach to embed the SWF on your site.</p>
+<p>We&#8217;ll also store the SWF&#8217;s parameters in a JavaScript object named <code>swf</code>; this makes it easy for us to re-use the SWF&#8217;s information a little later. </p>
+<p class="note">Important: The SWF&#8217;s URL <em>must</em> be an absolute URL if you&#8217;re giving it out to visitors; if not, their embed will fail because it won&#8217;t be able to find and load the SWF.</p>
+
+<div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;head<span style="color: #33F;">&gt;</span></span></span>
+<span style="color: #333;"><span style="color: #33F;">&lt;script</span> <span style="color: #63C;">type</span>=<span style="color: #F06;">&quot;text/javascript&quot;</span><span style="color: #33F;">&gt;</span></span>
+var swf = {
+    url: &quot;http://yourdomain.com/path/to/yourMovie.swf&quot;,
+    id: &quot;flashcontent&quot;,
+    w: &quot;550&quot;,
+    h: &quot;400&quot;,
+    minFlashRequired: &quot;7&quot;,
+    embedCode: &quot;&quot;
+};
+//Display the SWF
+swfobject.embedSWF(swf.url, swf.id, swf.w, swf.h, swf.minFlashRequired);
+<span style="color: #333;"><span style="color: #33F;">&lt;/script<span style="color: #33F;">&gt;</span></span></span>
+<span style="color: #333;"><span style="color: #33F;">&lt;/head<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
+
+<h2>Step two: Create a function that displays the embed code on your page</h2>
+<p>Now that the visitor can see the SWF, we need to provide them the embed code. The following code example uses JavaScript DOM functions to dynamically add elements to the page as needed.</p>
+<p><em>Note: <code>swf.embedcode</code> includes linebreaks (<code>\n</code>) to make the code more legible inside the textarea.</em></p>
+
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #AAA;">//Display the cross-browser embed code</span>
+swfobject.<span style="color: #63C;">addLoadEvent</span><span style="color: #666;">&#40;</span><span style="color: #33F;">function</span> <span style="color: #666;">&#40;</span><span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span>
+&nbsp;
+    <span style="color: #AAA;">//Create the code string                                                                 </span>
+    swf.<span style="color: #63C;">embedcode</span> <span style="color: #333;">=</span> <span style="color: #F06;">&quot;&lt;object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' &quot;</span> 
+                  <span style="color: #333;">+</span> <span style="color: #F06;">&quot;width='&quot;</span> <span style="color: #333;">+</span>swf.<span style="color: #63C;">w</span> <span style="color: #333;">+</span><span style="color: #F06;">&quot;' height='&quot;</span> <span style="color: #333;">+</span>swf.<span style="color: #63C;">h</span> <span style="color: #333;">+</span><span style="color: #F06;">&quot;'&gt;<span style="color: #096; font-weight: bold;">\n</span>&quot;</span>
+                  <span style="color: #333;">+</span> <span style="color: #F06;">&quot;&lt;param name='movie' value='&quot;</span> <span style="color: #333;">+</span>swf.<span style="color: #63C;">url</span> <span style="color: #333;">+</span><span style="color: #F06;">&quot;' /&gt;<span style="color: #096; font-weight: bold;">\n</span>&quot;</span>
+                  <span style="color: #333;">+</span> <span style="color: #F06;">&quot;&lt;!--[if !IE]&gt;--&gt;<span style="color: #096; font-weight: bold;">\n</span>&quot;</span>
+                  <span style="color: #333;">+</span> <span style="color: #F06;">&quot;&lt;object type='application/x-shockwave-flash' data='&quot;</span> 
+                  <span style="color: #333;">+</span> swf.<span style="color: #63C;">url</span> <span style="color: #333;">+</span><span style="color: #F06;">&quot;' width='&quot;</span> <span style="color: #333;">+</span>swf.<span style="color: #63C;">w</span> <span style="color: #333;">+</span><span style="color: #F06;">&quot;' height='&quot;</span> <span style="color: #333;">+</span>swf.<span style="color: #63C;">h</span> <span style="color: #333;">+</span><span style="color: #F06;">&quot;'&gt;<span style="color: #096; font-weight: bold;">\n</span>&quot;</span>
+                  <span style="color: #333;">+</span> <span style="color: #F06;">&quot;&lt;!--&lt;![endif]--&gt;<span style="color: #096; font-weight: bold;">\n</span>&quot;</span>
+                  <span style="color: #333;">+</span> <span style="color: #F06;">&quot;&lt;p&gt;&lt;a href='http://www.adobe.com/go/EN_US-H-GET-FLASH'&gt; &quot;</span>
+                  <span style="color: #333;">+</span> <span style="color: #F06;">&quot;Adobe Flash Player is required to view this content.&lt;/a&gt;&lt;/p&gt;<span style="color: #096; font-weight: bold;">\n</span>&quot;</span>
+                  <span style="color: #333;">+</span> <span style="color: #F06;">&quot;&lt;!--[if !IE]&gt;--&gt;<span style="color: #096; font-weight: bold;">\n</span>&quot;</span>
+                  <span style="color: #333;">+</span> <span style="color: #F06;">&quot;&lt;/object&gt;<span style="color: #096; font-weight: bold;">\n</span>&quot;</span>
+                  <span style="color: #333;">+</span> <span style="color: #F06;">&quot;&lt;!--&lt;![endif]--&gt;<span style="color: #096; font-weight: bold;">\n</span>&quot;</span>
+                  <span style="color: #333;">+</span> <span style="color: #F06;">&quot;&lt;/object&gt;&quot;</span><span style="color: #333;">;</span>
+&nbsp;
+    <span style="color: #AAA;">//Figure out where to insert the code in your page</span>
+    <span style="color: #AAA;">//Replace &quot;myPageElementID&quot; with your own ID</span>
+    <span style="color: #33F;">var</span> targetElement <span style="color: #333;">=</span> document.<span style="color: #63C;">getElementById</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;myPageElementID&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+&nbsp;
+    <span style="color: #AAA;">//Create whatever text fields you want to display a message to the user</span>
+    <span style="color: #33F;">var</span> p <span style="color: #333;">=</span> document.<span style="color: #63C;">createElement</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;p&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+&nbsp;
+    p.<span style="color: #63C;">innerHTML</span> <span style="color: #333;">=</span> <span style="color: #F06;">&quot;Want to put this movie on your webpage? &quot;</span>
+                <span style="color: #333;">+</span> <span style="color: #F06;">&quot;Copy this code and paste it inside your page's body tags!&quot;</span>
+&nbsp;
+    document.<span style="color: #63C;">body</span>.<span style="color: #63C;">insertBefore</span><span style="color: #666;">&#40;</span>p<span style="color: #333;">,</span> targetElement<span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+&nbsp;
+    <span style="color: #AAA;">//Create a textarea that will contain the code.</span>
+    <span style="color: #AAA;">//Textareas are easiest for displaying code for visitors to copy</span>
+    <span style="color: #33F;">var</span> textarea <span style="color: #333;">=</span> document.<span style="color: #63C;">createElement</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;textarea&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+    textarea.<span style="color: #63C;">setAttribute</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;id&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;displayMarkup&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+&nbsp;
+    <span style="color: #AAA;">//Insert the embed code</span>
+    textarea.<span style="color: #63C;">value</span> <span style="color: #333;">=</span> swf.<span style="color: #63C;">embedcode</span><span style="color: #333;">;</span>
+&nbsp;
+    <span style="color: #AAA;">//Append the textarea to your document</span>
+    document.<span style="color: #63C;">body</span>.<span style="color: #63C;">insertBefore</span><span style="color: #666;">&#40;</span>textarea<span style="color: #333;">,</span> targetElement<span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+&nbsp;
+<span style="color: #666;">&#125;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+
+<p><strong>Demo</strong>: <a href="http://demos.learnswfobject.com/embed-code-sharing/index.html">Sharing embed code with visitors</a></p>
+					</div>
+		    
+    <div id="comments">
+    	<h2>Questions or Comments?</h2>
+        <p>If you have questions or would like to point out an error, please post your remarks in the <a href="http://groups.google.com/group/swfobject/">SWFObject Google Group</a>. Thanks!</p>
+	</div><!-- /comments -->
+
+	
+	</div><!-- /content -->
+	<div id="sidebar">
+
+        <div id="nav">
+	        <ul id="menu">
+    		    <li class="page_item page-item-2"><a href="../../index.html" title="About SWFObject">About SWFObject</a></li>
+<li class="page_item page-item-3"><a href="../../the-basics/index.html" title="The Basics">The Basics</a>
+<ul>
+	<li class="page_item page-item-7"><a href="../../the-basics/static-publishing/index.html" title="Static Publishing">Static Publishing</a></li>
+	<li class="page_item page-item-89"><a href="../../the-basics/using-javascript-with-static-publishing/index.html" title="Using JavaScript with Static Publishing">Using JavaScript with Static Publishing</a></li>
+	<li class="page_item page-item-5"><a href="../../the-basics/dynamic-publishing/index.html" title="Dynamic Publishing">Dynamic Publishing</a></li>
+	<li class="page_item page-item-122"><a href="../../the-basics/advanced-options-with-dynamic-publishing/index.html" title="Advanced Options with Dynamic Publishing">Advanced Options with Dynamic Publishing</a></li>
+	<li class="page_item page-item-9"><a href="../../the-basics/adobes-express-install/index.html" title="Adobe&#8217;s Express Install">Adobe&#8217;s Express Install</a></li>
+</ul>
+</li>
+<li class="page_item page-item-12 current_page_ancestor current_page_parent"><a href="../index.html" title="Advanced Topics">Advanced Topics</a>
+<ul>
+	<li class="page_item page-item-19"><a href="../100-width-and-height-in-browser/index.html" title="100% Width and Height in Browser">100% Width and Height in Browser</a></li>
+	<li class="page_item page-item-33"><a href="../detecting-flash-player-version-using-swfobject/index.html" title="Detecting Flash Player Version Using SWFObject">Detecting Flash Player Version Using SWFObject</a></li>
+	<li class="page_item page-item-35"><a href="../detecting-success-of-dynamic-embedding/index.html" title="Detecting Success of Dynamic Embedding">Detecting Success of Dynamic Embedding</a></li>
+	<li class="page_item page-item-306"><a href="../detecting-swfobject-version/index.html" title="Detecting SWFObject Version">Detecting SWFObject Version</a></li>
+	<li class="page_item page-item-325"><a href="../executing-javascript-when-the-swf-has-finished-loading/index.html" title="Executing JavaScript When the SWF Has Finished Loading">Executing JavaScript When the SWF Has Finished Loading</a></li>
+	<li class="page_item page-item-15"><a href="../external-interface/index.html" title="External Interface">External Interface</a></li>
+	<li class="page_item page-item-301"><a href="../lazy-loading-swfobject/index.html" title="Lazy Loading swfobject.js">Lazy Loading swfobject.js</a></li>
+	<li class="page_item page-item-29"><a href="../load-a-swf-using-javascript-onclick-event/index.html" title="Load a SWF Using a JavaScript Onclick Event">Load a SWF Using a JavaScript Onclick Event</a></li>
+	<li class="page_item page-item-31"><a href="../parse-querystrings-using-swfobject/index.html" title="Parse Querystrings Using SWFObject">Parse Querystrings Using SWFObject</a></li>
+	<li class="page_item page-item-21"><a href="../placing-html-elements-over-a-flash-movie/index.html" title="Placing HTML Elements Over a Flash Movie">Placing HTML Elements Over a Flash Movie</a></li>
+	<li class="page_item page-item-41 current_page_item"><a href="index.html" title="Provide SWFObject Embed Code to Your Visitors">Provide SWFObject Embed Code to Your Visitors</a></li>
+	<li class="page_item page-item-38"><a href="../swfobject-and-ajax/index.html" title="SWFObject and Ajax (xmlhttprequest)">SWFObject and Ajax (xmlhttprequest)</a></li>
+	<li class="page_item page-item-241"><a href="../swfobjects-default-css-injection/index.html" title="SWFObject&#8217;s Default CSS Injection">SWFObject&#8217;s Default CSS Injection</a></li>
+	<li class="page_item page-item-152"><a href="../the-callback-function/index.html" title="The Callback Function">The Callback Function</a></li>
+	<li class="page_item page-item-316"><a href="../using-a-swf-as-a-background-image/index.html" title="Using a SWF as a Background Image">Using a SWF as a Background Image</a></li>
+</ul>
+</li>
+<li class="page_item page-item-26"><a href="../../generator/index.html" title="Code Generator">Code Generator</a></li>
+        	</ul>
+        </div><!-- /nav -->
+        
+		<ul>
+			<li id="text-4" class="widget widget_text"><h2 class="widgettitle">Official SWFObject Links</h2>			<div class="textwidget"><ul>
+<li><a href="http://code.google.com/p/swfobject/downloads/list">Download SWFObject</a></li>
+<li><a href="http://code.google.com/p/swfobject/w/list">Official Documentation</a></li>
+<li><a href="http://groups.google.com/group/swfobject">SWFObject Google Group</a><br/><em>Go here for help!</em></li>
+</ul></div>
+		</li>		</ul>
+   </div><!-- /sidebar -->
+
+
+	</div><!-- /wrapper -->
+    
+	<div id="footer">
+        <p class="legalese">LearnSWFObject.com is owned and maintained by <a href="http://pipwerks.com">Philip Hutchison</a>, a member of the <a href="http://code.google.com/p/swfobject">SWFObject</a> project team.<br />
+       All code examples are licensed under an <a rel="license" href="http://www.opensource.org/licenses/mit-license.php">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
+       All other content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.</p>
+        
+	</div><!-- /footer -->
+        
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-1394306-7', 'learnswfobject.com');
+	  ga('send', 'pageview');
+	</script>
+	</body>
+
+</html>

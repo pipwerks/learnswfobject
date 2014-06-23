@@ -1,0 +1,6 @@
+@charset "UTF-8";
+h2 { background: #06F; }
+#basics a, #advanced a, #generated a { background: url("../images/collapsed.gif") no-repeat left center; }
+#basics a.expanded, #advanced a.expanded, #generated a.expanded { background: url("../images/expanded.gif") no-repeat left center; }
+#submit { display:block; font-size: 0px; line-height: 0px; }
+pre { width: 740px; overflow: scroll; }

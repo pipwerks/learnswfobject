@@ -1,0 +1,47 @@
+.wp_syntax {
+  color: #100;
+  background-color: #F8F8F8;
+  border: 3px solid #EEE;
+  border-left: none;
+  border-right: none;
+  margin: 2em 0;
+  overflow: auto;
+  font-family: monospace, serif;
+}
+
+/* IE 6 FIX */
+.wp_syntax {
+  _overflow-x: auto;
+  _overflow-y: hidden;
+  _padding-bottom: expression(this.scrollWidth > this.offsetWidth ? 15 : 0);
+  _width: 100%;
+}
+
+.wp_syntax table {
+  border-collapse: collapse;
+}
+
+.wp_syntax div, .wp_syntax td {
+  vertical-align: top;
+  padding: 2px 4px;
+}
+
+.wp_syntax .line_numbers {
+  text-align: right;
+  background-color: #def;
+  color: gray;
+  overflow: visible;
+}
+
+/* potential overrides for other styles */
+.wp_syntax pre {
+  margin: 0;
+  width: auto;
+  float: none;
+  clear: none;
+  overflow: visible;
+  font-size: 12px;
+  line-height: 1.333;
+  white-space: pre;
+  padding: 1em;
+}

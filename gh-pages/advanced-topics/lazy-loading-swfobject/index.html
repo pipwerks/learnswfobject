@@ -1,0 +1,119 @@
+<!doctype html>
+<html dir="ltr" lang="en-US">
+
+	<head>
+		<title>Learn SWFObject : Lazy Loading swfobject.js</title>
+	    <meta charset="utf-8" />
+		<meta name="description" content="Tutorials for using SWFObject &#8212; a standards-friendly SWF embedding system" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/wp-syntax.css" />
+	</head>
+
+	<body>
+
+    	<div id="header">
+			<h1><a href="../../index.html">Learn SWFObject</a></h1>
+			<p>Tutorials for using SWFObject &#8212; a standards-friendly SWF embedding system</p>
+        </div><!-- /header -->
+
+		<div id="wrapper">
+        <div id="content">
+
+				<div class="post" id="post-301">
+			<h1>Lazy Loading swfobject.js</h1>
+			<p>The SWFObject.js file can be <a href="http://en.wikipedia.org/wiki/Lazy_load">lazy loaded</a>.</p>
+<h2>Google&#8217;s <code>google.load</code></h2>
+<p>If you intend to use Google&#8217;s <a href="http://code.google.com/apis/ajaxlibs/documentation/index.html#swfobject">cached copy of SWFObject</a> (highly recommended), you can also take advantage of Google&#8217;s lazy loading tool.</p>
+
+<div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;script</span> <span style="color: #63C;">type</span>=<span style="color: #F06;">&quot;text/javascript&quot;</span> <span style="color: #63C;">src</span>=<span style="color: #F06;">&quot;http://www.google.com/jsapi&quot;</span><span style="color: #33F;">&gt;</span><span style="color: #33F;">&lt;/script<span style="color: #33F;">&gt;</span></span></span>
+<span style="color: #333;"><span style="color: #33F;">&lt;script</span> <span style="color: #63C;">type</span>=<span style="color: #F06;">&quot;text/javascript&quot;</span><span style="color: #33F;">&gt;</span></span>
+google.load(&quot;swfobject&quot;, &quot;2.2&quot;);
+google.setOnLoadCallback(function() {
+   alert(swfobject.hasFlashPlayerVersion(&quot;9.0.18&quot;));
+});
+<span style="color: #333;"><span style="color: #33F;">&lt;/script<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
+
+<p><a href="http://code.google.com/apis/ajax/documentation/#Dynamic">Google&#8217;s documentation</a> can give you all the details, but the nitty-gritty is this:</p>
+<ol>
+<li>Load the <code>jsapi</code> file</li>
+<li>Specify which Google Ajax API file you want to load (in this case SWFObject version 2.2)</li>
+<li>Optional: Specify a function to execute when the SWFObject file has been successfully loaded in your page</li>
+</ol>
+<h2>Other lazy loading techniques</h2>
+<p>Frankly, there are too many lazy loading techniques to mention. Excluding the Google example posted above, none are specific to SWFObject, and will work with just about <em>any</em> script file. Ajaxpatterns.org has <a href="http://ajaxpatterns.org/On-Demand_Javascript">a great overview of lazy loading</a>.</p>
+					</div>
+		    
+    <div id="comments">
+    	<h2>Questions or Comments?</h2>
+        <p>If you have questions or would like to point out an error, please post your remarks in the <a href="http://groups.google.com/group/swfobject/">SWFObject Google Group</a>. Thanks!</p>
+	</div><!-- /comments -->
+
+	
+	</div><!-- /content -->
+	<div id="sidebar">
+
+        <div id="nav">
+	        <ul id="menu">
+    		    <li class="page_item page-item-2"><a href="../../index.html" title="About SWFObject">About SWFObject</a></li>
+<li class="page_item page-item-3"><a href="../../the-basics/index.html" title="The Basics">The Basics</a>
+<ul>
+	<li class="page_item page-item-7"><a href="../../the-basics/static-publishing/index.html" title="Static Publishing">Static Publishing</a></li>
+	<li class="page_item page-item-89"><a href="../../the-basics/using-javascript-with-static-publishing/index.html" title="Using JavaScript with Static Publishing">Using JavaScript with Static Publishing</a></li>
+	<li class="page_item page-item-5"><a href="../../the-basics/dynamic-publishing/index.html" title="Dynamic Publishing">Dynamic Publishing</a></li>
+	<li class="page_item page-item-122"><a href="../../the-basics/advanced-options-with-dynamic-publishing/index.html" title="Advanced Options with Dynamic Publishing">Advanced Options with Dynamic Publishing</a></li>
+	<li class="page_item page-item-9"><a href="../../the-basics/adobes-express-install/index.html" title="Adobe&#8217;s Express Install">Adobe&#8217;s Express Install</a></li>
+</ul>
+</li>
+<li class="page_item page-item-12 current_page_ancestor current_page_parent"><a href="../index.html" title="Advanced Topics">Advanced Topics</a>
+<ul>
+	<li class="page_item page-item-19"><a href="../100-width-and-height-in-browser/index.html" title="100% Width and Height in Browser">100% Width and Height in Browser</a></li>
+	<li class="page_item page-item-33"><a href="../detecting-flash-player-version-using-swfobject/index.html" title="Detecting Flash Player Version Using SWFObject">Detecting Flash Player Version Using SWFObject</a></li>
+	<li class="page_item page-item-35"><a href="../detecting-success-of-dynamic-embedding/index.html" title="Detecting Success of Dynamic Embedding">Detecting Success of Dynamic Embedding</a></li>
+	<li class="page_item page-item-306"><a href="../detecting-swfobject-version/index.html" title="Detecting SWFObject Version">Detecting SWFObject Version</a></li>
+	<li class="page_item page-item-325"><a href="../executing-javascript-when-the-swf-has-finished-loading/index.html" title="Executing JavaScript When the SWF Has Finished Loading">Executing JavaScript When the SWF Has Finished Loading</a></li>
+	<li class="page_item page-item-15"><a href="../external-interface/index.html" title="External Interface">External Interface</a></li>
+	<li class="page_item page-item-301 current_page_item"><a href="index.html" title="Lazy Loading swfobject.js">Lazy Loading swfobject.js</a></li>
+	<li class="page_item page-item-29"><a href="../load-a-swf-using-javascript-onclick-event/index.html" title="Load a SWF Using a JavaScript Onclick Event">Load a SWF Using a JavaScript Onclick Event</a></li>
+	<li class="page_item page-item-31"><a href="../parse-querystrings-using-swfobject/index.html" title="Parse Querystrings Using SWFObject">Parse Querystrings Using SWFObject</a></li>
+	<li class="page_item page-item-21"><a href="../placing-html-elements-over-a-flash-movie/index.html" title="Placing HTML Elements Over a Flash Movie">Placing HTML Elements Over a Flash Movie</a></li>
+	<li class="page_item page-item-41"><a href="../provide-swfobject-embed-code-to-your-visitors/index.html" title="Provide SWFObject Embed Code to Your Visitors">Provide SWFObject Embed Code to Your Visitors</a></li>
+	<li class="page_item page-item-38"><a href="../swfobject-and-ajax/index.html" title="SWFObject and Ajax (xmlhttprequest)">SWFObject and Ajax (xmlhttprequest)</a></li>
+	<li class="page_item page-item-241"><a href="../swfobjects-default-css-injection/index.html" title="SWFObject&#8217;s Default CSS Injection">SWFObject&#8217;s Default CSS Injection</a></li>
+	<li class="page_item page-item-152"><a href="../the-callback-function/index.html" title="The Callback Function">The Callback Function</a></li>
+	<li class="page_item page-item-316"><a href="../using-a-swf-as-a-background-image/index.html" title="Using a SWF as a Background Image">Using a SWF as a Background Image</a></li>
+</ul>
+</li>
+<li class="page_item page-item-26"><a href="../../generator/index.html" title="Code Generator">Code Generator</a></li>
+        	</ul>
+        </div><!-- /nav -->
+        
+		<ul>
+			<li id="text-4" class="widget widget_text"><h2 class="widgettitle">Official SWFObject Links</h2>			<div class="textwidget"><ul>
+<li><a href="http://code.google.com/p/swfobject/downloads/list">Download SWFObject</a></li>
+<li><a href="http://code.google.com/p/swfobject/w/list">Official Documentation</a></li>
+<li><a href="http://groups.google.com/group/swfobject">SWFObject Google Group</a><br/><em>Go here for help!</em></li>
+</ul></div>
+		</li>		</ul>
+   </div><!-- /sidebar -->
+
+
+	</div><!-- /wrapper -->
+    
+	<div id="footer">
+        <p class="legalese">LearnSWFObject.com is owned and maintained by <a href="http://pipwerks.com">Philip Hutchison</a>, a member of the <a href="http://code.google.com/p/swfobject">SWFObject</a> project team.<br />
+       All code examples are licensed under an <a rel="license" href="http://www.opensource.org/licenses/mit-license.php">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
+       All other content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.</p>
+        
+	</div><!-- /footer -->
+        
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-1394306-7', 'learnswfobject.com');
+	  ga('send', 'pageview');
+	</script>
+	</body>
+
+</html>

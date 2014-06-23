@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>SWFObject Code and Markup Generator</title>
+<link href="css/styles.css" rel="stylesheet" />
+<script src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js"></script>
+<script src="js/generator.js"></script>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+<p><a href="../index.html">&laquo; Return to LearnSWFObject.com</a></p>
+
+<h1>SWFObject Code and Markup Generator</h1>
+
+<form id="generator" action="result.php" method="post">
+
+<p>Use this generator to create your SWFObject code for you! (Uses SWFObject 2.2)<br />
+Asterisk (<span class="required">*</span>) indicates required field.</p>
+
+<h2 id="basics">The Basics</h2>
+
+<div id="basics-wrapper">
+
+<div id="basics-content-wrapper">
+
+	<div class="form-item">
+        <label for="publishing_method">Publishing method: </label>
+        <select id="publishing_method" name="publishing_method">
+            <option value="static_classic" selected="selected">Static publishing (classic syntax)</option>
+            <option value="static">Static publishing (simplified syntax)</option>
+            <option value="dynamic">Dynamic publishing</option>
+        </select>
+        <div class="description">A simpler version of static publishing has been developed. If you prefer to use SWFObject's original syntax for static publishing, select the "classic syntax" option. If you don't know the difference between dynamic publishing and static publishing, visit <a href="../the-basics/index.html">learnswfobject.com: The Basics</a></div>
+    </div>
+
+    <div class="form-item">
+        <label for="doctype">Type of HTML document: </label>
+        <select id="doctype" name="doctype">
+            <option value="html-4-trans"  selected="selected">HTML 4 Transitional</option>
+            <option value="html-4-strict">HTML 4 Strict</option>
+            <option value="xhtml-1-trans">XHTML 1 Transitional</option>
+            <option value="xhtml-1-strict">XHTML 1 Strict</option>
+            <option value="html-5">HTML 5</option>
+        </select>
+    </div>
+
+    <div class="form-item">
+        <label for="id">ID you'd like to use for your SWF: </label>
+        <input type="text" id="id" name="id" value="mySWF" size="20" />
+        <span class="required">*</span>
+        <div class="description">Unique IDs allow HTML elements to be targeted and manipulated via CSS and JavaScript.</div>
+    </div>
+
+    <p>&nbsp;</p>
+
+<div class="column-wrapper">
+
+    <div id="basics-URLs" class="column-left">
+
+    <fieldset>
+
+        <legend>URLs</legend>
+
+        <div class="form-item wide">
+            <label for="swf_url">URL of your Flash SWF: </label>
+            <input type="text" id="swf_url" name="swf_url" value="" size="30" placeholder="URL of your Flash SWF" />
+            <span class="required">*</span>
+            <div class="description">The path to your Flash content .swf file (can be relative, site-relative, or absolute)</div>
+        </div>
+        <div class="form-item wide">
+            <label for="google_api">Use Google's hosted copy of SWFObject? </label>
+            <select id="google_api" name="google_api">
+               <option value="true" selected="selected">Yes</option>
+               <option value="false">No, thanks</option>
+            </select>
+            <div class="description">If you use Google's copy of SWFObject, the swfobject.js file will be served from Google's servers and you will not need to maintain your own copy.  This requires an internet connection.</div>
+        </div>
+
+        <div class="form-item wide">
+            <label for="swfobject_js">URL of your swfobject.js: </label>
+            <input type="url" id="swfobject_js" name="swfobject_js" value="" size="30" placeholder="URL of your swfobject.js" />
+            <span class="required">*</span>
+            <div class="description">The  path to your <strong>swfobject.js</strong> file (can be relative, site-relative, or absolute)</div>
+        </div>
+
+    </fieldset>
+
+      <fieldset>
+
+        <legend>Adobe Express Install</legend>
+
+        <div class="form-item">
+            <label for="use_express_install">Use Express Install? </label>
+            <select id="use_express_install" name="use_express_install">
+               <option value="true">Yes</option>
+               <option value="false" selected="selected">No</option>
+            </select>
+        </div>
+
+        <div class="form-item wide">
+          <label for="express_install_url">URL of your expressinstall.swf: </label>
+          <input type="url" id="express_install_url" name="express_install_url" value="" size="30" placeholder="URL of your expressinstall.swf" />
+          <div class="description">The path to your <strong>expressInstall.swf</strong> file (can be relative, site-relative, or absolute).</div>
+          </div>
+
+        </fieldset>
+
+      </div><!-- /basics-URLs -->
+
+
+    <div id="basics-info" class="column-right">
+    <fieldset>
+
+        <legend>SWF information</legend>
+
+        <div class="form-item">
+            <label>Minimum version of Flash required: </label>
+            <input type="number" id="major" name="major" value="9" size="2" min="6" maxlength="2" /><span class="required">*</span>
+            .
+            <input type="number" id="minor" name="minor" value="0" size="2" min="0" maxlength="4" />
+            .
+            <input type="number" id="revision" name="revision" value="0" size="2" min="0" maxlength="4" />
+            <div class="description">Fields are major.minor.revision. Major version is required; minor and revision are optional.</div>
+        </div>
+
+        <div class="form-item">
+          <label for="width">Width: </label>
+            <input type="number" id="width" name="width" value="550" size="4" />
+            <select id="width_unit" name="width_unit">
+                <option value="px">px</option>
+                <option value="%">%</option>
+            </select>
+            <span class="required">*</span>
+        </div>
+
+        <div class="form-item">
+          <label for="height">Height: </label>
+            <input type="number" id="height" name="height" value="400" size="4" />
+            <select id="height_unit" name="height_unit">
+                <option value="px">px</option>
+                <option value="%">%</option>
+          </select>
+          <span class="required">*</span>
+        </div>
+
+        <div class="form-item wide">
+          <label for="full_browser">Scale to 100% browser width/height?</label>
+            <select id="full_browser" name="full_browser">
+                <option value="true">Yes</option>
+                <option value="false" selected="selected">No</option>
+          </select>
+          <div class="description">Select "Yes" if you would like your SWF scaled to fit the entire browser window. This requires additional CSS properties (the generator will handle these for you).</div>
+        </div>
+
+    </fieldset>
+
+      </div><!-- /basics-info -->
+
+    <div id="fallback">
+    <fieldset>
+
+        <legend>Fallback content</legend>
+
+      <div class="form-item wide">
+      <label for="fallback_content">Fallback  content (HTML format): </label>
+      <textarea id="fallback_content" name="fallback_content" rows="5" cols="50">&lt;p>This page requires Adobe Flash Player, which you can download free at &lt;a href="http://get.adobe.com/flashplayer/">http://get.adobe.com/flashplayer/&lt;/a>&lt;/p></textarea>
+      <div class="description">
+        <p>It's a good practice to include fallback content that will display if the SWF cannot be embedded. Two common approaches are:</p>
+        <ol>
+          <li>Display a message informing the user they need to install/upgrade Flash Player, along with a link to Adobe's Flash player installer.</li>
+          <li>Display an HTML representation of the content contained in the SWF. This ensures visitors will have access to your site's information even if they don't have Flash Player.</li>
+          </ol>
+        </div><!--/.description -->
+      </div>
+
+      </fieldset>
+    </div>
+
+</div><!-- /.column-wrapper -->
+</div><!-- /basics-content-wrapper -->
+</div> <!-- /basics-wrapper -->
+
+
+<h2 id="advanced">Advanced Options</h2>
+<div id="advanced-wrapper">
+<div id="advanced-attributes">
+<fieldset>
+
+    <legend>Optional Attributes for the &lt;object&gt;</legend>
+
+    <div class="column-wrapper lined">
+
+    	<div class="column-left">
+
+            <div class="form-item">
+              <label for="id_attribute">id: </label>
+              <input type="text" id="id_attribute" name="id_attribute" value="" size="15" placeholder="new ID to replace existing ID" />
+              <div class="description">DYNAMIC PUBLISHING ONLY. By default, SWFObject's dynamic publishing will give the new object the same ID as the HTML element that is being replaced (listed above under &quot;ID you'd like to use for your SWF&quot;). <strong>Only specify an ID here if you want the generated &lt;object&gt; to have a different ID than the original HTML element</strong>. In most cases you should leave this field blank.</div>
+            </div>
+
+            <div class="form-item">
+                <label for="name_attribute">name: </label>
+                <input type="text" id="name_attribute" name="name_attribute" value="" size="15" placeholder="name" />
+                <div class="description">Adds a &quot;name&quot; attribute to the &lt;object&gt;. The name attribute is  not usually needed. In most cases you should leave this field blank.</div>
+            </div>
+
+        </div><!-- /.column-left -->
+
+    	<div class="column-right">
+
+            <div class="form-item">
+                <label for="class_attribute">class: </label>
+                <input type="text" id="class_attribute" name="class_attribute" value="" size="15" placeholder="class" />
+              <div class="description">Adds a &quot;class&quot; attribute to the &lt;object&gt;. This is usually used for styling via CSS or for advanced JavaScript functionality.</div></div>
+
+            <div class="form-item">
+              <label for="align_attribute">align: </label>
+                <select id="align_attribute" name="align_attribute">
+                    <option value="0" selected="selected">none</option>
+                    <option value="middle">middle</option>
+                    <option value="left">left</option>
+                    <option value="right">right</option>
+                    <option value="top">top</option>
+                    <option value="bottom">bottom</option>
+                </select>
+              <div class="description">HTML alignment of the object element. If no alignment is specified, the SWF will default to "left".  In most cases you should leave set to &quot;none&quot;.</div>
+            </div>
+
+    	  </div><!-- /.column-right -->
+
+	</div><!-- /.column-wrapper -->
+
+
+</fieldset>
+</div><!-- /advanced-attributes -->
+
+<div id="advanced-parameters">
+<fieldset>
+
+    <legend>Optional Flash Player Parameters</legend>
+    <div class="guidance">
+    	<p>Items marked with <strong>(default)</strong> are Flash Player's defaults and do <strong>not</strong> need to be specified in the <code>&lt;object&gt;</code>.</p>
+    </div>
+
+	<div class="column-wrapper lined">
+    <div class="column-left">
+
+    <div class="form-item">
+        <label for="allowfullscreen">allowfullscreen: </label>
+        <select id="allowfullscreen" name="allowfullscreen">
+            <option value="true">true</option>
+            <option value="false" selected="selected">false (default)</option>
+        </select>
+        <div class="description">Enables Flash's full-screen mode (requires Flash Player 9,0,28,0 or greater).</div>
+    </div>
+
+    <div class="form-item">
+        <label for="allownetworking">allownetworking: </label>
+        <select id="allownetworking" name="allownetworking">
+            <option value="all" selected>all (default)</option>
+            <option value="internal">internal</option>
+            <option value="none">none</option>
+        </select>
+        <div class="description">Enables a SWF to access the computer's network connection.</div>
+    </div>
+
+    <div class="form-item">
+        <label for="allowscriptaccess">allowscriptaccess: </label>
+        <select id="allowscriptaccess" name="allowscriptaccess">
+            <option value="always" selected="selected">always (default)</option>
+            <option value="sameDomain">sameDomain</option>
+            <option value="never">never</option>
+        </select>
+        <div class="description">Enables the SWF to perform <a href="http://kb2.adobe.com/cps/164/tn_16494.html">outbound scripting</a>.</div>
+    </div>
+
+    <div class="form-item">
+        <label for="base">base: </label>
+        <input type="url" id="base" name="base" value="" size="15" placeholder="base" />
+        <div class="description">Specifies the base directory or URL used to resolve all <em>relative</em> path statements in the Flash Player movie. This attribute is helpful when your Flash Player movies are kept in a different directory from your other files.</div>
+    </div>
+
+    <div class="form-item">
+        <label for="bgcolor">bgcolor: </label>
+        <input type="text" id="bgcolor" name="bgcolor" value="" size="15" maxlength="7" placeholder="background color" />
+        <div class="description">Background color for the SWF in hexadecimal format (#RRGGBB). Any color listed here will override the background color specified in the SWF.</div>
+    </div>
+
+    <div class="form-item">
+        <label for="devicefont">devicefont: </label>
+        <select id="devicefont" name="devicefont">
+            <option value="true">true</option>
+            <option value="false" selected="selected">false (default)</option>
+        </select>
+        <div class="description">Specifies whether static text objects  using device fonts regardless of whether the Device Font option was selected in the SWF (requires the necessary fonts to be available in the end-user's computer).</div>
+    </div>
+
+    <div class="form-item">
+        <label for="loop">loop: </label>
+        <select id="loop" name="loop">
+            <option value="true" selected="selected">true (default)</option>
+            <option value="false">false</option>
+        </select>
+        <div class="description">Specifies whether the movie repeats indefinitely or stops when it reaches the last frame.</div>
+    </div>
+
+    <div class="form-item">
+        <label for="menu">menu: </label>
+        <select id="menu" name="menu">
+            <option value="true" selected="selected">true (default)</option>
+            <option value="false">false</option>
+        </select>
+        <div class="description">Shows the right-click (control-click on a Mac) context menu for the SWF file. To show only <em>About Flash</em> in the shortcut menu, set to false.</div>
+    </div>
+
+	</div><!-- /column-left -->
+
+    <div class="column-right">
+
+    <div class="form-item">
+        <label for="play" >play: </label>
+        <select id="play" name="play">
+            <option value="true" selected="selected">true (default)</option>
+            <option value="false">false</option>
+        </select>
+        <div class="description">Specifies whether the SWF should be played when loaded.</div>
+    </div>
+
+    <div class="form-item">
+      <label for="quality">quality: </label>
+      <select id="quality" name="quality">
+        <option value="best">best</option>
+        <option value="high" selected="selected">high (default)</option>
+        <option value="medium">medium</option>
+        <option value="autohigh">autohigh</option>
+        <option value="autolow">autolow</option>
+        <option value="low">low</option>
+        </select>
+      <div class="description">Specifies the trade-off between processing time and appearance.</div>
+      </div>
+
+    <div class="form-item">
+        <label for="salign">salign: </label>
+        <select id="salign" name="salign">
+            <option value="tl" selected="selected">tl (top left) (default)</option>
+            <option value="tr">tr (top right)</option>
+            <option value="bl">bl (bottom left)</option>
+            <option value="br">br (bottom right)</option>
+            <option value="l">l (left)</option>
+            <option value="t">t (top)</option>
+            <option value="r">r (right)</option>
+            <option value="b">b (bottom)</option>
+        </select>
+        <div class="description">Specifies where the content is placed within the browser window.</div>
+    </div>
+
+    <div class="form-item">
+        <label for="scale">scale: </label>
+        <select id="scale" name="scale">
+            <option value="showall" selected="selected">showall (default)</option>
+            <option value="noborder">noborder</option>
+            <option value="exactfit">exactfit</option>
+            <option value="noscale">noscale</option>
+        </select>
+        <div class="description">Specifies scaling, aspect ratio, borders, distortion and cropping.</div>
+    </div>
+
+    <div class="form-item">
+        <label for="seamlesstabbing">seamlesstabbing: </label>
+        <select id="seamlesstabbing" name="seamlesstabbing">
+            <option value="true" selected="selected">true (default)</option>
+            <option value="false">false</option>
+        </select>
+        <div class="description">Specifies whether users are allowed to use the Tab key to move keyboard focus out of a Flash movie and into the surrounding HTML (or the browser, if there is nothing focusable in the HTML following the Flash movie).</div>
+    </div>
+
+    <div class="form-item">
+        <label for="swliveconnect">swliveconnect: </label>
+        <select id="swliveconnect" name="swliveconnect">
+            <option value="true">true</option>
+            <option value="false" selected="selected">false (default)</option>
+        </select>
+        <div class="description">Specifies whether the browser should start Java when loading the Flash Player for the first time.  Java must be running for the FSCommand to work.</div>
+    </div>
+
+    <div class="form-item">
+        <label for="wmode">wmode: </label>
+        <select id="wmode" name="wmode">
+            <option value="window" selected="selected">window (default)</option>
+            <option value="opaque">opaque</option>
+            <option value="transparent">transparent</option>
+            <option value="direct">direct</option>
+            <option value="gpu">gpu</option>
+        </select>
+        <div class="description">Sets the Window Mode property of the Flash movie for transparency, layering, and positioning in the browser.</div>
+    </div>
+
+    </div><!-- /column-right -->
+
+    </div><!-- /column-wrapper -->
+
+</fieldset>
+</div><!-- /advanced-parameters -->
+
+<div id="advanced-flashvars">
+<fieldset>
+    <legend>FlashVars</legend>
+
+    <div class="guidance">
+	<p>Enter the FlashVars using the format <code>name=value</code>. Do not use quotation marks. Enter only one FlashVars per line. </p>
+    <p>Example:</p>
+
+<pre>
+artist=Pale Saints
+cd=In Ribbons
+year=1992
+</pre>
+    </div><!--/.guidance -->
+
+    <div class="form-item wide">
+        <label for="flashvars">FlashVars: </label>
+        <textarea id="flashvars" name="flashvars" rows="5" cols="50"></textarea>
+    </div>
+
+</fieldset>
+</div><!-- /advanced-flashvars -->
+
+</div><!-- /advanced-wrapper -->
+
+
+    <!-- p class="form-item">
+        <label for="minify">Would you like to minify the code?</label>
+        <select id="minify" name="minify">
+            <option value="false" selected="selected">No, thanks</option>
+            <option value="true">Yes</option>
+        </select>
+        <span class="description">Removes all line breaks and white space, making the code as condensed as possible but also less easy to read. </span>
+    </p -->
+
+    <input type="submit" id="submit" value="Generate SWFObject Code" />
+
+</form>
+
+</div><!-- /wrapper -->
+
+<div id="notices">
+<p>LearnSWFObject Code Generator &copy; 2010 Philip Hutchison.</p>
+<p>Some descriptive text has been copied from <a href="http://kb2.adobe.com/cps/127/tn_12701.html">Adobe's Flash Player documentation</a> and the <a href="http://code.google.com/p/swfobject/w/list">SWFObject Wiki</a>.</p>
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-1394306-7', 'learnswfobject.com');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

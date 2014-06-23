@@ -1,0 +1,273 @@
+<!doctype html>
+<html dir="ltr" lang="en-US">
+
+	<head>
+		<title>Learn SWFObject : Advanced Options with Dynamic Publishing</title>
+	  <meta charset="utf-8" />
+		<meta name="description" content="Tutorials for using SWFObject &#8212; a standards-friendly SWF embedding system" />
+		<link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/wp-syntax.css" />
+	</head>
+
+	<body>
+
+    	<div id="header">
+			<h1><a href="../../index.html">Learn SWFObject</a></h1>
+			<p>Tutorials for using SWFObject &#8212; a standards-friendly SWF embedding system</p>
+        </div><!-- /header -->
+
+		<div id="wrapper">
+        <div id="content">
+
+				<div class="post" id="post-122">
+			<h1>Advanced Options with Dynamic Publishing</h1>
+			<p>SWFObject&#8217;s <em>dynamic publishing</em> mode provides a number of advanced options when embedding a SWF. As explained in the <a href="../dynamic-publishing/index.html">Dynamic Publishing article</a>, there are five required arguments in a dynamic embed statement:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="javascript">swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;9&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+
+<ol>
+<li>the <strong>URL</strong> of the SWF</li>
+<li>the <strong>ID</strong> of the <code>&lt;div&gt;</code> (or other element) that will be replaced</li>
+<li>the <strong>width</strong> of the SWF (written as a string, i.e. &#8220;550&#8243;)</li>
+<li>the <strong>height</strong> of the SWF (written as a string, i.e. &#8220;400&#8243;)</li>
+<li>the <strong>minimum required version</strong> of Flash Player (written as a string, i.e. &#8220;9&#8243; or &#8220;9.0.0&#8243;)</li>
+</ol>
+<p>&nbsp;</p>
+<p>However, there are also five <em>optional</em> arguments you can pass when embedding your SWF:</p>
+<ol>
+<li>Express Install</li>
+<li>FlashVars</li>
+<li>Parameters</li>
+<li>Attributes</li>
+<li>Callback function</li>
+</ol>
+<p>&nbsp;</p>
+<p>Here&#8217;s a complete list of all ten arguments accepted by SWFObject&#8217;s <em>dynamic publishing</em> system. Note that they must be passed <strong>in this precise order</strong>:</p>
+<ol>
+<li><strong>URL for the SWF</strong> (string, required) The URL of your SWF.</li>
+<li><strong>Target ID</strong> (string, required) The <code>id</code> of the HTML element that will be replaced by your Flash SWF.</li>
+<li><strong>SWF width</strong> (string, required) The width of your SWF.</li>
+<li><strong>SWF height</strong> (string, required) The height of your SWF.</li>
+<li><strong>SWF&#8217;s required Flash Player version</strong> (string, required) The Flash player version your SWF requires. The format is written as &#8220;major.minor.release&#8221; (such as &#8220;9.0.0&#8243;). It can also be simplified to only specify the &#8220;major&#8221; number (&#8220;9&#8243;).</li>
+<li><strong>URL for the Express Install SWF</strong> (string, optional) If a URL for the expressinstall.swf file is provided, SWFObject will attempt to invoke Flash Player&#8217;s <a rel="nofollow" href="http://www.adobe.com/cfusion/knowledgebase/index.cfm?id=6a253b75">Express Install</a> feature when the minimum version of Flash Player is not found.
+<ul>
+<li>Express Install is covered in-depth in the article <a href="../adobes-express-install/index.html">Adobe&#8217;s Express Install</a>.</li>
+<li>Note: If you don&#8217;t want to use Express Install, you may also simply pass a boolean <code>false</code> instead of a string.</li>
+</ul>
+</li>
+<li><strong>FlashVars</strong> (object, optional) An object containing variables that will be sent to your SWF via FlashVars using name:value pairs. Variables passed to your movie via FlashVars become root-level variables in your SWF.
+<ul>
+<li>See an example of how to use FlashVars here: <em><a href="http://help.adobe.com/en_US/AS2LCR/Flash_10.0/help.html?content=00000272.html">Using FlashVars to load and display text</a></em>.</li>
+<li>Note: If you don&#8217;t want to use Express Install, you may simply pass a boolean <code>false</code> instead of a string.</li>
+</ul>
+</li>
+<li><strong>Parameters</strong> (object, optional) Parameters specified here will be converted to <code>&lt;param&gt;</code> elements used by the <code>&lt;object&gt;</code> element. This is where you can specify things like background color, wmode, scale mode, base, etc.
+<ul>
+<li><a href="http://kb2.adobe.com/cps/127/tn_12701.html#optional">See Adobe&#8217;s complete list of available and configurable Flash Player parameters</a>.</li>
+<li>Note: If you don&#8217;t want to specify any parameters, you may simply pass an empty object OR a boolean <code>false</code> instead of an object.</li>
+</ul>
+</li>
+<li><strong>Attributes</strong> (object, optional) Attributes that will be applied to the <code>&lt;object&gt;</code> element. Uses name:value pairs.  The most common user-defined attributes for the <code>&lt;object&gt;</code> element are probably <code>id</code> and <code>class</code>.
+<ul>
+<li>The SWF will automatically inherit the ID of the element it is replacing unless you specify a new ID here.</li>
+<li>Note: If you don&#8217;t want to specify any attributes, you may simply pass an empty object OR a boolean <code>false</code> instead of an object.</li>
+</ul>
+</li>
+<li><strong>Callback Function</strong> (JavaScript function, optional) A callback function that is invoked upon both successful and failed embed attempts.
+<ul>
+<li>The callback function is covered in-depth in the article <a href="../../advanced-topics/the-callback-function/index.html">The Callback Function</a>.</li>
+<li>Note: If you don&#8217;t want to specify a callback function, you can omit this argument &#8212; it&#8217;s the last one and can be left off the list without causing errors &#8212; or you can simply pass a boolean <code>false</code> instead of a function.</li>
+</ul>
+</li>
+</ol>
+<p>&nbsp;</p>
+<p>When using all ten arguments, your SWFObject embed code will look like this (line breaks added for legibility):</p>
+
+<div class="wp_syntax"><div class="code"><pre class="javascript">swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;9&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;expressinstall.swf&quot;</span><span style="color: #333;">,</span> 
+                   flashvars<span style="color: #333;">,</span> 
+                   params<span style="color: #333;">,</span> 
+                   attributes<span style="color: #333;">,</span> 
+                   callback<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+
+<p>Note that the last four items are JavaScript <em>variables</em>, not strings. Since we haven&#8217;t defined those variables yet, the above example would throw an error. Here&#8217;s the same example, but with the variables properly defined:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> callback <span style="color: #333;">=</span> <span style="color: #33F;">function</span> <span style="color: #666;">&#40;</span><span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span> <span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+&nbsp;
+swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;9&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;expressinstall.swf&quot;</span><span style="color: #333;">,</span> 
+                   flashvars<span style="color: #333;">,</span> 
+                   params<span style="color: #333;">,</span> 
+                   attributes<span style="color: #333;">,</span> 
+                   callback<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+
+<p>Now that the variables are defined, we won&#8217;t see any JavaScript errors. But&#8230; the variables are <em>empty</em>, which does us no good at all!  Here are some common ways these variables could be used:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span>
+    foo<span style="color: #333;">:</span> <span style="color: #F06;">&quot;bar&quot;</span><span style="color: #333;">,</span>
+    someInternalVariable<span style="color: #333;">:</span> <span style="color: #F06;">&quot;some string&quot;</span><span style="color: #333;">,</span>
+    username<span style="color: #333;">:</span> <span style="color: #F06;">&quot;Bugs Bunny&quot;</span>
+<span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span>
+    wmode<span style="color: #333;">:</span> <span style="color: #F06;">&quot;opaque&quot;</span><span style="color: #333;">,</span>
+    bgcolor<span style="color: #333;">:</span> <span style="color: #F06;">&quot;#F8F8F8&quot;</span>
+<span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span>
+    <span style="color: #F06;">&quot;class&quot;</span><span style="color: #333;">:</span> <span style="color: #F06;">&quot;my-css-classname&quot;</span>
+    <span style="color: #AAA;">//&quot;class&quot; is in quotes because it is a JavaScript reserved keyword</span>
+<span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> callback <span style="color: #333;">=</span> <span style="color: #33F;">function</span> <span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span>
+    <span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>e.<span style="color: #63C;">success</span><span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span> 
+        <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;The SWF was successfully embedded&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+    <span style="color: #666;">&#125;</span>
+<span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+&nbsp;
+swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;9&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;expressinstall.swf&quot;</span><span style="color: #333;">,</span> 
+                   flashvars<span style="color: #333;">,</span> 
+                   params<span style="color: #333;">,</span> 
+                   attributes<span style="color: #333;">,</span> 
+                   callback<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+
+<p>&nbsp;</p>
+<h2>Some but not all</h2>
+<p>What if you&#8217;d like to use <em>some</em> of the options but not <em>all</em> of them? Are you still required to specify the optional parameters?  For example, if you&#8217;d like to specify some FlashVars but don&#8217;t want to use Express Install, do you still need to specify the Express Install SWF&#8217;s URL?</p>
+<p>The answer is <strong>yes</strong>. And <strong>no</strong>.</p>
+<p>In this example, you&#8217;d need to specify <em>something</em> for the sixth argument (the spot required for Express Install), because FlashVars is always the <strong>seventh</strong> argument. </p>
+<p>Luckily, if you don&#8217;t plan to use an optional item, you can simply pass a boolean <code>false</code> in its place (see descriptions for the 10 arguments above). For our example, if you&#8217;d like to use FlashVars without specifying an Express Install SWF URL, simply pass a <code>false</code> where the Express Install URL would normally go, like so <em>(linebreaks added for legibility)</em>:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span> 
+    foo<span style="color: #333;">:</span> <span style="color: #F06;">&quot;bar&quot;</span>
+<span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;/path/to/mymovie.swf&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span>
+                   <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span>
+                   <span style="color: #F06;">&quot;9.0.0&quot;</span><span style="color: #333;">,</span>
+                   <span style="color: #33F;">false</span><span style="color: #333;">,</span>
+                   flashvars<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+
+<p>For another example, let&#8217;s say you&#8217;d like to pass a callback function, but you don&#8217;t need any of the other optional arguments&#8230; no Express Install, no FlashVars, no parameters, and no attributes.  Easy! Just pass <code>false</code> for each of the items you don&#8217;t want to use <em>(linebreaks added for legibility)</em>:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> callbackHandler <span style="color: #333;">=</span> <span style="color: #33F;">function</span><span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span> 
+    <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;Was embedding successful: &quot;</span> <span style="color: #333;">+</span>e.<span style="color: #63C;">success</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+<span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;/path/to/mymovie.swf&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span>
+                   <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span>
+                   <span style="color: #F06;">&quot;9.0.0&quot;</span><span style="color: #333;">,</span>
+                   <span style="color: #33F;">false</span><span style="color: #333;">,</span> <span style="color: #AAA;">//Express Install</span>
+                   <span style="color: #33F;">false</span><span style="color: #333;">,</span> <span style="color: #AAA;">//FlashVars</span>
+                   <span style="color: #33F;">false</span><span style="color: #333;">,</span> <span style="color: #AAA;">//Parameters</span>
+                   <span style="color: #33F;">false</span><span style="color: #333;">,</span> <span style="color: #AAA;">//Attributes</span>
+                   callbackHandler<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+
+<h2>Adding optional attributes without declaring variables</h2>
+<p>Some people don&#8217;t like the verboseness of declaring each optional argument as a variable. If you count yourself as part of this group, here&#8217;s another way you can write your SWFObject statements, <em>sans vars</em> <em>(linebreaks added for legibility)</em>:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="javascript">swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;/path/to/mymovie.swf&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> 
+                   <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span>
+                   <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span>
+                   <span style="color: #F06;">&quot;9.0.0&quot;</span><span style="color: #333;">,</span>
+                   <span style="color: #F06;">&quot;expressinstall.swf&quot;</span><span style="color: #333;">,</span> <span style="color: #AAA;">//Express Install</span>
+                   <span style="color: #666;">&#123;</span> username<span style="color: #333;">:</span> <span style="color: #F06;">&quot;Bugs Bunny&quot;</span> <span style="color: #666;">&#125;</span><span style="color: #333;">,</span> <span style="color: #AAA;">//FlashVars</span>
+                   <span style="color: #666;">&#123;</span> wmode<span style="color: #333;">:</span> <span style="color: #F06;">&quot;opaque&quot;</span><span style="color: #333;">,</span> bgcolor<span style="color: #333;">:</span> <span style="color: #F06;">&quot;#F8F8F8&quot;</span> <span style="color: #666;">&#125;</span><span style="color: #333;">,</span> <span style="color: #AAA;">//Parameters</span>
+                   <span style="color: #666;">&#123;</span> <span style="color: #F06;">&quot;class&quot;</span><span style="color: #333;">:</span> <span style="color: #F06;">&quot;my-css-classname&quot;</span> <span style="color: #666;">&#125;</span><span style="color: #333;">,</span> <span style="color: #AAA;">//Attributes</span>
+                   <span style="color: #33F;">function</span><span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span> 
+                       <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;Was embedding successful: &quot;</span> <span style="color: #333;">+</span>e.<span style="color: #63C;">success</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+                   <span style="color: #666;">&#125;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+
+<p>This approach isn&#8217;t recommended because it&#8217;s harder to read, but it is an option for those who are interested in cutting down on <code>var</code> statements.</p>
+					</div>
+		    
+    <div id="comments">
+    	<h2>Questions or Comments?</h2>
+        <p>If you have questions or would like to point out an error, please post your remarks in the <a href="http://groups.google.com/group/swfobject/">SWFObject Google Group</a>. Thanks!</p>
+	</div><!-- /comments -->
+
+	
+	</div><!-- /content -->
+	<div id="sidebar">
+
+        <div id="nav">
+	        <ul id="menu">
+    		    <li class="page_item page-item-2"><a href="../../index.html" title="About SWFObject">About SWFObject</a></li>
+<li class="page_item page-item-3 current_page_ancestor current_page_parent"><a href="../index.html" title="The Basics">The Basics</a>
+<ul>
+	<li class="page_item page-item-7"><a href="../static-publishing/index.html" title="Static Publishing">Static Publishing</a></li>
+	<li class="page_item page-item-89"><a href="../using-javascript-with-static-publishing/index.html" title="Using JavaScript with Static Publishing">Using JavaScript with Static Publishing</a></li>
+	<li class="page_item page-item-5"><a href="../dynamic-publishing/index.html" title="Dynamic Publishing">Dynamic Publishing</a></li>
+	<li class="page_item page-item-122 current_page_item"><a href="index.html" title="Advanced Options with Dynamic Publishing">Advanced Options with Dynamic Publishing</a></li>
+	<li class="page_item page-item-9"><a href="../adobes-express-install/index.html" title="Adobe&#8217;s Express Install">Adobe&#8217;s Express Install</a></li>
+</ul>
+</li>
+<li class="page_item page-item-12"><a href="../../advanced-topics/index.html" title="Advanced Topics">Advanced Topics</a>
+<ul>
+	<li class="page_item page-item-19"><a href="../../advanced-topics/100-width-and-height-in-browser/index.html" title="100% Width and Height in Browser">100% Width and Height in Browser</a></li>
+	<li class="page_item page-item-33"><a href="../../advanced-topics/detecting-flash-player-version-using-swfobject/index.html" title="Detecting Flash Player Version Using SWFObject">Detecting Flash Player Version Using SWFObject</a></li>
+	<li class="page_item page-item-35"><a href="../../advanced-topics/detecting-success-of-dynamic-embedding/index.html" title="Detecting Success of Dynamic Embedding">Detecting Success of Dynamic Embedding</a></li>
+	<li class="page_item page-item-306"><a href="../../advanced-topics/detecting-swfobject-version/index.html" title="Detecting SWFObject Version">Detecting SWFObject Version</a></li>
+	<li class="page_item page-item-325"><a href="../../advanced-topics/executing-javascript-when-the-swf-has-finished-loading/index.html" title="Executing JavaScript When the SWF Has Finished Loading">Executing JavaScript When the SWF Has Finished Loading</a></li>
+	<li class="page_item page-item-15"><a href="../../advanced-topics/external-interface/index.html" title="External Interface">External Interface</a></li>
+	<li class="page_item page-item-301"><a href="../../advanced-topics/lazy-loading-swfobject/index.html" title="Lazy Loading swfobject.js">Lazy Loading swfobject.js</a></li>
+	<li class="page_item page-item-29"><a href="../../advanced-topics/load-a-swf-using-javascript-onclick-event/index.html" title="Load a SWF Using a JavaScript Onclick Event">Load a SWF Using a JavaScript Onclick Event</a></li>
+	<li class="page_item page-item-31"><a href="../../advanced-topics/parse-querystrings-using-swfobject/index.html" title="Parse Querystrings Using SWFObject">Parse Querystrings Using SWFObject</a></li>
+	<li class="page_item page-item-21"><a href="../../advanced-topics/placing-html-elements-over-a-flash-movie/index.html" title="Placing HTML Elements Over a Flash Movie">Placing HTML Elements Over a Flash Movie</a></li>
+	<li class="page_item page-item-41"><a href="../../advanced-topics/provide-swfobject-embed-code-to-your-visitors/index.html" title="Provide SWFObject Embed Code to Your Visitors">Provide SWFObject Embed Code to Your Visitors</a></li>
+	<li class="page_item page-item-38"><a href="../../advanced-topics/swfobject-and-ajax/index.html" title="SWFObject and Ajax (xmlhttprequest)">SWFObject and Ajax (xmlhttprequest)</a></li>
+	<li class="page_item page-item-241"><a href="../../advanced-topics/swfobjects-default-css-injection/index.html" title="SWFObject&#8217;s Default CSS Injection">SWFObject&#8217;s Default CSS Injection</a></li>
+	<li class="page_item page-item-152"><a href="../../advanced-topics/the-callback-function/index.html" title="The Callback Function">The Callback Function</a></li>
+	<li class="page_item page-item-316"><a href="../../advanced-topics/using-a-swf-as-a-background-image/index.html" title="Using a SWF as a Background Image">Using a SWF as a Background Image</a></li>
+</ul>
+</li>
+<li class="page_item page-item-26"><a href="../../generator/index.html" title="Code Generator">Code Generator</a></li>
+        	</ul>
+        </div><!-- /nav -->
+        
+		<ul>
+			<li id="text-4" class="widget widget_text"><h2 class="widgettitle">Official SWFObject Links</h2>			<div class="textwidget"><ul>
+<li><a href="http://code.google.com/p/swfobject/downloads/list">Download SWFObject</a></li>
+<li><a href="http://code.google.com/p/swfobject/w/list">Official Documentation</a></li>
+<li><a href="http://groups.google.com/group/swfobject">SWFObject Google Group</a><br/><em>Go here for help!</em></li>
+</ul></div>
+		</li>		</ul>
+   </div><!-- /sidebar -->
+
+
+	</div><!-- /wrapper -->
+    
+	<div id="footer">
+        <p class="legalese">LearnSWFObject.com is owned and maintained by <a href="http://pipwerks.com">Philip Hutchison</a>, a member of the <a href="http://code.google.com/p/swfobject">SWFObject</a> project team.<br />
+       All code examples are licensed under an <a rel="license" href="http://www.opensource.org/licenses/mit-license.php">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
+       All other content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.</p>
+        
+	</div><!-- /footer -->
+        
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-1394306-7', 'learnswfobject.com');
+    ga('send', 'pageview');
+  </script>
+	</body>
+
+</html>

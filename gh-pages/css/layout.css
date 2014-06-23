@@ -1,0 +1,33 @@
+/* --- Standard HTML elements --- */
+body { background: #FFF; }
+
+/* 
+	All page element widths based on 900px total width.
+	900px wide - 25px padding = 850px width
+	
+	Sidebar/nav elements:
+	250px total width.
+	250px - 25px padding = 200px
+	
+	Content: 600px total width
+	600px - 25px padding = 550px
+	
+*/
+
+/* --- Header --- */
+#header { width: 850px; padding: 25px; border-bottom: 1px dotted #DDD; margin: 0 auto; }
+
+/* --- Wrapper for mid-page areas (nav, sidebar, content) --- */
+#wrapper { width: 900px; overflow: auto; margin: 0 auto; }
+
+/* --- Main page areas --- */
+#content { width: 600px; float: right; }
+
+/* --- Sidebar (contains nav) --- */
+#sidebar { width: 200px; padding: 0 25px; float: left; position: relative; border-right: 1px dotted #DDD; }
+
+/* --- Navigation --- */
+#nav {}
+
+/* --- Footer --- */
+#footer { width: 850px; padding: 25px; clear: both; border-top: 1px dotted #DDD; margin: 0 auto; }

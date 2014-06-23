@@ -1,0 +1,213 @@
+<!doctype html>
+<html dir="ltr" lang="en-US">
+
+	<head>
+		<title>Learn SWFObject : Static Publishing</title>
+	  <meta charset="utf-8" />
+		<meta name="description" content="Tutorials for using SWFObject &#8212; a standards-friendly SWF embedding system" />
+		<link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/wp-syntax.css" />
+	</head>
+
+	<body>
+
+    	<div id="header">
+			<h1><a href="../../index.html">Learn SWFObject</a></h1>
+			<p>Tutorials for using SWFObject &#8212; a standards-friendly SWF embedding system</p>
+        </div><!-- /header -->
+
+		<div id="wrapper">
+        <div id="content">
+
+				<div class="post" id="post-7">
+			<h1>Static Publishing</h1>
+			<p><em>Editor&#8217;s note: This page explains how SWFObject&#8217;s <strong>static publishing</strong> works. If you don&#8217;t care how it works and just want the code you need for your HTML page, you may want to head over to the <a href="../../generator/index.html">code generator</a> instead of reading this page.</em></p>
+<p>SWFObject&#8217;s static publishing approach is the most bulletproof and standards-compliant approach for embedding Flash SWFs into HTML pages. </p>
+<p>Static publishing adds the SWF to the page using pure HTML markup, ensuring the SWF will be embedded even when JavaScript is unavailable. </p>
+<p>Static publishing requires adding two <code>&lt;object&gt;</code> elements to your page as follows:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;object</span> <span style="color: #63C;">id</span>=<span style="color: #F06;">&quot;flashcontent&quot;</span> </span>
+<span style="color: #333;">        <span style="color: #63C;">classid</span>=<span style="color: #F06;">&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot;</span> </span>
+<span style="color: #333;">        <span style="color: #63C;">width</span>=<span style="color: #F06;">&quot;550px&quot;</span> </span>
+<span style="color: #333;">        <span style="color: #63C;">height</span>=<span style="color: #F06;">&quot;400px&quot;</span><span style="color: #33F;">&gt;</span></span>
+  <span style="color: #333;"><span style="color: #33F;">&lt;param</span> <span style="color: #63C;">name</span>=<span style="color: #F06;">&quot;movie&quot;</span> <span style="color: #63C;">value</span>=<span style="color: #F06;">&quot;mymovie.swf&quot;</span> <span style="color: #33F;">/&gt;</span></span>
+&nbsp;
+  <span style="color: #AAA;">&lt;!--[if !IE]&gt;--&gt;</span>
+  <span style="color: #333;"><span style="color: #33F;">&lt;object</span> <span style="color: #63C;">type</span>=<span style="color: #F06;">&quot;application/x-shockwave-flash&quot;</span> </span>
+<span style="color: #333;">          <span style="color: #63C;">data</span>=<span style="color: #F06;">&quot;mymovie.swf&quot;</span> </span>
+<span style="color: #333;">          <span style="color: #63C;">width</span>=<span style="color: #F06;">&quot;550px&quot;</span> </span>
+<span style="color: #333;">          <span style="color: #63C;">height</span>=<span style="color: #F06;">&quot;400px&quot;</span><span style="color: #33F;">&gt;</span></span>
+  <span style="color: #AAA;">&lt;!--&lt;![endif]--&gt;</span>
+&nbsp;
+    <span style="color: #333;"><span style="color: #33F;">&lt;p<span style="color: #33F;">&gt;</span></span></span>
+      Fallback or 'alternate' content goes here.
+      This content will only be visible if the SWF fails to load.
+    <span style="color: #333;"><span style="color: #33F;">&lt;/p<span style="color: #33F;">&gt;</span></span></span>
+&nbsp;
+  <span style="color: #AAA;">&lt;!--[if !IE]&gt;--&gt;</span>
+  <span style="color: #333;"><span style="color: #33F;">&lt;/object<span style="color: #33F;">&gt;</span></span></span>
+  <span style="color: #AAA;">&lt;!--&lt;![endif]--&gt;</span>
+&nbsp;
+<span style="color: #333;"><span style="color: #33F;">&lt;/object<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
+
+<p>As with the common <code>&lt;object&gt; &lt;embed&gt; &lt;/object&gt;</code> pattern, the outer <code>&lt;object&gt;</code> works in Internet Explorer, while the inner <code>&lt;object&gt;</code> targets all other browsers.</p>
+<p>Internet Explorer gets confused by the second <code>&lt;object&gt;</code>, which is why we use <a href="http://msdn.microsoft.com/en-us/library/ms537512(VS.85).aspx">conditional comments</a> to tell Internet Explorer to ignore this second <code>&lt;object&gt;</code>. (If you&#8217;re unfamiliar with conditional comments, PPK has written a <a href="http://www.quirksmode.org/css/condcom.html">nice overview</a>.)</p>
+<p>Because the inner <code>&lt;object&gt;</code> is not meant for Internet Explorer, you <strong>must</strong> use conditional comments to tell Internet Explorer to ignore it. If you don&#8217;t, you will encounter bugs.</p>
+<h3>Why not use <code>&lt;embed&gt;</code> instead of all the conditional comments?</h3>
+<p>SWFObject improves on <code>&lt;object&gt; &lt;embed&gt; &lt;/object&gt;</code> by allowing you to include fallback content for visitors who don&#8217;t have Flash Player installed. The <code>&lt;embed&gt;</code> element does not provide space for displaying fallback content.</p>
+<p>Also, while <code>&lt;embed&gt;</code> is supported in most browsers, is not an official W3C standard. Using <code>&lt;object&gt;</code> instead of <code>&lt;embed&gt;</code> enables your page(s) to pass strict W3C validation.</p>
+<h3>Specifying your settings</h3>
+<p><em>Note: If you don&#8217;t want to bother with writing all this markup by hand, use the handy <a href="../../generator/index.html">code generator</a> to write it for you!</em></p>
+<p>You will normally specify three attributes for the outer <code>&lt;object&gt;</code>: </p>
+<ol>
+<li>the ID of the SWF (optional)</li>
+<li>the width of the SWF</li>
+<li>the height of the SWF</li>
+</ol>
+<p>The attribute <em>classid</em> will always be &#8220;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&#8243;.</p>
+<p>The outer <code>&lt;object&gt;</code> also requires a child <code>&lt;param&gt;</code> element that contains the URL for your SWF:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;object</span> <span style="color: #63C;">id</span>=<span style="color: #F06;">&quot;flashcontent&quot;</span> </span>
+<span style="color: #333;">        <span style="color: #63C;">classid</span>=<span style="color: #F06;">&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot;</span></span>
+<span style="color: #333;">        <span style="color: #63C;">width</span>=<span style="color: #F06;">&quot;550px&quot;</span> </span>
+<span style="color: #333;">        <span style="color: #63C;">height</span>=<span style="color: #F06;">&quot;400px&quot;</span><span style="color: #33F;">&gt;</span></span>
+  <span style="color: #333;"><span style="color: #33F;">&lt;param</span> <span style="color: #63C;">name</span>=<span style="color: #F06;">&quot;movie&quot;</span> <span style="color: #63C;">value</span>=<span style="color: #F06;">&quot;mymovie.swf&quot;</span> <span style="color: #33F;">/&gt;</span></span>
+<span style="color: #333;"><span style="color: #33F;">&lt;/object<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
+
+<p>If you&#8217;d like to specify other optional settings, such as <em>wmode</em> or <em>allowScriptAccess</em>, you will need to add a new <code>&lt;param&gt;</code> for each item, like so:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;object</span> <span style="color: #63C;">id</span>=<span style="color: #F06;">&quot;flashcontent&quot;</span> </span>
+<span style="color: #333;">        <span style="color: #63C;">classid</span>=<span style="color: #F06;">&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot;</span> </span>
+<span style="color: #333;">        <span style="color: #63C;">width</span>=<span style="color: #F06;">&quot;550px&quot;</span> </span>
+<span style="color: #333;">        <span style="color: #63C;">height</span>=<span style="color: #F06;">&quot;400px&quot;</span><span style="color: #33F;">&gt;</span></span>
+  <span style="color: #333;"><span style="color: #33F;">&lt;param</span> <span style="color: #63C;">name</span>=<span style="color: #F06;">&quot;movie&quot;</span> <span style="color: #63C;">value</span>=<span style="color: #F06;">&quot;mymovie.swf&quot;</span> <span style="color: #33F;">/&gt;</span></span>
+  <span style="color: #333;"><span style="color: #33F;">&lt;param</span> <span style="color: #63C;">name</span>=<span style="color: #F06;">&quot;wmode&quot;</span> <span style="color: #63C;">value</span>=<span style="color: #F06;">&quot;opaque&quot;</span> <span style="color: #33F;">/&gt;</span></span><span style="color: #AAA;">&lt;!-- optional --&gt;</span>
+  <span style="color: #333;"><span style="color: #33F;">&lt;param</span> <span style="color: #63C;">name</span>=<span style="color: #F06;">&quot;allowScriptAccess&quot;</span> <span style="color: #63C;">value</span>=<span style="color: #F06;">&quot;always&quot;</span> <span style="color: #33F;">/&gt;</span></span><span style="color: #AAA;">&lt;!-- optional --&gt;</span>
+<span style="color: #333;"><span style="color: #33F;">&lt;/object<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
+
+<p>The inner <code>&lt;object&gt;</code> is formatted differently than the outer <code>&lt;object&gt;</code>, but requires the same general information: the URL (&#8216;data&#8217;) of the SWF, the width of the SWF, and the height of the SWF. Note <strong>classid</strong> is replaced with <strong>type=&#8221;application/x-shockwave-flash&#8221;</strong>.</p>
+<p>As with the outer <code>&lt;object&gt;</code> you will need to add a <code>&lt;param&gt;</code> element for any other settings you wish to specify, such as wmode or allowScriptAccess:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;object</span> <span style="color: #63C;">type</span>=<span style="color: #F06;">&quot;application/x-shockwave-flash&quot;</span> </span>
+<span style="color: #333;">        <span style="color: #63C;">data</span>=<span style="color: #F06;">&quot;mymovie.swf&quot;</span> </span>
+<span style="color: #333;">        <span style="color: #63C;">width</span>=<span style="color: #F06;">&quot;550px&quot;</span> </span>
+<span style="color: #333;">        <span style="color: #63C;">height</span>=<span style="color: #F06;">&quot;400px&quot;</span><span style="color: #33F;">&gt;</span></span>
+  <span style="color: #333;"><span style="color: #33F;">&lt;param</span> <span style="color: #63C;">name</span>=<span style="color: #F06;">&quot;wmode&quot;</span> <span style="color: #63C;">value</span>=<span style="color: #F06;">&quot;opaque&quot;</span> <span style="color: #33F;">/&gt;</span></span>
+  <span style="color: #333;"><span style="color: #33F;">&lt;param</span> <span style="color: #63C;">name</span>=<span style="color: #F06;">&quot;allowScriptAccess&quot;</span> <span style="color: #63C;">value</span>=<span style="color: #F06;">&quot;always&quot;</span> <span style="color: #33F;">/&gt;</span></span>
+<span style="color: #333;"><span style="color: #33F;">&lt;/object<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
+
+<p>When we put it all together with the conditional comments and optional wmode and allowScriptAccess params, it looks like this:</p>
+
+<div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;object</span> <span style="color: #63C;">id</span>=<span style="color: #F06;">&quot;flashcontent&quot;</span> </span>
+<span style="color: #333;">        <span style="color: #63C;">classid</span>=<span style="color: #F06;">&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot;</span> </span>
+<span style="color: #333;">        <span style="color: #63C;">width</span>=<span style="color: #F06;">&quot;550px&quot;</span> </span>
+<span style="color: #333;">        <span style="color: #63C;">height</span>=<span style="color: #F06;">&quot;400px&quot;</span><span style="color: #33F;">&gt;</span></span>
+  <span style="color: #333;"><span style="color: #33F;">&lt;param</span> <span style="color: #63C;">name</span>=<span style="color: #F06;">&quot;movie&quot;</span> <span style="color: #63C;">value</span>=<span style="color: #F06;">&quot;mymovie.swf&quot;</span> <span style="color: #33F;">/&gt;</span></span>
+  <span style="color: #333;"><span style="color: #33F;">&lt;param</span> <span style="color: #63C;">name</span>=<span style="color: #F06;">&quot;wmode&quot;</span> <span style="color: #63C;">value</span>=<span style="color: #F06;">&quot;opaque&quot;</span> <span style="color: #33F;">/&gt;</span></span><span style="color: #AAA;">&lt;!-- optional, used here as an example --&gt;</span>
+  <span style="color: #333;"><span style="color: #33F;">&lt;param</span> <span style="color: #63C;">name</span>=<span style="color: #F06;">&quot;allowScriptAccess&quot;</span> <span style="color: #63C;">value</span>=<span style="color: #F06;">&quot;always&quot;</span> <span style="color: #33F;">/&gt;</span></span><span style="color: #AAA;">&lt;!-- optional, used here as an example --&gt;</span>
+&nbsp;
+ <span style="color: #AAA;">&lt;!--[if !IE]&gt;--&gt;</span>
+  <span style="color: #333;"><span style="color: #33F;">&lt;object</span> <span style="color: #63C;">type</span>=<span style="color: #F06;">&quot;application/x-shockwave-flash&quot;</span></span>
+<span style="color: #333;">          <span style="color: #63C;">data</span>=<span style="color: #F06;">&quot;mymovie.swf&quot;</span> </span>
+<span style="color: #333;">          <span style="color: #63C;">width</span>=<span style="color: #F06;">&quot;550px&quot;</span></span>
+<span style="color: #333;">          <span style="color: #63C;">height</span>=<span style="color: #F06;">&quot;400px&quot;</span><span style="color: #33F;">&gt;</span></span>
+    <span style="color: #333;"><span style="color: #33F;">&lt;param</span> <span style="color: #63C;">name</span>=<span style="color: #F06;">&quot;wmode&quot;</span> <span style="color: #63C;">value</span>=<span style="color: #F06;">&quot;opaque&quot;</span> <span style="color: #33F;">/&gt;</span></span><span style="color: #AAA;">&lt;!-- optional, used here as an example --&gt;</span>
+    <span style="color: #333;"><span style="color: #33F;">&lt;param</span> <span style="color: #63C;">name</span>=<span style="color: #F06;">&quot;allowScriptAccess&quot;</span> <span style="color: #63C;">value</span>=<span style="color: #F06;">&quot;always&quot;</span> <span style="color: #33F;">/&gt;</span></span><span style="color: #AAA;">&lt;!-- optional, used here as an example --&gt;</span>
+  <span style="color: #AAA;">&lt;!--&lt;![endif]--&gt;</span>
+&nbsp;
+    <span style="color: #333;"><span style="color: #33F;">&lt;p<span style="color: #33F;">&gt;</span></span></span>
+      Fallback or 'alternate' content goes here.
+      This content will only be visible if the SWF fails to load.
+    <span style="color: #333;"><span style="color: #33F;">&lt;/p<span style="color: #33F;">&gt;</span></span></span>
+&nbsp;
+  <span style="color: #AAA;">&lt;!--[if !IE]&gt;--&gt;</span>
+  <span style="color: #333;"><span style="color: #33F;">&lt;/object<span style="color: #33F;">&gt;</span></span></span>
+  <span style="color: #AAA;">&lt;!--&lt;![endif]--&gt;</span>
+&nbsp;
+<span style="color: #333;"><span style="color: #33F;">&lt;/object<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
+
+<p><strong>Demo</strong>: <a href="http://demos.learnswfobject.com/basics/static.html">static publishing</a></p>
+<h2>Wherefore art thou, JavaScript?</h2>
+<p>Because static publishing is purely markup-based, you don&#8217;t need to include the SWFObject JavaScript file &#8212; the SWF will embed just fine without it.  However, the SWFObject JavaScript file will provide you with some additional scripting tools you may find handy, including:</p>
+<ul>
+<li>the ability to specify minimum Flash Player version required for your SWF</li>
+<li>the ability to use Adobe&#8217;s Express Install system (an auto-update mechanism for Flash Player)</li>
+<li>the ability to use JavaScript to target the inner <code>&lt;object&gt;</code> using the <code>swfobject.getobjectById()</code> utility</li>
+</ul>
+<p>To learn more about using JavaScript with SWFObject&#8217;s static publishing technique, see <a href="../using-javascript-with-static-publishing/index.html">Using JavaScript with Static Publishing</a>.</p>
+					</div>
+		    
+    <div id="comments">
+    	<h2>Questions or Comments?</h2>
+        <p>If you have questions or would like to point out an error, please post your remarks in the <a href="http://groups.google.com/group/swfobject/">SWFObject Google Group</a>. Thanks!</p>
+	</div><!-- /comments -->
+
+	
+	</div><!-- /content -->
+	<div id="sidebar">
+
+        <div id="nav">
+	        <ul id="menu">
+    		    <li class="page_item page-item-2"><a href="../../index.html" title="About SWFObject">About SWFObject</a></li>
+<li class="page_item page-item-3 current_page_ancestor current_page_parent"><a href="../index.html" title="The Basics">The Basics</a>
+<ul>
+	<li class="page_item page-item-7 current_page_item"><a href="index.html" title="Static Publishing">Static Publishing</a></li>
+	<li class="page_item page-item-89"><a href="../using-javascript-with-static-publishing/index.html" title="Using JavaScript with Static Publishing">Using JavaScript with Static Publishing</a></li>
+	<li class="page_item page-item-5"><a href="../dynamic-publishing/index.html" title="Dynamic Publishing">Dynamic Publishing</a></li>
+	<li class="page_item page-item-122"><a href="../advanced-options-with-dynamic-publishing/index.html" title="Advanced Options with Dynamic Publishing">Advanced Options with Dynamic Publishing</a></li>
+	<li class="page_item page-item-9"><a href="../adobes-express-install/index.html" title="Adobe&#8217;s Express Install">Adobe&#8217;s Express Install</a></li>
+</ul>
+</li>
+<li class="page_item page-item-12"><a href="../../advanced-topics/index.html" title="Advanced Topics">Advanced Topics</a>
+<ul>
+	<li class="page_item page-item-19"><a href="../../advanced-topics/100-width-and-height-in-browser/index.html" title="100% Width and Height in Browser">100% Width and Height in Browser</a></li>
+	<li class="page_item page-item-33"><a href="../../advanced-topics/detecting-flash-player-version-using-swfobject/index.html" title="Detecting Flash Player Version Using SWFObject">Detecting Flash Player Version Using SWFObject</a></li>
+	<li class="page_item page-item-35"><a href="../../advanced-topics/detecting-success-of-dynamic-embedding/index.html" title="Detecting Success of Dynamic Embedding">Detecting Success of Dynamic Embedding</a></li>
+	<li class="page_item page-item-306"><a href="../../advanced-topics/detecting-swfobject-version/index.html" title="Detecting SWFObject Version">Detecting SWFObject Version</a></li>
+	<li class="page_item page-item-325"><a href="../../advanced-topics/executing-javascript-when-the-swf-has-finished-loading/index.html" title="Executing JavaScript When the SWF Has Finished Loading">Executing JavaScript When the SWF Has Finished Loading</a></li>
+	<li class="page_item page-item-15"><a href="../../advanced-topics/external-interface/index.html" title="External Interface">External Interface</a></li>
+	<li class="page_item page-item-301"><a href="../../advanced-topics/lazy-loading-swfobject/index.html" title="Lazy Loading swfobject.js">Lazy Loading swfobject.js</a></li>
+	<li class="page_item page-item-29"><a href="../../advanced-topics/load-a-swf-using-javascript-onclick-event/index.html" title="Load a SWF Using a JavaScript Onclick Event">Load a SWF Using a JavaScript Onclick Event</a></li>
+	<li class="page_item page-item-31"><a href="../../advanced-topics/parse-querystrings-using-swfobject/index.html" title="Parse Querystrings Using SWFObject">Parse Querystrings Using SWFObject</a></li>
+	<li class="page_item page-item-21"><a href="../../advanced-topics/placing-html-elements-over-a-flash-movie/index.html" title="Placing HTML Elements Over a Flash Movie">Placing HTML Elements Over a Flash Movie</a></li>
+	<li class="page_item page-item-41"><a href="../../advanced-topics/provide-swfobject-embed-code-to-your-visitors/index.html" title="Provide SWFObject Embed Code to Your Visitors">Provide SWFObject Embed Code to Your Visitors</a></li>
+	<li class="page_item page-item-38"><a href="../../advanced-topics/swfobject-and-ajax/index.html" title="SWFObject and Ajax (xmlhttprequest)">SWFObject and Ajax (xmlhttprequest)</a></li>
+	<li class="page_item page-item-241"><a href="../../advanced-topics/swfobjects-default-css-injection/index.html" title="SWFObject&#8217;s Default CSS Injection">SWFObject&#8217;s Default CSS Injection</a></li>
+	<li class="page_item page-item-152"><a href="../../advanced-topics/the-callback-function/index.html" title="The Callback Function">The Callback Function</a></li>
+	<li class="page_item page-item-316"><a href="../../advanced-topics/using-a-swf-as-a-background-image/index.html" title="Using a SWF as a Background Image">Using a SWF as a Background Image</a></li>
+</ul>
+</li>
+<li class="page_item page-item-26"><a href="../../generator/index.html" title="Code Generator">Code Generator</a></li>
+        	</ul>
+        </div><!-- /nav -->
+        
+		<ul>
+			<li id="text-4" class="widget widget_text"><h2 class="widgettitle">Official SWFObject Links</h2>			<div class="textwidget"><ul>
+<li><a href="http://code.google.com/p/swfobject/downloads/list">Download SWFObject</a></li>
+<li><a href="http://code.google.com/p/swfobject/w/list">Official Documentation</a></li>
+<li><a href="http://groups.google.com/group/swfobject">SWFObject Google Group</a><br/><em>Go here for help!</em></li>
+</ul></div>
+		</li>		</ul>
+   </div><!-- /sidebar -->
+
+
+	</div><!-- /wrapper -->
+    
+	<div id="footer">
+        <p class="legalese">LearnSWFObject.com is owned and maintained by <a href="http://pipwerks.com">Philip Hutchison</a>, a member of the <a href="http://code.google.com/p/swfobject">SWFObject</a> project team.<br />
+       All code examples are licensed under an <a rel="license" href="http://www.opensource.org/licenses/mit-license.php">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
+       All other content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.</p>
+        
+	</div><!-- /footer -->
+        
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-1394306-7', 'learnswfobject.com');
+    ga('send', 'pageview');
+  </script>
+	</body>
+
+</html>
