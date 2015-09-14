@@ -112,7 +112,7 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">(
                    attributes<span style="color: #333;">,</span> 
                    callback<span style="color: #666;">)</span><span style="color: #333;">;</span></pre></div></div>
 
-<p>Now that the variables are defined, we won't see any JavaScript errors. But&#8230; the variables are <em>empty</em>, which does us no good at all!  Here are some common ways these variables could be used:</p>
+<p>Now that the variables are defined, we won't see any JavaScript errors. But&hellip; the variables are <em>empty</em>, which does us no good at all!  Here are some common ways these variables could be used:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">{</span>
     foo<span style="color: #333;">:</span> <span style="color: #F06;">&quot;bar&quot;</span><span style="color: #333;">,</span>
@@ -162,7 +162,7 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">(
                    <span style="color: #33F;">false</span><span style="color: #333;">,</span>
                    flashvars<span style="color: #666;">)</span><span style="color: #333;">;</span></pre></div></div>
 
-<p>For another example, let's say you'd like to pass a callback function, but you don't need any of the other optional arguments&#8230; no Express Install, no FlashVars, no parameters, and no attributes.  Easy! Just pass <code>false</code> for each of the items you don't want to use <em>(linebreaks added for legibility)</em>:</p>
+<p>For another example, let's say you'd like to pass a callback function, but you don't need any of the other optional arguments&hellip; no Express Install, no FlashVars, no parameters, and no attributes.  Easy! Just pass <code>false</code> for each of the items you don't want to use <em>(linebreaks added for legibility)</em>:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> callbackHandler <span style="color: #333;">=</span> <span style="color: #33F;">function</span><span style="color: #666;">(</span>e<span style="color: #666;">)</span><span style="color: #666;">{</span> 
     <span style="color: #33F;">alert</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;Was embedding successful: &quot;</span> <span style="color: #333;">+</span>e.<span style="color: #63C;">success</span><span style="color: #666;">)</span><span style="color: #333;">;</span>
