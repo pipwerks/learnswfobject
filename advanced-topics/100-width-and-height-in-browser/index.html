@@ -21,7 +21,7 @@
 
 				<div class="post" id="post-19">
 			<h1>100% Width and Height in Browser</h1>
-			<p>You can stretch a SWF to fit the browser window by using a value of &#8220;100%&#8221; in the SWFObject embed code. You'll also need to set some CSS properties in your HTML page:</p>
+			<p>You can stretch a SWF to fit the browser window by using a value of "100%" in the SWFObject embed code. You'll also need to set some CSS properties in your HTML page:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="css">html <span style="color: #666;">&#123;</span>
   <span style="color: #33F;">height</span><span style="color: #00AA00;">:</span> <span style="color: #933;"><span style="color: #F06;">100</span>%</span><span style="color: #00AA00;">;</span>
@@ -42,7 +42,7 @@ body <span style="color: #666;">&#123;</span>
 <p><strong>Note: </strong>Elements in the example SWF were masked in the FLA file prior to export.</p>
 <p><strong>Working examples</strong>: <a href="http://learnswfobject.com/demos/full-browser/static.html">static publishing</a> | <a href="http://learnswfobject.com/demos/full-browser/dynamic.html">dynamic publishing</a>.</p>
 <h3>exactFit</h3>
-<p>By default, Flash Player will scale a SWF with a fixed aspect ratio (equivalent of setting scale = &#8220;showAll&#8221;). If you want the SWF to fit the browser 100% in <strong>both directions</strong>, you must set the &#8220;scale&#8221; parameter to &#8220;exactFit&#8221;. Note that this will probably distort your SWF.</p>
+<p>By default, Flash Player will scale a SWF with a fixed aspect ratio (equivalent of setting scale = "showAll"). If you want the SWF to fit the browser 100% in <strong>both directions</strong>, you must set the "scale" parameter to "exactFit". Note that this will probably distort your SWF.</p>
 <p><strong>Static</strong> publishing requires adding two <code>param</code> elements as follows:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;object</span> <span style="color: #63C;">id</span>=<span style="color: #F06;">&quot;flashcontent&quot;</span> <span style="color: #63C;">classid</span>=<span style="color: #F06;">&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot;</span> <span style="color: #63C;">width</span>=<span style="color: #F06;">&quot;100%&quot;</span> <span style="color: #63C;">height</span>=<span style="color: #F06;">&quot;100%&quot;</span><span style="color: #33F;">&gt;</span></span>
@@ -65,13 +65,13 @@ body <span style="color: #666;">&#123;</span>
 <span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
 swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;100%&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;100%&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;7&quot;</span><span style="color: #333;">,</span> <span style="color: #33F;">false</span><span style="color: #333;">,</span> flashvars<span style="color: #333;">,</span> params<span style="color: #333;">,</span> attributes<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
 
-<p><strong>Working examples for &#8220;exactFit&#8221;</strong>: <a href="http://learnswfobject.com/demos/full-browser/static-exactFit.html">static publishing</a> | <a href="http://learnswfobject.com/demos/full-browser/dynamic-exactFit.html">dynamic publishing</a>.</p>
+<p><strong>Working examples for "exactFit"</strong>: <a href="http://learnswfobject.com/demos/full-browser/static-exactFit.html">static publishing</a> | <a href="http://learnswfobject.com/demos/full-browser/dynamic-exactFit.html">dynamic publishing</a>.</p>
 <h3>noScale</h3>
-<p>If you would like the SWF to fit the browser 100%, but <strong>don't </strong>want the contents of the SWF to be resized &mdash; no shrinking or enlarging the SWF's content &mdash; you must set the &#8220;scale&#8221; parameter to &#8220;noScale&#8221; (see above for code examples). By default, your SWF content will be centered in the browser and the stage background color will fill the unused areas. If you wish, you could use the parameter &#8220;salign&#8221; to align your SWF content (the 'stage' of the SWF).</p>
-<p><strong>Working examples for &#8220;noScale&#8221;</strong>: <a href="http://learnswfobject.com/demos/full-browser/static-noScale.html">static publishing</a> | <a href="http://learnswfobject.com/demos/full-browser/dynamic-noScale.html">dynamic publishing</a>.</p>
+<p>If you would like the SWF to fit the browser 100%, but <strong>don't </strong>want the contents of the SWF to be resized &mdash; no shrinking or enlarging the SWF's content &mdash; you must set the "scale" parameter to "noScale" (see above for code examples). By default, your SWF content will be centered in the browser and the stage background color will fill the unused areas. If you wish, you could use the parameter "salign" to align your SWF content (the 'stage' of the SWF).</p>
+<p><strong>Working examples for "noScale"</strong>: <a href="http://learnswfobject.com/demos/full-browser/static-noScale.html">static publishing</a> | <a href="http://learnswfobject.com/demos/full-browser/dynamic-noScale.html">dynamic publishing</a>.</p>
 <h3>noScale &amp; salign</h3>
-<p>If you would like to use noScale but align your SWF content (the 'stage' of the SWF) to something other than center, you can use the parameter &#8220;salign&#8221;. Search Adobe's Flash documentation for more info about the alignment options. For examples on how to add a parameter using SWFObject, see the <em>exactFit</em> section above.</p>
-<p><strong>Working examples for &#8220;noScale&#8221; with salign set to &#8220;TL&#8221;</strong>: <a href="http://learnswfobject.com/demos/full-browser/static-noScale-salign.html">static publishing</a> | <a href="http://learnswfobject.com/demos/full-browser/dynamic-noScale-salign.html">dynamic publishing</a>.</p>
+<p>If you would like to use noScale but align your SWF content (the 'stage' of the SWF) to something other than center, you can use the parameter "salign". Search Adobe's Flash documentation for more info about the alignment options. For examples on how to add a parameter using SWFObject, see the <em>exactFit</em> section above.</p>
+<p><strong>Working examples for "noScale" with salign set to "TL"</strong>: <a href="http://learnswfobject.com/demos/full-browser/static-noScale-salign.html">static publishing</a> | <a href="http://learnswfobject.com/demos/full-browser/dynamic-noScale-salign.html">dynamic publishing</a>.</p>
 					</div>
 		    
     <div id="comments">

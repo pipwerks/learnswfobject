@@ -38,7 +38,7 @@
 <span style="color: #666;">&#125;</span></pre></div></div>
 
 <p>This function works by checking the global <code>window</code> object  for the existence of objects named <code>swfobject</code> and <code>SWFObject</code>.  There are four things going on here:</p>
-<p>1. The code checks the <code>window</code> object for the <code>swfobject</code> variable, which allows us to skip checking for null values <code>(swfobject !== null)</code>. Browsers won't throw a &#8220;swfobject is undefined&#8221; error if <code>swfobject</code> isn't found.</p>
+<p>1. The code checks the <code>window</code> object for the <code>swfobject</code> variable, which allows us to skip checking for null values <code>(swfobject !== null)</code>. Browsers won't throw a "swfobject is undefined" error if <code>swfobject</code> isn't found.</p>
 <p>2. Since JavaScript is case-sensitive, two objects with the same name  but different case will appear as two unique objects. SWFObject 1.x was  written with uppercase <em>SWFO</em>, while SWFObject 2.x is written with all  lowercase letters.</p>
 <p>3. In the event both versions are found, the function returns  SWFObject 2, which is the preferred version.</p>
 <p>4. Feature detection is used to determine which version of SWFObject is being loaded.</p>
