@@ -4,7 +4,7 @@
 	<head>
 		<title>Learn SWFObject : Detecting Success of Dynamic Embedding</title>
 	    <meta charset="utf-8" />
-		<meta name="description" content="Tutorials for using SWFObject &#8212; a standards-friendly SWF embedding system" />
+		<meta name="description" content="Tutorials for using SWFObject &mdash; a standards-friendly SWF embedding system" />
 		<link rel="stylesheet" href="/css/style.css" />
 		<link rel="stylesheet" href="/css/wp-syntax.css" />
 	</head>
@@ -13,7 +13,7 @@
 
     	<div id="header">
 			<h1><a href="../../index.html">Learn SWFObject</a></h1>
-			<p>Tutorials for using SWFObject &#8212; a standards-friendly SWF embedding system</p>
+			<p>Tutorials for using SWFObject &mdash; a standards-friendly SWF embedding system</p>
         </div><!-- /header -->
 
 		<div id="wrapper">
@@ -28,7 +28,7 @@
 <p>SWFObject 2.2 introduced a callback feature that allows you to invoke a custom function when a SWF is embedded. This function includes an event object that includes information about the embed's success or failure. <a href="../the-callback-function/index.html">Read more about the callback function</a>.</p>
 <h2>Synchronous approach: Roll your own SWFObject method</h2>
 <p>If you're willing to forgo using <code>swfobject.embed</code> (and it's automatic use of the domready event), you can roll your own custom embed script that will instantly return a boolean indicating the success of the embed attempt. </p>
-<p>Here's a relatively simple example of how you can roll your own embed code. For convenience &#8212; and a clean global namespace &#8212; this example appends the new function to the <code>swfobject</code> JavaScript object. Note that this function embeds the SWF as soon as the function is invoked, so it should not be used until after the DOM has finished loading.</p>
+<p>Here's a relatively simple example of how you can roll your own embed code. For convenience &mdash; and a clean global namespace &mdash; this example appends the new function to the <code>swfobject</code> JavaScript object. Note that this function embeds the SWF as soon as the function is invoked, so it should not be used until after the DOM has finished loading.</p>
 
 <div class="wp_syntax"><div class="code"><pre class="javascript">swfobject.<span style="color: #63C;">customEmbed</span> <span style="color: #333;">=</span> <span style="color: #33F;">function</span> <span style="color: #666;">&#40;</span>swfLoc<span style="color: #333;">,</span> id<span style="color: #333;">,</span> w<span style="color: #333;">,</span> h<span style="color: #333;">,</span> version<span style="color: #333;">,</span> color<span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span>
    <span style="color: #33F;">if</span> <span style="color: #666;">&#40;</span>swfobject.<span style="color: #63C;">hasFlashPlayerVersion</span><span style="color: #666;">&#40;</span>version<span style="color: #666;">&#41;</span><span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span> 

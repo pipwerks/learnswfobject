@@ -4,7 +4,7 @@
 	<head>
 		<title>Learn SWFObject : Using JavaScript with Static Publishing</title>
 	    <meta charset="utf-8" />
-		<meta name="description" content="Tutorials for using SWFObject &#8212; a standards-friendly SWF embedding system" />
+		<meta name="description" content="Tutorials for using SWFObject &mdash; a standards-friendly SWF embedding system" />
 		<link rel="stylesheet" href="/css/style.css" />
 		<link rel="stylesheet" href="/css/wp-syntax.css" />
 	</head>
@@ -13,7 +13,7 @@
 
     	<div id="header">
 			<h1><a href="../../index.html">Learn SWFObject</a></h1>
-			<p>Tutorials for using SWFObject &#8212; a standards-friendly SWF embedding system</p>
+			<p>Tutorials for using SWFObject &mdash; a standards-friendly SWF embedding system</p>
         </div><!-- /header -->
 
 		<div id="wrapper">
@@ -37,7 +37,7 @@
 <p>SWFObject's static publishing technique uses nested <code>&lt;object&gt;</code> elements. Why use a nested <code>&lt;object&gt;</code> element? The simple explanation is that the outer <code>&lt;object&gt;</code> targets all versions of Internet Explorer while the inner <code>&lt;object&gt;</code> works in all browsers not named Internet Explorer.</p>
 <p>Sometimes if you're using JavaScript to modify your webpage, you may need to access this inner <code>&lt;object&gt;</code> with JavaScript. Since the inner <code>&lt;object&gt;</code> doesn't have an <code>id</code> (only the outer <code>&lt;object&gt;</code> has an id), you can't use <code>document.getElementById()</code> to access the <code>&lt;object&gt;</code>. This is where <code>swfobject.getObjectById()</code> comes in; it was designed to behave exactly as <code>document.getElementById()</code>. Simply replace <code>document.getElementById()</code> with <code>swfobject.getObjectById()</code> in your JavaScript and you should be good to go!</p>
 <h2>Implementing JavaScript with SWFObject's static publishing</h2>
-<p>Using the features described above is very simple with SWFObject &#8212; just add a link to the SWFObject JavaScript file, then add a single line of JavaScript to the <code>&lt;head&gt;</code> of your HTML document:</p>
+<p>Using the features described above is very simple with SWFObject &mdash; just add a link to the SWFObject JavaScript file, then add a single line of JavaScript to the <code>&lt;head&gt;</code> of your HTML document:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="javascript">swfobject.<span style="color: #63C;">registerObject</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;9&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;path/to/expressinstall.swf&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
 
