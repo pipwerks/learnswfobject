@@ -32,7 +32,7 @@
 
 <div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;?php</span></span>
 <span style="color: #333;">   $flashvars = <span style="color: #F06;">&quot;&quot;</span>;</span>
-<span style="color: #333;">   foreach<span style="color: #333;">&#40;</span>$_GET as $variable =<span style="color: #33F;">&gt;</span></span> $value) {
+<span style="color: #333;">   foreach<span style="color: #333;">(</span>$_GET as $variable =<span style="color: #33F;">&gt;</span></span> $value) {
       $flashvars .= $variable . &quot;=&quot; . $value . &quot;<span style="color: #333;">&amp;&quot;;</span>
    }
    //Get rid of the last ampersand
@@ -61,7 +61,7 @@ var params = {};
 var attributes = {};
 var flashvars = {};
 <span style="color: #333;"><span style="color: #33F;">&lt;?php</span></span>
-<span style="color: #333;">foreach<span style="color: #333;">&#40;</span>$_GET as $variable =<span style="color: #33F;">&gt;</span></span> $value) {
+<span style="color: #333;">foreach<span style="color: #333;">(</span>$_GET as $variable =<span style="color: #33F;">&gt;</span></span> $value) {
    echo &quot;flashvars['&quot; . $variable . &quot;'] = &quot; . &quot;'&quot; . $value . &quot;'; \n&quot;;
 }
 ?&gt;

@@ -23,7 +23,7 @@
 			<h1>Advanced Options with Dynamic Publishing</h1>
 			<p>SWFObject's <em>dynamic publishing</em> mode provides a number of advanced options when embedding a SWF. As explained in the <a href="../dynamic-publishing/index.html">Dynamic Publishing article</a>, there are five required arguments in a dynamic embed statement:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript">swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;9&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+<div class="wp_syntax"><div class="code"><pre class="javascript">swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;9&quot;</span><span style="color: #666;">)</span><span style="color: #333;">;</span></pre></div></div>
 
 <ol>
 <li>the <strong>URL</strong> of the SWF</li>
@@ -83,7 +83,7 @@
 <p>&nbsp;</p>
 <p>When using all ten arguments, your SWFObject embed code will look like this (line breaks added for legibility):</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript">swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> 
+<div class="wp_syntax"><div class="code"><pre class="javascript">swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span> 
@@ -92,16 +92,16 @@
                    flashvars<span style="color: #333;">,</span> 
                    params<span style="color: #333;">,</span> 
                    attributes<span style="color: #333;">,</span> 
-                   callback<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+                   callback<span style="color: #666;">)</span><span style="color: #333;">;</span></pre></div></div>
 
 <p>Note that the last four items are JavaScript <em>variables</em>, not strings. Since we haven't defined those variables yet, the above example would throw an error. Here's the same example, but with the variables properly defined:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">{</span><span style="color: #666;">}</span><span style="color: #333;">;</span>
 <span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">{</span><span style="color: #666;">}</span><span style="color: #333;">;</span>
 <span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">{</span><span style="color: #666;">}</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> callback <span style="color: #333;">=</span> <span style="color: #33F;">function</span> <span style="color: #666;">&#40;</span><span style="color: #666;">&#41;</span><span style="color: #666;">{</span> <span style="color: #666;">}</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> callback <span style="color: #333;">=</span> <span style="color: #33F;">function</span> <span style="color: #666;">(</span><span style="color: #666;">)</span><span style="color: #666;">{</span> <span style="color: #666;">}</span><span style="color: #333;">;</span>
 &nbsp;
-swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> 
+swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span> 
@@ -110,7 +110,7 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
                    flashvars<span style="color: #333;">,</span> 
                    params<span style="color: #333;">,</span> 
                    attributes<span style="color: #333;">,</span> 
-                   callback<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+                   callback<span style="color: #666;">)</span><span style="color: #333;">;</span></pre></div></div>
 
 <p>Now that the variables are defined, we won't see any JavaScript errors. But&#8230; the variables are <em>empty</em>, which does us no good at all!  Here are some common ways these variables could be used:</p>
 
@@ -127,13 +127,13 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
     <span style="color: #F06;">&quot;class&quot;</span><span style="color: #333;">:</span> <span style="color: #F06;">&quot;my-css-classname&quot;</span>
     <span style="color: #AAA;">//&quot;class&quot; is in quotes because it is a JavaScript reserved keyword</span>
 <span style="color: #666;">}</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> callback <span style="color: #333;">=</span> <span style="color: #33F;">function</span> <span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">{</span>
-    <span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>e.<span style="color: #63C;">success</span><span style="color: #666;">&#41;</span><span style="color: #666;">{</span> 
-        <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;The SWF was successfully embedded&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> callback <span style="color: #333;">=</span> <span style="color: #33F;">function</span> <span style="color: #666;">(</span>e<span style="color: #666;">)</span><span style="color: #666;">{</span>
+    <span style="color: #33F;">if</span><span style="color: #666;">(</span>e.<span style="color: #63C;">success</span><span style="color: #666;">)</span><span style="color: #666;">{</span> 
+        <span style="color: #33F;">alert</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;The SWF was successfully embedded&quot;</span><span style="color: #666;">)</span><span style="color: #333;">;</span>
     <span style="color: #666;">}</span>
 <span style="color: #666;">}</span><span style="color: #333;">;</span>
 &nbsp;
-swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> 
+swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span> 
@@ -142,7 +142,7 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
                    flashvars<span style="color: #333;">,</span> 
                    params<span style="color: #333;">,</span> 
                    attributes<span style="color: #333;">,</span> 
-                   callback<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+                   callback<span style="color: #666;">)</span><span style="color: #333;">;</span></pre></div></div>
 
 <p>&nbsp;</p>
 <h2>Some but not all</h2>
@@ -154,20 +154,20 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
 <div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">{</span> 
     foo<span style="color: #333;">:</span> <span style="color: #F06;">&quot;bar&quot;</span>
 <span style="color: #666;">}</span><span style="color: #333;">;</span>
-swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;/path/to/mymovie.swf&quot;</span><span style="color: #333;">,</span> 
+swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;/path/to/mymovie.swf&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span>
                    <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span>
                    <span style="color: #F06;">&quot;9.0.0&quot;</span><span style="color: #333;">,</span>
                    <span style="color: #33F;">false</span><span style="color: #333;">,</span>
-                   flashvars<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+                   flashvars<span style="color: #666;">)</span><span style="color: #333;">;</span></pre></div></div>
 
 <p>For another example, let's say you'd like to pass a callback function, but you don't need any of the other optional arguments&#8230; no Express Install, no FlashVars, no parameters, and no attributes.  Easy! Just pass <code>false</code> for each of the items you don't want to use <em>(linebreaks added for legibility)</em>:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> callbackHandler <span style="color: #333;">=</span> <span style="color: #33F;">function</span><span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">{</span> 
-    <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;Was embedding successful: &quot;</span> <span style="color: #333;">+</span>e.<span style="color: #63C;">success</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> callbackHandler <span style="color: #333;">=</span> <span style="color: #33F;">function</span><span style="color: #666;">(</span>e<span style="color: #666;">)</span><span style="color: #666;">{</span> 
+    <span style="color: #33F;">alert</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;Was embedding successful: &quot;</span> <span style="color: #333;">+</span>e.<span style="color: #63C;">success</span><span style="color: #666;">)</span><span style="color: #333;">;</span>
 <span style="color: #666;">}</span><span style="color: #333;">;</span>
-swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;/path/to/mymovie.swf&quot;</span><span style="color: #333;">,</span> 
+swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;/path/to/mymovie.swf&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span>
                    <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span>
@@ -176,12 +176,12 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
                    <span style="color: #33F;">false</span><span style="color: #333;">,</span> <span style="color: #AAA;">//FlashVars</span>
                    <span style="color: #33F;">false</span><span style="color: #333;">,</span> <span style="color: #AAA;">//Parameters</span>
                    <span style="color: #33F;">false</span><span style="color: #333;">,</span> <span style="color: #AAA;">//Attributes</span>
-                   callbackHandler<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+                   callbackHandler<span style="color: #666;">)</span><span style="color: #333;">;</span></pre></div></div>
 
 <h2>Adding optional attributes without declaring variables</h2>
 <p>Some people don't like the verboseness of declaring each optional argument as a variable. If you count yourself as part of this group, here's another way you can write your SWFObject statements, <em>sans vars</em> <em>(linebreaks added for legibility)</em>:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript">swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;/path/to/mymovie.swf&quot;</span><span style="color: #333;">,</span> 
+<div class="wp_syntax"><div class="code"><pre class="javascript">swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;/path/to/mymovie.swf&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span>
                    <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span>
@@ -190,9 +190,9 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
                    <span style="color: #666;">{</span> username<span style="color: #333;">:</span> <span style="color: #F06;">&quot;Bugs Bunny&quot;</span> <span style="color: #666;">}</span><span style="color: #333;">,</span> <span style="color: #AAA;">//FlashVars</span>
                    <span style="color: #666;">{</span> wmode<span style="color: #333;">:</span> <span style="color: #F06;">&quot;opaque&quot;</span><span style="color: #333;">,</span> bgcolor<span style="color: #333;">:</span> <span style="color: #F06;">&quot;#F8F8F8&quot;</span> <span style="color: #666;">}</span><span style="color: #333;">,</span> <span style="color: #AAA;">//Parameters</span>
                    <span style="color: #666;">{</span> <span style="color: #F06;">&quot;class&quot;</span><span style="color: #333;">:</span> <span style="color: #F06;">&quot;my-css-classname&quot;</span> <span style="color: #666;">}</span><span style="color: #333;">,</span> <span style="color: #AAA;">//Attributes</span>
-                   <span style="color: #33F;">function</span><span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">{</span> 
-                       <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;Was embedding successful: &quot;</span> <span style="color: #333;">+</span>e.<span style="color: #63C;">success</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
-                   <span style="color: #666;">}</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+                   <span style="color: #33F;">function</span><span style="color: #666;">(</span>e<span style="color: #666;">)</span><span style="color: #666;">{</span> 
+                       <span style="color: #33F;">alert</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;Was embedding successful: &quot;</span> <span style="color: #333;">+</span>e.<span style="color: #63C;">success</span><span style="color: #666;">)</span><span style="color: #333;">;</span>
+                   <span style="color: #666;">}</span><span style="color: #666;">)</span><span style="color: #333;">;</span></pre></div></div>
 
 <p>This approach isn't recommended because it's harder to read, but it is an option for those who are interested in cutting down on <code>var</code> statements.</p>
 					</div>

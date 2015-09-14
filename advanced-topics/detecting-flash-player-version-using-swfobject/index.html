@@ -24,29 +24,29 @@
 			<p>SWFObject's <code>swfobject.getFlashPlayerVersion()</code> is a handy utility for detecting the version of Flash Player available in your visitor's browser. It returns an object containing the major, minor, and release version numbers.</p>
 <p>A quick example for a browser with Flash Player 10.0.32:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> version <span style="color: #333;">=</span> swfobject.<span style="color: #63C;">getFlashPlayerVersion</span><span style="color: #666;">&#40;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> version <span style="color: #333;">=</span> swfobject.<span style="color: #63C;">getFlashPlayerVersion</span><span style="color: #666;">(</span><span style="color: #666;">)</span><span style="color: #333;">;</span>
 &nbsp;
-<span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span>version.<span style="color: #63C;">major</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span> <span style="color: #AAA;">//displays 10 </span>
-<span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span>version.<span style="color: #63C;">minor</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span> <span style="color: #AAA;">//displays 0</span>
-<span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span>version.<span style="color: #63C;">release</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span> <span style="color: #AAA;">//displays 32</span>
+<span style="color: #33F;">alert</span><span style="color: #666;">(</span>version.<span style="color: #63C;">major</span><span style="color: #666;">)</span><span style="color: #333;">;</span> <span style="color: #AAA;">//displays 10 </span>
+<span style="color: #33F;">alert</span><span style="color: #666;">(</span>version.<span style="color: #63C;">minor</span><span style="color: #666;">)</span><span style="color: #333;">;</span> <span style="color: #AAA;">//displays 0</span>
+<span style="color: #33F;">alert</span><span style="color: #666;">(</span>version.<span style="color: #63C;">release</span><span style="color: #666;">)</span><span style="color: #333;">;</span> <span style="color: #AAA;">//displays 32</span>
 &nbsp;
-<span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span>version.<span style="color: #63C;">major</span> <span style="color: #333;">+</span> <span style="color: #F06;">&quot;.&quot;</span> <span style="color: #333;">+</span> version.<span style="color: #63C;">minor</span> <span style="color: #333;">+</span> <span style="color: #F06;">&quot;.&quot;</span> <span style="color: #333;">+</span> version.<span style="color: #63C;">release</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+<span style="color: #33F;">alert</span><span style="color: #666;">(</span>version.<span style="color: #63C;">major</span> <span style="color: #333;">+</span> <span style="color: #F06;">&quot;.&quot;</span> <span style="color: #333;">+</span> version.<span style="color: #63C;">minor</span> <span style="color: #333;">+</span> <span style="color: #F06;">&quot;.&quot;</span> <span style="color: #333;">+</span> version.<span style="color: #63C;">release</span><span style="color: #666;">)</span><span style="color: #333;">;</span>
 <span style="color: #AAA;">//displays 10.0.32</span></pre></div></div>
 
 <p>SWFObject also has the <code>swfobject.hasFlashPlayerVersion</code> utility, allowing developers to quickly and easily determine whether a minimum version of Flash Player is installed. All you need to do is specify what version of Flash Player you're looking for (be sure to write it as a string).</p>
 <p>A quick example checking for Flash Player 10 or greater:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> meetsMinimumFlashRequirement <span style="color: #333;">=</span> swfobject.<span style="color: #63C;">hasFlashPlayerVersion</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;10&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> meetsMinimumFlashRequirement <span style="color: #333;">=</span> swfobject.<span style="color: #63C;">hasFlashPlayerVersion</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;10&quot;</span><span style="color: #666;">)</span><span style="color: #333;">;</span>
 &nbsp;
-<span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>meetsMinimumFlashRequirement<span style="color: #666;">&#41;</span><span style="color: #666;">{</span>
-   <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;Congrats, your version of Flash Player meets the minimum requirement for our site.&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+<span style="color: #33F;">if</span><span style="color: #666;">(</span>meetsMinimumFlashRequirement<span style="color: #666;">)</span><span style="color: #666;">{</span>
+   <span style="color: #33F;">alert</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;Congrats, your version of Flash Player meets the minimum requirement for our site.&quot;</span><span style="color: #666;">)</span><span style="color: #333;">;</span>
 <span style="color: #666;">}</span> <span style="color: #33F;">else</span> <span style="color: #666;">{</span>
-   <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;Sorry, your version of Flash Player does not meet the minimum requirement for our site.&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+   <span style="color: #33F;">alert</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;Sorry, your version of Flash Player does not meet the minimum requirement for our site.&quot;</span><span style="color: #666;">)</span><span style="color: #333;">;</span>
 <span style="color: #666;">}</span></pre></div></div>
 
 <p>When using <code>swfobject.hasFlashPlayerVersion</code>, you can be as specific about the version of Flash Player as you like. For example, if you'd like to ensure every visitor has version 9.0.18 or greater, you'd do the following:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> hasCorrectVersion <span style="color: #333;">=</span> swfobject.<span style="color: #63C;">hasFlashPlayerVersion</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;9.0.18&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> hasCorrectVersion <span style="color: #333;">=</span> swfobject.<span style="color: #63C;">hasFlashPlayerVersion</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;9.0.18&quot;</span><span style="color: #666;">)</span><span style="color: #333;">;</span></pre></div></div>
 
 					</div>
 		    

@@ -47,7 +47,7 @@ swfobject.embedSWF(swf.url, swf.id, swf.w, swf.h, swf.minFlashRequired);
 <p><em>Note: <code>swf.embedcode</code> includes linebreaks (<code>\n</code>) to make the code more legible inside the textarea.</em></p>
 
 <div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #AAA;">//Display the cross-browser embed code</span>
-swfobject.<span style="color: #63C;">addLoadEvent</span><span style="color: #666;">&#40;</span><span style="color: #33F;">function</span> <span style="color: #666;">&#40;</span><span style="color: #666;">&#41;</span><span style="color: #666;">{</span>
+swfobject.<span style="color: #63C;">addLoadEvent</span><span style="color: #666;">(</span><span style="color: #33F;">function</span> <span style="color: #666;">(</span><span style="color: #666;">)</span><span style="color: #666;">{</span>
 &nbsp;
     <span style="color: #AAA;">//Create the code string                                                                 </span>
     swf.<span style="color: #63C;">embedcode</span> <span style="color: #333;">=</span> <span style="color: #F06;">&quot;&lt;object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' &quot;</span> 
@@ -66,28 +66,28 @@ swfobject.<span style="color: #63C;">addLoadEvent</span><span style="color: #666
 &nbsp;
     <span style="color: #AAA;">//Figure out where to insert the code in your page</span>
     <span style="color: #AAA;">//Replace &quot;myPageElementID&quot; with your own ID</span>
-    <span style="color: #33F;">var</span> targetElement <span style="color: #333;">=</span> document.<span style="color: #63C;">getElementById</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;myPageElementID&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+    <span style="color: #33F;">var</span> targetElement <span style="color: #333;">=</span> document.<span style="color: #63C;">getElementById</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;myPageElementID&quot;</span><span style="color: #666;">)</span><span style="color: #333;">;</span>
 &nbsp;
     <span style="color: #AAA;">//Create whatever text fields you want to display a message to the user</span>
-    <span style="color: #33F;">var</span> p <span style="color: #333;">=</span> document.<span style="color: #63C;">createElement</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;p&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+    <span style="color: #33F;">var</span> p <span style="color: #333;">=</span> document.<span style="color: #63C;">createElement</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;p&quot;</span><span style="color: #666;">)</span><span style="color: #333;">;</span>
 &nbsp;
     p.<span style="color: #63C;">innerHTML</span> <span style="color: #333;">=</span> <span style="color: #F06;">&quot;Want to put this movie on your webpage? &quot;</span>
                 <span style="color: #333;">+</span> <span style="color: #F06;">&quot;Copy this code and paste it inside your page's body tags!&quot;</span>
 &nbsp;
-    document.<span style="color: #63C;">body</span>.<span style="color: #63C;">insertBefore</span><span style="color: #666;">&#40;</span>p<span style="color: #333;">,</span> targetElement<span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+    document.<span style="color: #63C;">body</span>.<span style="color: #63C;">insertBefore</span><span style="color: #666;">(</span>p<span style="color: #333;">,</span> targetElement<span style="color: #666;">)</span><span style="color: #333;">;</span>
 &nbsp;
     <span style="color: #AAA;">//Create a textarea that will contain the code.</span>
     <span style="color: #AAA;">//Textareas are easiest for displaying code for visitors to copy</span>
-    <span style="color: #33F;">var</span> textarea <span style="color: #333;">=</span> document.<span style="color: #63C;">createElement</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;textarea&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
-    textarea.<span style="color: #63C;">setAttribute</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;id&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;displayMarkup&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+    <span style="color: #33F;">var</span> textarea <span style="color: #333;">=</span> document.<span style="color: #63C;">createElement</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;textarea&quot;</span><span style="color: #666;">)</span><span style="color: #333;">;</span>
+    textarea.<span style="color: #63C;">setAttribute</span><span style="color: #666;">(</span><span style="color: #F06;">&quot;id&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;displayMarkup&quot;</span><span style="color: #666;">)</span><span style="color: #333;">;</span>
 &nbsp;
     <span style="color: #AAA;">//Insert the embed code</span>
     textarea.<span style="color: #63C;">value</span> <span style="color: #333;">=</span> swf.<span style="color: #63C;">embedcode</span><span style="color: #333;">;</span>
 &nbsp;
     <span style="color: #AAA;">//Append the textarea to your document</span>
-    document.<span style="color: #63C;">body</span>.<span style="color: #63C;">insertBefore</span><span style="color: #666;">&#40;</span>textarea<span style="color: #333;">,</span> targetElement<span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
+    document.<span style="color: #63C;">body</span>.<span style="color: #63C;">insertBefore</span><span style="color: #666;">(</span>textarea<span style="color: #333;">,</span> targetElement<span style="color: #666;">)</span><span style="color: #333;">;</span>
 &nbsp;
-<span style="color: #666;">}</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+<span style="color: #666;">}</span><span style="color: #666;">)</span><span style="color: #333;">;</span></pre></div></div>
 
 <p><strong>Demo</strong>: <a href="http://learnswfobject.com/demos/embed-code-sharing/index.html">Sharing embed code with visitors</a></p>
 					</div>
