@@ -22,7 +22,7 @@
 				<div class="post" id="post-325">
 			<h1>Executing JavaScript When the SWF Has Finished Loading</h1>
 			<p>SWFObject's callback feature enables you to execute JavaScript when the SWF is embedded. However, one gotcha people frequently run into is that the callback executes when the <code>&lt;object&gt;</code> is created, <b>not</b> when the SWF is fully loaded &mdash; there is normally a substantial delay between the completion of the <code>&lt;object&gt;</code> creation and the availability of the SWF.</p>
-<p>If you need to execute JavaScript when the SWF has finished loading, wrap your code in a timer that polls the SWF's <code>PercentLoaded</code> value and waits until it hits "100&#8243; before invoking your code:</p>
+<p>If you need to execute JavaScript when the SWF has finished loading, wrap your code in a timer that polls the SWF's <code>PercentLoaded</code> value and waits until it hits "100" before invoking your code:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">function</span> swfLoadEvent<span style="color: #666;">(</span>fn<span style="color: #666;">)</span><span style="color: #666;">{</span>
     <span style="color: #AAA;">//Ensure fn is a valid function</span>
