@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>learnswfobject.com: Using ExternalInterface with SWFObject [dynamic publishing]</title>
+
+<!-- this CSS stylesheet is unrelated to the example code -->
+<link href="/css/simple.css" rel="stylesheet" />
+
+<!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+<script>
+
+var flashvars = {};
+var params = {};
+var attributes = { id: "ExternalInterfaceExample", name: "ExternalInterfaceExample" };
+
+swfobject.embedSWF("ExternalInterfaceExample.swf", "flashcontent", "550", "200", "8", false, flashvars, params, attributes);
+
+function formSend() {
+  var text = document.htmlForm.sendField.value;
+  var swf = document.getElementById("ExternalInterfaceExample");
+  swf.sendTextToFlash(text);
+}
+ 
+function getTextFromFlash(str) {
+  document.htmlForm.receivedField.value = "From Flash: " + str;
+  return str + " received";
+}
+
+</script>
+
+<style>
+form {
+	width: 520px;
+	background: #F8F8F8;
+	margin: 10px 0 0;
+	padding: 10px;
+	border: 5px solid #DDD;
+}
+label {
+	width: 225px;
+	display: block;
+	float: left;
+	text-align: right;
+	margin-right: 5px;
+}
+form p {
+	margin: .5em 0px;
+	padding: 0px;
+}
+</style>
+
+</head>
+
+<body>
+<h1>learnswfobject.com/demos</h1>
+<h2>Using ExternalInterface with SWFObject</h2> 
+<p>This example uses SWFObject's <a href="http://learnswfobject.com/the-basics/dynamic-publishing/"><em>dynamic publishing</em></a>. <a href="http://learnswfobject.com/advanced-topics/external-interface/">See this example's related article</a>.</p>
+
+<div id="flashcontent">Place fallback content here for users who don't have Flash</div>
+
+<form name="htmlForm" id="htmlForm" method="POST" action="#" onsubmit="formSend(); return false;">
+<p><label for="sendField">Sending to ActionScript: </label> <input type="text" name="sendField" id="sendField" /> <input type="submit" value="Send" /><p>
+<p><label for="receivedField">Received from ActionScript: </label> <input type="text" name="receivedField" id="receivedField"></p>
+</form>
+
+<div id="site-info">
+<p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
+<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>learnswfobject.com: Z-Index with Suckerfish menus [dynamic publishing]</title>
+
+<!-- simple page styling, unrelated to code example -->
+<link href="/css/simple.css" rel="stylesheet" />
+
+<!-- suckerfish styling.  no flash stuff in here! -->
+<link href="suckerfish.css" rel="stylesheet" />
+
+<!-- suckerfish scripting.  no swfobject stuff in here! -->
+<script src="suckerfish.js"></script>
+
+<!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+<script>
+	var flashvars = {};
+	var params = { wmode: "opaque" };
+	var attributes = {};
+    swfobject.embedSWF("/demos/swf/sample.swf", "flashcontent", "550", "400", "9", "/demos/swf/expressinstall.swf", flashvars, params, attributes);
+</script>
+
+</head>
+
+
+<body>
+<h1>learnswfobject.com/demos</h1>
+<h2>Placing HTML elements over a Flash SWF: Suckerfish menu example</h2>
+<p>This example uses SWFObject's <a href="http://learnswfobject.com/the-basics/dynamic-publishing/"><em>dynamic publishing</em></a>. <a href="http://learnswfobject.com/advanced-topics/placing-html-elements-over-a-flash-movie/">See this example's related article</a>.</p>
+
+<p>This is an example of DOM elements overlapping a Flash SWF. In this case I used Suckerfish dropdowns since they're a common menu style.</p>
+<!-- a sample vertical menu, copied from suckerfish example at http://www.htmldog.com/articles/suckerfish/dropdowns/example/vertical.html -->
+<ul id="nav">
+	<li><a href="#">Percoidei</a>
+		<ul>
+			<li><a href="#">Remoras</a></li>
+			<li><a href="#">Tilefishes</a></li>
+			<li><a href="#">Bluefishes</a></li>
+			<li><a href="#">Tigerfishes</a></li>
+		</ul>
+	</li>
+	<li><a href="#">Anabantoidei</a>
+		<ul>
+		  <li><a href="#">Climbing perches</a></li>
+			<li><a href="#">Labyrinthfishes</a></li>
+			<li><a href="#">Kissing gouramis</a></li>
+			<li><a href="#">Pike-heads</a></li>
+		  <li><a href="#">Giant gouramis</a></li>
+	  </ul>
+  </li>
+	<li><a href="#">Gobioidei</a>
+		<ul>
+			<li><a href="#">Burrowing gobies</a></li>
+			<li><a href="#">Dartfishes</a></li>
+			<li><a href="#">Eellike gobies</a></li>
+		  <li><a href="#">Gobies</a></li>
+	  </ul>
+  </li>
+</ul>
+
+<div id="flashcontent">Alt content if you don't have Flash</div>
+<p><a href="http://www.htmldog.com/articles/suckerfish/dropdowns/">Suckerfish Dropdowns</a> by <a href="http://www.htmldog.com/ptg/">Patrick Griffiths</a> and <a href="http://www.danwebb.net">Dan Webb</a>.</p>
+
+
+<div id="site-info">
+<p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
+<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+</div>
+
+
+</body>
+</html>
+

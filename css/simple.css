@@ -1,0 +1,91 @@
+@charset "utf-8";
+
+body {
+	color: #444;
+	background: #F8F8F8;
+	margin: 0px;
+	padding: 2em;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+
+pre {
+	font-size: 11px;
+	font: "Courier New", Courier, monospace;
+}
+
+a:link, a:visited {
+	color: #6666FF;
+	text-decoration: none;
+	border-bottom: 1px dotted #C4C4FF;
+
+}
+
+a:hover {
+	color: #FF3300;
+	border-bottom: 1px solid #FF3300;
+
+}
+
+h1 {
+	font-size: x-large;
+	font-weight: normal;
+	margin: 0px;
+	padding: 0px;
+	color: #CCC;
+}
+
+h2 {
+	font-size: large;
+	font-weight: normal;
+	margin: .5em 0px;
+	padding: 0px;
+}
+
+#site-info {
+	padding: 2em;
+	margin-top: 3em;
+	text-align: center;
+	font-size: medium;
+	color: #999;
+	border-top: 1px solid #CCCCCC;
+}
+
+#site-info p {
+	margin: 0;
+	padding: 0;
+}
+
+#explanation {
+	width: 75%;
+	text-align: left;
+	background: #F5F5F5;
+	border: 1px solid #FFFFFF;
+	padding: 0.5em 1em;
+	margin: 2em auto;
+}
+
+p.note {
+	font-size: x-small;
+	padding: .5em;
+	background: #FFFFCC;
+	text-align: center;
+	color: #999966;
+	border-top: 1px solid #DDDD9B;
+	border-bottom: 1px solid #DDDD9B;
+}
+
+p.warning {
+	color: #ff3366;
+}
+
+p.license {
+	font-size: small;	
+}
+
+/* center the SWF */
+#flashcontent {
+	width: 550px;
+	height: 400px;
+	margin: 0 auto;
+}

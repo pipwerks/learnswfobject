@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>learnswfobject.com: Using SWFObject's Callback Feature [dynamic publishing]</title>
+
+<!-- this CSS stylesheet is unrelated to the example code -->
+<link href="/css/simple.css" rel="stylesheet" />
+
+<!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+<script>
+
+var flashvars = {};
+var params = {};
+var attributes = {};
+var embedHandler = function (e){
+      
+   if(e.success){
+      alert("The embed was successful!");
+   } else {
+      alert("The embed failed!");
+   }
+   
+};
+
+swfobject.embedSWF("/demos/swf/sample.swf", "flashcontent", "550", "400", "9", "/demos/swf/expressInstall.swf", flashvars, params, attributes, embedHandler);
+
+</script>
+
+</head>
+
+<body>
+<h1>learnswfobject.com/demos</h1>
+<h2>Using SWFObject's Callback Feature</h2>
+<p>This example uses SWFObject's <a href="http://learnswfobject.com/the-basics/dynamic-publishing/"><em>dynamic publishing</em></a>. <a href="http://learnswfobject.com/advanced-topics/the-callback-function/">See this example's related article</a>.</p>
+
+<div id="flashcontent">Place fallback content here for users who don't have Flash</div>
+
+<div id="site-info">
+<p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
+<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+</div>
+
+</body>
+</html>

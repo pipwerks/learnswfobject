@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>learnswfobject.com: Using a JavaScript onclick event to load a SWF [dynamic publishing]</title>
+
+<!-- this CSS stylesheet is unrelated to the example code -->
+<link href="/css/simple.css" rel="stylesheet" />
+
+<!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+<script>
+
+function loadSWF(url, targetID){
+
+	//Check for existing SWF
+	if(isObject(targetID)){
+
+		//replace object/element with a new div
+		replaceSwfWithEmptyDiv(targetID);
+
+	}
+	
+	//Embed SWF
+	if (swfobject.hasFlashPlayerVersion("9")) {
+		
+		var attributes = { data: url, width:"550", height:"400" };
+		var params = {};
+		var obj = swfobject.createSWF(attributes, params, targetID);
+		
+	}
+
+}
+
+
+function isObject(targetID){
+
+	var isFound = false;
+	var el = document.getElementById(targetID);
+	
+	if(el && (el.nodeName === "OBJECT" || el.nodeName === "EMBED")){
+	
+		isFound = true;
+	
+	}
+	
+	return isFound;
+
+}
+
+
+function replaceSwfWithEmptyDiv(targetID){
+
+	var el = document.getElementById(targetID);
+	
+	if(el){
+	
+		var div = document.createElement("div");
+	
+		el.parentNode.insertBefore(div, el);
+	
+		//Remove the SWF
+		swfobject.removeSWF(targetID);
+	
+		//Give the new DIV the old element's ID
+		div.setAttribute("id", targetID);
+		
+	}
+
+}
+
+</script>
+
+</head>
+
+<body>
+<h1>learnswfobject.com/demos</h1>
+<h2>Using a JavaScript onclick event to load a SWF</h2> 
+<p>This example uses SWFObject's <a href="http://learnswfobject.com/the-basics/dynamic-publishing/"><em>dynamic publishing</em></a>. <a href="http://learnswfobject.com/advanced-topics/load-a-swf-using-javascript-onclick-event/">See this example's related article</a>.</p>
+
+<p><a href="/demos/swf/sample.swf" onclick="loadSWF(this.href, 'flashcontent'); return false;">Click here to load a sample SWF</a></p>
+<p><a href="/demos/swf/flvplayer.swf?height=400&amp;width=550&amp;file=/load-onclick/video.flv" onclick="loadSWF(this.href, 'flashcontent'); return false;">Click here to load an FLV player</a></p>
+
+<div id="flashcontent"></div>
+
+<div id="site-info">
+<p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
+<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+</div>
+
+</body>
+</html>

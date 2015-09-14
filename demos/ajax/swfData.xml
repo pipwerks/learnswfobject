@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<swfData width="550" height="400" minflashversion="7" src="sample_flashvars.swf">
+	<myVar1>Hello, this is my first variable</myVar1>
+	<myVar2>The variable names I chose are dull</myVar2>
+	<myVar3>You can pick something other than "myVar1"</myVar3>
+	<baseball>San Francisco Giants</baseball>
+	<someBoolean>false</someBoolean>
+	<goodsong>midnight-oil/blueskymining.mp3</goodsong>
+</swfData>

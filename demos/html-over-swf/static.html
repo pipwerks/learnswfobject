@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>learnswfobject.com: Z-Index with Suckerfish menus [static publishing]</title>
+
+<!-- simple page styling, unrelated to code example -->
+<link href="/css/simple.css" rel="stylesheet" />
+
+<!-- suckerfish styling.  no flash stuff in here! -->
+<link href="suckerfish.css" rel="stylesheet" />
+
+<!-- suckerfish scripting.  no swfobject stuff in here! -->
+<script src="suckerfish.js"></script>
+
+<!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+<script>
+	swfobject.registerObject("example_1_wrapper", "7.0.0", "/demos/swf/expressinstall.swf");
+	swfobject.registerObject("example_2_wrapper", "7.0.0", "/demos/swf/expressinstall.swf");
+</script>
+
+<style>
+
+/* this code is what allows the DIV to overlay the flash */
+
+#example_1_wrapper {
+	position: relative; /* establish relationship with child elements */
+}
+
+#example_1_div {
+	position: absolute; /* this element will automatically appear overtop of the wmode=opaque SWF without needing z-index */
+	top: 20px;
+	right: 0;
+}
+
+#example_1_flash {
+	/* look ma, no code! */
+}
+
+
+#example_2_wrapper {
+	position: relative;
+}
+
+#example_2_div {
+	position: absolute;
+	top: 20px;
+	right: 0;
+}
+
+#example_2_flash {
+}
+
+
+/* this code is for visual styling purposes and can be ignored */
+
+div.wrapper { 
+	width: 600px;
+	height: 400px;
+	padding: 1em;
+	background: #FFF;
+	border: 1px solid #DDD;
+	margin: 2em auto;
+}
+
+div.overlay {
+	background: #F00;
+	color: #FFF;
+	text-align: center;
+	width: 150px;
+	padding: 1em;
+}
+</style>
+
+</head>
+
+
+<body>
+<h1>learnswfobject.com/demos</h1>
+<h2>Placing HTML elements over a Flash SWF</h2>
+<p>This is an example of a DOM element overlapping a Flash SWF. <a href="http://learnswfobject.com/advanced-topics/placing-html-elements-over-a-flash-movie/">See this example's related article</a>.</p>
+<p>This example uses SWFObject's <a href="http://learnswfobject.com/the-basics/static-publishing/"><em>static publishing</em></a>.</p>
+
+<!-- example 1: overlay div preceeds Flash object -->
+<div id="example_1_wrapper" class="wrapper">
+
+    <div id="example_1_div" class="overlay">This is a DIV. It uses absolute positioning without specifying z-index. Markup order is div then flash object.</div>
+    
+    <object id="example_1_flash" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="550" height="400">
+        <param name="movie" value="/demos/swf/sample.swf" />
+        
+    <!-- this param enables the overlay to work -->
+        <param name="wmode" value="opaque" />
+        
+        <!--[if !IE]>-->
+        <object type="application/x-shockwave-flash" data="/demos/swf/sample.swf" width="550" height="400">
+        	
+        <!-- this param enables the overlay to work -->
+            <param name="wmode" value="opaque" />
+            
+            <!--<![endif]-->
+              <p>Place fallback content here for users who don't have Flash<p>
+
+            <!--[if !IE]>-->
+        </object>
+        <!--<![endif]-->
+    </object>
+
+</div>
+
+<!-- example 2: Flash object preceeds overlay div -->
+<div id="example_2_wrapper" class="wrapper">
+
+    <object id="example_2_flash" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="550" height="400">
+        <param name="movie" value="/demos/swf/sample.swf" />
+        
+    <!-- this param enables the overlay to work -->
+        <param name="wmode" value="opaque" />
+        
+        <!--[if !IE]>-->
+        <object type="application/x-shockwave-flash" data="/demos/swf/sample.swf" width="550" height="400">
+        	
+        <!-- this param enables the overlay to work -->
+            <param name="wmode" value="opaque" />
+            
+            <!--<![endif]-->
+              <p>Place fallback content here for users who don't have Flash<p>
+
+            <!--[if !IE]>-->
+        </object>
+        <!--<![endif]-->
+    </object>
+    
+    <div id="example_2_div" class="overlay">This is a DIV. The markup is same as above, except order of elements is reversed (flash object then div); the results are the same, even without specifying a z-index.</div>
+
+</div>
+
+
+<div id="site-info">
+<p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
+<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+</div>
+
+
+</body>
+</html>
+

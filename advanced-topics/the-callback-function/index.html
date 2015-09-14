@@ -29,7 +29,7 @@
 <li><code>event.ref</code>: The <code>&lt;object&gt;</code> HTML element if the embed was successful, <code>undefined</code> if the embed failed.</li>
 </ol>
 <h2>Using the callback function with dynamic publishing</h2>
-<p><code>swfobject.embedSWF</code> takes the callback function as a parameter (it is passed as the last parameter). Here&#8217;s a typical example of a dynamic embed:</p>
+<p><code>swfobject.embedSWF</code> takes the callback function as a parameter (it is passed as the last parameter). Here's a typical example of a dynamic embed:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
 <span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
@@ -37,7 +37,7 @@
 &nbsp;
 swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;/path/to/sample.swf&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;7&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;/path/to/expressInstall.swf&quot;</span><span style="color: #333;">,</span> flashvars<span style="color: #333;">,</span> params<span style="color: #333;">,</span> attributes<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
 
-<p>Here&#8217;s the same code, but with a callback function that displays a message indicating the success status of the embed:</p>
+<p>Here's the same code, but with a callback function that displays a message indicating the success status of the embed:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
 <span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
@@ -54,13 +54,13 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
 &nbsp;
 swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;/path/to/sample.swf&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;7&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;/path/to/expressInstall.swf&quot;</span><span style="color: #333;">,</span> flashvars<span style="color: #333;">,</span> params<span style="color: #333;">,</span> attributes<span style="color: #333;">,</span> embedHandler<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
 
-<p><strong>Demo</strong>: <a href="http://demos.learnswfobject.com/callback/dynamic.html">Using the callback function with dynamic publishing</a></p>
+<p><strong>Demo</strong>: <a href="http://learnswfobject.com/demos/callback/dynamic.html">Using the callback function with dynamic publishing</a></p>
 <h2>Using the callback function with static publishing</h2>
-<p><code>swfobject.registerObject</code> takes the callback function as a parameter (it is passed as the last parameter). Here&#8217;s the JavaScript portion of a typical static embed:</p>
+<p><code>swfobject.registerObject</code> takes the callback function as a parameter (it is passed as the last parameter). Here's the JavaScript portion of a typical static embed:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="javascript">swfobject.<span style="color: #63C;">registerObject</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;9&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;/path/to/expressinstall.swf&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
 
-<p>Here&#8217;s the same code, but with a callback function that displays a message if the SWF fails to embed:</p>
+<p>Here's the same code, but with a callback function that displays a message if the SWF fails to embed:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> embedHandler <span style="color: #333;">=</span> <span style="color: #33F;">function</span> <span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span>
 &nbsp;
@@ -74,7 +74,7 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
 &nbsp;
 swfobject.<span style="color: #63C;">registerObject</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;9&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;/path/to/expressinstall.swf&quot;</span><span style="color: #333;">,</span> embedHandler<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
 
-<p><strong>Demo</strong>: <a href="http://demos.learnswfobject.com/callback/static.html">Using the callback function with static publishing</a></p>
+<p><strong>Demo</strong>: <a href="http://learnswfobject.com/demos/callback/static.html">Using the callback function with static publishing</a></p>
 					</div>
 		    
     <div id="comments">
@@ -95,7 +95,7 @@ swfobject.<span style="color: #63C;">registerObject</span><span style="color: #6
 	<li class="page_item page-item-89"><a href="../../the-basics/using-javascript-with-static-publishing/index.html" title="Using JavaScript with Static Publishing">Using JavaScript with Static Publishing</a></li>
 	<li class="page_item page-item-5"><a href="../../the-basics/dynamic-publishing/index.html" title="Dynamic Publishing">Dynamic Publishing</a></li>
 	<li class="page_item page-item-122"><a href="../../the-basics/advanced-options-with-dynamic-publishing/index.html" title="Advanced Options with Dynamic Publishing">Advanced Options with Dynamic Publishing</a></li>
-	<li class="page_item page-item-9"><a href="../../the-basics/adobes-express-install/index.html" title="Adobe&#8217;s Express Install">Adobe&#8217;s Express Install</a></li>
+	<li class="page_item page-item-9"><a href="../../the-basics/adobes-express-install/index.html" title="Adobe's Express Install">Adobe's Express Install</a></li>
 </ul>
 </li>
 <li class="page_item page-item-12 current_page_ancestor current_page_parent"><a href="../index.html" title="Advanced Topics">Advanced Topics</a>
@@ -112,7 +112,7 @@ swfobject.<span style="color: #63C;">registerObject</span><span style="color: #6
 	<li class="page_item page-item-21"><a href="../placing-html-elements-over-a-flash-movie/index.html" title="Placing HTML Elements Over a Flash Movie">Placing HTML Elements Over a Flash Movie</a></li>
 	<li class="page_item page-item-41"><a href="../provide-swfobject-embed-code-to-your-visitors/index.html" title="Provide SWFObject Embed Code to Your Visitors">Provide SWFObject Embed Code to Your Visitors</a></li>
 	<li class="page_item page-item-38"><a href="../swfobject-and-ajax/index.html" title="SWFObject and Ajax (xmlhttprequest)">SWFObject and Ajax (xmlhttprequest)</a></li>
-	<li class="page_item page-item-241"><a href="../swfobjects-default-css-injection/index.html" title="SWFObject&#8217;s Default CSS Injection">SWFObject&#8217;s Default CSS Injection</a></li>
+	<li class="page_item page-item-241"><a href="../swfobjects-default-css-injection/index.html" title="SWFObject's Default CSS Injection">SWFObject's Default CSS Injection</a></li>
 	<li class="page_item page-item-152 current_page_item"><a href="index.html" title="The Callback Function">The Callback Function</a></li>
 	<li class="page_item page-item-316"><a href="../using-a-swf-as-a-background-image/index.html" title="Using a SWF as a Background Image">Using a SWF as a Background Image</a></li>
 </ul>
@@ -135,7 +135,7 @@ swfobject.<span style="color: #63C;">registerObject</span><span style="color: #6
     
 	<div id="footer">
         <p class="legalese">LearnSWFObject.com is owned and maintained by <a href="http://pipwerks.com">Philip Hutchison</a>, a member of the <a href="http://code.google.com/p/swfobject">SWFObject</a> project team.<br />
-       All code examples are licensed under an <a rel="license" href="http://www.opensource.org/licenses/mit-license.php">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
+       All code examples are licensed under an <a rel="license" href="http://pipwerks.mit-license.org/">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
        All other content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.</p>
         
 	</div><!-- /footer -->

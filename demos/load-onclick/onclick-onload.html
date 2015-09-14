@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>learnswfobject.com: Using window.onload and a.onclick events to load different SWFs [dynamic publishing]</title>
+
+<!-- this CSS stylesheet is unrelated to the example code -->
+<link href="/css/simple.css" rel="stylesheet" />
+
+<!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+<script>
+
+var flashvars = { file: "/load-onclick/video.flv" };
+var params = {};
+var attributes = {};
+
+//embedSWF is triggered automatically at domready
+swfobject.embedSWF("/demos/swf/flvplayer.swf", "flashcontent", "550", "400", "7", false, flashvars, params, attributes);
+
+
+//loadSWF won't be invoked until the link is clicked
+function loadSWF(url){
+	swfobject.embedSWF(url, "flashcontent", "550", "400", "7");
+}
+
+</script>
+
+</head>
+
+<body>
+<h1>learnswfobject.com/demos</h1>
+<h2>Using window.onload and a.onclick events to load different SWFs</h2> 
+<p>This example uses SWFObject's <a href="http://learnswfobject.com/the-basics/dynamic-publishing/"><em>dynamic publishing</em></a>. <a href="http://learnswfobject.com/advanced-topics/load-a-swf-using-javascript-onclick-event/">See this example's related article</a>.</p>
+
+<p><a href="/demos/swf/sample.swf" onclick="loadSWF(this.href); return false;">Click here to replace the current SWF with another one.</a></p>
+
+<div id="flashcontent"></div>
+
+<div id="site-info">
+<p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
+<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+</div>
+
+</body>
+</html>

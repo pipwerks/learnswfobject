@@ -21,8 +21,8 @@
 
 				<div class="post" id="post-7">
 			<h1>Static Publishing</h1>
-			<p><em>Editor&#8217;s note: This page explains how SWFObject&#8217;s <strong>static publishing</strong> works. If you don&#8217;t care how it works and just want the code you need for your HTML page, you may want to head over to the <a href="../../generator/index.html">code generator</a> instead of reading this page.</em></p>
-<p>SWFObject&#8217;s static publishing approach is the most bulletproof and standards-compliant approach for embedding Flash SWFs into HTML pages. </p>
+			<p><em>Editor's note: This page explains how SWFObject's <strong>static publishing</strong> works. If you don't care how it works and just want the code you need for your HTML page, you may want to head over to the <a href="../../generator/index.html">code generator</a> instead of reading this page.</em></p>
+<p>SWFObject's static publishing approach is the most bulletproof and standards-compliant approach for embedding Flash SWFs into HTML pages. </p>
 <p>Static publishing adds the SWF to the page using pure HTML markup, ensuring the SWF will be embedded even when JavaScript is unavailable. </p>
 <p>Static publishing requires adding two <code>&lt;object&gt;</code> elements to your page as follows:</p>
 
@@ -51,13 +51,13 @@
 <span style="color: #333;"><span style="color: #33F;">&lt;/object<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
 
 <p>As with the common <code>&lt;object&gt; &lt;embed&gt; &lt;/object&gt;</code> pattern, the outer <code>&lt;object&gt;</code> works in Internet Explorer, while the inner <code>&lt;object&gt;</code> targets all other browsers.</p>
-<p>Internet Explorer gets confused by the second <code>&lt;object&gt;</code>, which is why we use <a href="http://msdn.microsoft.com/en-us/library/ms537512(VS.85).aspx">conditional comments</a> to tell Internet Explorer to ignore this second <code>&lt;object&gt;</code>. (If you&#8217;re unfamiliar with conditional comments, PPK has written a <a href="http://www.quirksmode.org/css/condcom.html">nice overview</a>.)</p>
-<p>Because the inner <code>&lt;object&gt;</code> is not meant for Internet Explorer, you <strong>must</strong> use conditional comments to tell Internet Explorer to ignore it. If you don&#8217;t, you will encounter bugs.</p>
+<p>Internet Explorer gets confused by the second <code>&lt;object&gt;</code>, which is why we use <a href="http://msdn.microsoft.com/en-us/library/ms537512(VS.85).aspx">conditional comments</a> to tell Internet Explorer to ignore this second <code>&lt;object&gt;</code>. (If you're unfamiliar with conditional comments, PPK has written a <a href="http://www.quirksmode.org/css/condcom.html">nice overview</a>.)</p>
+<p>Because the inner <code>&lt;object&gt;</code> is not meant for Internet Explorer, you <strong>must</strong> use conditional comments to tell Internet Explorer to ignore it. If you don't, you will encounter bugs.</p>
 <h3>Why not use <code>&lt;embed&gt;</code> instead of all the conditional comments?</h3>
-<p>SWFObject improves on <code>&lt;object&gt; &lt;embed&gt; &lt;/object&gt;</code> by allowing you to include fallback content for visitors who don&#8217;t have Flash Player installed. The <code>&lt;embed&gt;</code> element does not provide space for displaying fallback content.</p>
+<p>SWFObject improves on <code>&lt;object&gt; &lt;embed&gt; &lt;/object&gt;</code> by allowing you to include fallback content for visitors who don't have Flash Player installed. The <code>&lt;embed&gt;</code> element does not provide space for displaying fallback content.</p>
 <p>Also, while <code>&lt;embed&gt;</code> is supported in most browsers, is not an official W3C standard. Using <code>&lt;object&gt;</code> instead of <code>&lt;embed&gt;</code> enables your page(s) to pass strict W3C validation.</p>
 <h3>Specifying your settings</h3>
-<p><em>Note: If you don&#8217;t want to bother with writing all this markup by hand, use the handy <a href="../../generator/index.html">code generator</a> to write it for you!</em></p>
+<p><em>Note: If you don't want to bother with writing all this markup by hand, use the handy <a href="../../generator/index.html">code generator</a> to write it for you!</em></p>
 <p>You will normally specify three attributes for the outer <code>&lt;object&gt;</code>: </p>
 <ol>
 <li>the ID of the SWF (optional)</li>
@@ -74,7 +74,7 @@
   <span style="color: #333;"><span style="color: #33F;">&lt;param</span> <span style="color: #63C;">name</span>=<span style="color: #F06;">&quot;movie&quot;</span> <span style="color: #63C;">value</span>=<span style="color: #F06;">&quot;mymovie.swf&quot;</span> <span style="color: #33F;">/&gt;</span></span>
 <span style="color: #333;"><span style="color: #33F;">&lt;/object<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
 
-<p>If you&#8217;d like to specify other optional settings, such as <em>wmode</em> or <em>allowScriptAccess</em>, you will need to add a new <code>&lt;param&gt;</code> for each item, like so:</p>
+<p>If you'd like to specify other optional settings, such as <em>wmode</em> or <em>allowScriptAccess</em>, you will need to add a new <code>&lt;param&gt;</code> for each item, like so:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;object</span> <span style="color: #63C;">id</span>=<span style="color: #F06;">&quot;flashcontent&quot;</span> </span>
 <span style="color: #333;">        <span style="color: #63C;">classid</span>=<span style="color: #F06;">&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot;</span> </span>
@@ -85,7 +85,7 @@
   <span style="color: #333;"><span style="color: #33F;">&lt;param</span> <span style="color: #63C;">name</span>=<span style="color: #F06;">&quot;allowScriptAccess&quot;</span> <span style="color: #63C;">value</span>=<span style="color: #F06;">&quot;always&quot;</span> <span style="color: #33F;">/&gt;</span></span><span style="color: #AAA;">&lt;!-- optional --&gt;</span>
 <span style="color: #333;"><span style="color: #33F;">&lt;/object<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
 
-<p>The inner <code>&lt;object&gt;</code> is formatted differently than the outer <code>&lt;object&gt;</code>, but requires the same general information: the URL (&#8216;data&#8217;) of the SWF, the width of the SWF, and the height of the SWF. Note <strong>classid</strong> is replaced with <strong>type=&#8221;application/x-shockwave-flash&#8221;</strong>.</p>
+<p>The inner <code>&lt;object&gt;</code> is formatted differently than the outer <code>&lt;object&gt;</code>, but requires the same general information: the URL (&#8216;data') of the SWF, the width of the SWF, and the height of the SWF. Note <strong>classid</strong> is replaced with <strong>type=&#8221;application/x-shockwave-flash&#8221;</strong>.</p>
 <p>As with the outer <code>&lt;object&gt;</code> you will need to add a <code>&lt;param&gt;</code> element for any other settings you wish to specify, such as wmode or allowScriptAccess:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;object</span> <span style="color: #63C;">type</span>=<span style="color: #F06;">&quot;application/x-shockwave-flash&quot;</span> </span>
@@ -126,15 +126,15 @@
 &nbsp;
 <span style="color: #333;"><span style="color: #33F;">&lt;/object<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
 
-<p><strong>Demo</strong>: <a href="http://demos.learnswfobject.com/basics/static.html">static publishing</a></p>
+<p><strong>Demo</strong>: <a href="http://learnswfobject.com/demos/basics/static.html">static publishing</a></p>
 <h2>Wherefore art thou, JavaScript?</h2>
-<p>Because static publishing is purely markup-based, you don&#8217;t need to include the SWFObject JavaScript file &#8212; the SWF will embed just fine without it.  However, the SWFObject JavaScript file will provide you with some additional scripting tools you may find handy, including:</p>
+<p>Because static publishing is purely markup-based, you don't need to include the SWFObject JavaScript file &#8212; the SWF will embed just fine without it.  However, the SWFObject JavaScript file will provide you with some additional scripting tools you may find handy, including:</p>
 <ul>
 <li>the ability to specify minimum Flash Player version required for your SWF</li>
-<li>the ability to use Adobe&#8217;s Express Install system (an auto-update mechanism for Flash Player)</li>
+<li>the ability to use Adobe's Express Install system (an auto-update mechanism for Flash Player)</li>
 <li>the ability to use JavaScript to target the inner <code>&lt;object&gt;</code> using the <code>swfobject.getobjectById()</code> utility</li>
 </ul>
-<p>To learn more about using JavaScript with SWFObject&#8217;s static publishing technique, see <a href="../using-javascript-with-static-publishing/index.html">Using JavaScript with Static Publishing</a>.</p>
+<p>To learn more about using JavaScript with SWFObject's static publishing technique, see <a href="../using-javascript-with-static-publishing/index.html">Using JavaScript with Static Publishing</a>.</p>
 					</div>
 		    
     <div id="comments">
@@ -155,7 +155,7 @@
 	<li class="page_item page-item-89"><a href="../using-javascript-with-static-publishing/index.html" title="Using JavaScript with Static Publishing">Using JavaScript with Static Publishing</a></li>
 	<li class="page_item page-item-5"><a href="../dynamic-publishing/index.html" title="Dynamic Publishing">Dynamic Publishing</a></li>
 	<li class="page_item page-item-122"><a href="../advanced-options-with-dynamic-publishing/index.html" title="Advanced Options with Dynamic Publishing">Advanced Options with Dynamic Publishing</a></li>
-	<li class="page_item page-item-9"><a href="../adobes-express-install/index.html" title="Adobe&#8217;s Express Install">Adobe&#8217;s Express Install</a></li>
+	<li class="page_item page-item-9"><a href="../adobes-express-install/index.html" title="Adobe's Express Install">Adobe's Express Install</a></li>
 </ul>
 </li>
 <li class="page_item page-item-12"><a href="../../advanced-topics/index.html" title="Advanced Topics">Advanced Topics</a>
@@ -172,7 +172,7 @@
 	<li class="page_item page-item-21"><a href="../../advanced-topics/placing-html-elements-over-a-flash-movie/index.html" title="Placing HTML Elements Over a Flash Movie">Placing HTML Elements Over a Flash Movie</a></li>
 	<li class="page_item page-item-41"><a href="../../advanced-topics/provide-swfobject-embed-code-to-your-visitors/index.html" title="Provide SWFObject Embed Code to Your Visitors">Provide SWFObject Embed Code to Your Visitors</a></li>
 	<li class="page_item page-item-38"><a href="../../advanced-topics/swfobject-and-ajax/index.html" title="SWFObject and Ajax (xmlhttprequest)">SWFObject and Ajax (xmlhttprequest)</a></li>
-	<li class="page_item page-item-241"><a href="../../advanced-topics/swfobjects-default-css-injection/index.html" title="SWFObject&#8217;s Default CSS Injection">SWFObject&#8217;s Default CSS Injection</a></li>
+	<li class="page_item page-item-241"><a href="../../advanced-topics/swfobjects-default-css-injection/index.html" title="SWFObject's Default CSS Injection">SWFObject's Default CSS Injection</a></li>
 	<li class="page_item page-item-152"><a href="../../advanced-topics/the-callback-function/index.html" title="The Callback Function">The Callback Function</a></li>
 	<li class="page_item page-item-316"><a href="../../advanced-topics/using-a-swf-as-a-background-image/index.html" title="Using a SWF as a Background Image">Using a SWF as a Background Image</a></li>
 </ul>
@@ -195,7 +195,7 @@
     
 	<div id="footer">
         <p class="legalese">LearnSWFObject.com is owned and maintained by <a href="http://pipwerks.com">Philip Hutchison</a>, a member of the <a href="http://code.google.com/p/swfobject">SWFObject</a> project team.<br />
-       All code examples are licensed under an <a rel="license" href="http://www.opensource.org/licenses/mit-license.php">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
+       All code examples are licensed under an <a rel="license" href="http://pipwerks.mit-license.org/">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
        All other content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.</p>
         
 	</div><!-- /footer -->

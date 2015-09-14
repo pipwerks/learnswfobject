@@ -2,7 +2,7 @@
 <html dir="ltr" lang="en-US">
 
 	<head>
-		<title>Learn SWFObject : SWFObject&#8217;s Default CSS Injection</title>
+		<title>Learn SWFObject : SWFObject's Default CSS Injection</title>
 	    <meta charset="utf-8" />
 		<meta name="description" content="Tutorials for using SWFObject &#8212; a standards-friendly SWF embedding system" />
 		<link rel="stylesheet" href="/css/style.css" />
@@ -20,11 +20,11 @@
         <div id="content">
 
 				<div class="post" id="post-241">
-			<h1>SWFObject&#8217;s Default CSS Injection</h1>
+			<h1>SWFObject's Default CSS Injection</h1>
 			<h2>Hide and Go Seek!</h2>
 <p>SWFObject uses a tiny bit of JavaScript and CSS to hide the contents of the target element before the SWF loads, preventing visitors from seeing the fallback content before the Flash SWF has a chance to load.</p>
-<p>To achieve this, SWFObject appends a <code>&lt;style&gt;</code> element to the page that sets the visibility of the target element to <em>hidden</em>.  Then, once the Flash <code>&lt;object&gt;</code> is embedded, SWFObject sets the object&#8217;s style to <em>visibility: visible</em>.</p>
-<p>Here&#8217;s what it looks like from start to finish.</p>
+<p>To achieve this, SWFObject appends a <code>&lt;style&gt;</code> element to the page that sets the visibility of the target element to <em>hidden</em>.  Then, once the Flash <code>&lt;object&gt;</code> is embedded, SWFObject sets the object's style to <em>visibility: visible</em>.</p>
+<p>Here's what it looks like from start to finish.</p>
 <h3>Original HTML</h3>
 
 <div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;html<span style="color: #33F;">&gt;</span></span></span>
@@ -51,7 +51,7 @@ or is outdated.
 <span style="color: #333;"><span style="color: #33F;">&lt;/html<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
 
 <h3>HTML after being modified by SWFObject but <em>before</em> the SWF is embedded</h3>
-<p>Note the inclusion of a new <code>&lt;style&gt;</code> element in the document&#8217;s <code>&lt;head&gt;</code>.</p>
+<p>Note the inclusion of a new <code>&lt;style&gt;</code> element in the document's <code>&lt;head&gt;</code>.</p>
 <p><em>(Some lines wrapped for legibility.)</em></p>
 
 <div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;html<span style="color: #33F;">&gt;</span></span></span>
@@ -82,7 +82,7 @@ or is outdated.
 <span style="color: #333;"><span style="color: #33F;">&lt;/html<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
 
 <h3>Final HTML (SWF has been successfully embedded)</h3>
-<p>Note the inline <code>style</code> attribute on the embedded <code>&lt;object&gt;</code>. This is intended to counteract the <code>&lt;style&gt;</code> element in the document&#8217;s <code>&lt;head&gt;</code>.</p>
+<p>Note the inline <code>style</code> attribute on the embedded <code>&lt;object&gt;</code>. This is intended to counteract the <code>&lt;style&gt;</code> element in the document's <code>&lt;head&gt;</code>.</p>
 <p><em>(Some lines wrapped for legibility.)</em></p>
 
 <div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;html<span style="color: #33F;">&gt;</span></span></span>
@@ -113,7 +113,7 @@ swfobject.embedSWF(&quot;mymovie.swf&quot;, &quot;flashcontent&quot;, &quot;550&
 <span style="color: #333;"><span style="color: #33F;">&lt;/body<span style="color: #33F;">&gt;</span></span></span>
 <span style="color: #333;"><span style="color: #33F;">&lt;/html<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
 
-<h2>Disabling SWFObject&#8217;s Default CSS Behavior</h2>
+<h2>Disabling SWFObject's Default CSS Behavior</h2>
 <p>Not everyone will want this CSS injected into their page. To prevent SWFObject from inserting this CSS, simply add this line of JavaScript to your page:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="javascript">swfobject.<span style="color: #63C;">switchOffAutoHideShow</span><span style="color: #666;">&#40;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
@@ -192,7 +192,7 @@ swfobject.embedSWF(&quot;mymovie.swf&quot;, &quot;flashcontent&quot;, &quot;550&
 	<li class="page_item page-item-89"><a href="../../the-basics/using-javascript-with-static-publishing/index.html" title="Using JavaScript with Static Publishing">Using JavaScript with Static Publishing</a></li>
 	<li class="page_item page-item-5"><a href="../../the-basics/dynamic-publishing/index.html" title="Dynamic Publishing">Dynamic Publishing</a></li>
 	<li class="page_item page-item-122"><a href="../../the-basics/advanced-options-with-dynamic-publishing/index.html" title="Advanced Options with Dynamic Publishing">Advanced Options with Dynamic Publishing</a></li>
-	<li class="page_item page-item-9"><a href="../../the-basics/adobes-express-install/index.html" title="Adobe&#8217;s Express Install">Adobe&#8217;s Express Install</a></li>
+	<li class="page_item page-item-9"><a href="../../the-basics/adobes-express-install/index.html" title="Adobe's Express Install">Adobe's Express Install</a></li>
 </ul>
 </li>
 <li class="page_item page-item-12 current_page_ancestor current_page_parent"><a href="../index.html" title="Advanced Topics">Advanced Topics</a>
@@ -209,7 +209,7 @@ swfobject.embedSWF(&quot;mymovie.swf&quot;, &quot;flashcontent&quot;, &quot;550&
 	<li class="page_item page-item-21"><a href="../placing-html-elements-over-a-flash-movie/index.html" title="Placing HTML Elements Over a Flash Movie">Placing HTML Elements Over a Flash Movie</a></li>
 	<li class="page_item page-item-41"><a href="../provide-swfobject-embed-code-to-your-visitors/index.html" title="Provide SWFObject Embed Code to Your Visitors">Provide SWFObject Embed Code to Your Visitors</a></li>
 	<li class="page_item page-item-38"><a href="../swfobject-and-ajax/index.html" title="SWFObject and Ajax (xmlhttprequest)">SWFObject and Ajax (xmlhttprequest)</a></li>
-	<li class="page_item page-item-241 current_page_item"><a href="index.html" title="SWFObject&#8217;s Default CSS Injection">SWFObject&#8217;s Default CSS Injection</a></li>
+	<li class="page_item page-item-241 current_page_item"><a href="index.html" title="SWFObject's Default CSS Injection">SWFObject's Default CSS Injection</a></li>
 	<li class="page_item page-item-152"><a href="../the-callback-function/index.html" title="The Callback Function">The Callback Function</a></li>
 	<li class="page_item page-item-316"><a href="../using-a-swf-as-a-background-image/index.html" title="Using a SWF as a Background Image">Using a SWF as a Background Image</a></li>
 </ul>
@@ -232,7 +232,7 @@ swfobject.embedSWF(&quot;mymovie.swf&quot;, &quot;flashcontent&quot;, &quot;550&
     
 	<div id="footer">
         <p class="legalese">LearnSWFObject.com is owned and maintained by <a href="http://pipwerks.com">Philip Hutchison</a>, a member of the <a href="http://code.google.com/p/swfobject">SWFObject</a> project team.<br />
-       All code examples are licensed under an <a rel="license" href="http://www.opensource.org/licenses/mit-license.php">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
+       All code examples are licensed under an <a rel="license" href="http://pipwerks.mit-license.org/">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
        All other content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.</p>
         
 	</div><!-- /footer -->

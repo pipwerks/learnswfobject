@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>learnswfobject.com: Using expressInstall to check for version 11 or higher [dynamic publishing]</title>
+
+<!-- this CSS stylesheet is unrelated to the example code -->
+<link href="/css/simple.css" rel="stylesheet" />
+
+<!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+<script>
+    swfobject.embedSWF("/demos/swf/sample.swf", "flashcontent", "550", "400", "20", "/demos/swf/expressinstall.swf");
+</script>
+
+<style>
+/* adding a border and fill so the element is more noticeable */
+#flashcontent {
+	background: #FFFFCC;
+	border: 1px solid #CCCC66;
+	padding: 2em;
+}
+</style>
+
+</head>
+
+<body>
+<h1>learnswfobject.com/demos</h1>
+<h2>Using Express Install to check for version 20 or higher</h2> 
+<p>This example uses SWFObject's <a href="http://learnswfobject.com/the-basics/dynamic-publishing/"><em>dynamic publishing</em></a>. <a href="http://learnswfobject.com/the-basics/adobes-express-install/">See this example's related article</a>.</p>
+
+<div id="flashcontent">Place fallback content here for users who don't have Flash</div>
+
+<div id="site-info">
+<p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
+<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+</div>
+
+</body>
+</html>

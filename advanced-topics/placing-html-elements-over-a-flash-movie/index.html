@@ -23,8 +23,8 @@
 			<h1>Placing HTML Elements Over a Flash Movie</h1>
 			<p>Sometimes you might want your SWF to go <em>under</em> some page elements. This has always been a tough nut to crack for Flash developers, because the Flash Player always writes the SWF on the topmost layer of the page, regardless of z-index order. This is especially annoying for people who use CSS-based menus, such as the famous Suckerfish menu method.</p>
 <p>The answer is to use <em>wmode=&#8221;opaque&#8221;</em> combined with <em>positioning</em> in your CSS.</p>
-<p>Start by establishing the <em>position</em> relationship between the element you want to place over the SWF (we&#8217;ll call this the <em>overlay</em> element) and its parent. I won&#8217;t get into how CSS positioning works; it&#8217;s covered well enough on other sites, such as <a href="http://css-tricks.com/absolute-positioning-inside-relative-positioning/">CSS-Tricks</a>.</p>
-<p>In the examples presented here, the SWF will be embedded in a div that has a wrapper div. This wrapper div has established its position through the declaration <code>position: relative;</code> which allows us to control the overlay&#8217;s placement via <code>position: absolute</code>.</p>
+<p>Start by establishing the <em>position</em> relationship between the element you want to place over the SWF (we'll call this the <em>overlay</em> element) and its parent. I won't get into how CSS positioning works; it's covered well enough on other sites, such as <a href="http://css-tricks.com/absolute-positioning-inside-relative-positioning/">CSS-Tricks</a>.</p>
+<p>In the examples presented here, the SWF will be embedded in a div that has a wrapper div. This wrapper div has established its position through the declaration <code>position: relative;</code> which allows us to control the overlay's placement via <code>position: absolute</code>.</p>
 
 <div class="wp_syntax"><div class="code"><pre class="css"><span style="color: #cc00cc;">#wrapper</span> <span style="color: #666;">&#123;</span> <span style="color: #33F;">position</span><span style="color: #00AA00;">:</span> <span style="color: #F06;">relative</span><span style="color: #00AA00;">;</span> <span style="color: #666;">&#125;</span>
 <span style="color: #cc00cc;">#overlay</span> <span style="color: #666;">&#123;</span> <span style="color: #33F;">position</span><span style="color: #00AA00;">:</span> <span style="color: #F06;">absolute</span><span style="color: #00AA00;">;</span> <span style="color: #666;">&#125;</span>
@@ -36,7 +36,7 @@
 */</span>
 <span style="color: #cc00cc;">#flash</span> <span style="color: #666;">&#123;</span> <span style="color: #666;">&#125;</span></pre></div></div>
 
-<p>Next, make sure the wmode is set to &#8220;opaque&#8221;. SWFObject 2.x&#8217;s dynamic publishing method makes this a breeze; just add the parameter to the &#8220;params&#8221; object:</p>
+<p>Next, make sure the wmode is set to &#8220;opaque&#8221;. SWFObject 2.x's dynamic publishing method makes this a breeze; just add the parameter to the &#8220;params&#8221; object:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
 <span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span> wmode<span style="color: #333;">:</span> <span style="color: #F06;">&quot;opaque&quot;</span> <span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
@@ -45,7 +45,7 @@
 swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;movie.swf&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;flash&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;7&quot;</span><span style="color: #333;">,</span>
                   <span style="color: #F06;">&quot;expressinstall.swf&quot;</span><span style="color: #333;">,</span> flashvars<span style="color: #333;">,</span> params<span style="color: #333;">,</span> attributes<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
 
-<p>Setting wmode with SWFObject 2.x&#8217;s static publishing is equally easy:</p>
+<p>Setting wmode with SWFObject 2.x's static publishing is equally easy:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;object</span> <span style="color: #63C;">id</span>=<span style="color: #F06;">&quot;flashcontent&quot;</span> <span style="color: #63C;">classid</span>=<span style="color: #F06;">&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot;</span> <span style="color: #63C;">width</span>=<span style="color: #F06;">&quot;550&quot;</span> <span style="color: #63C;">height</span>=<span style="color: #F06;">&quot;400&quot;</span><span style="color: #33F;">&gt;</span></span>
    <span style="color: #333;"><span style="color: #33F;">&lt;param</span> <span style="color: #63C;">name</span>=<span style="color: #F06;">&quot;movie&quot;</span> <span style="color: #63C;">value</span>=<span style="color: #F06;">&quot;movie.swf&quot;</span> <span style="color: #33F;">/&gt;</span></span>
@@ -64,8 +64,8 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
 &nbsp;
 <span style="color: #333;"><span style="color: #33F;">&lt;/object<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
 
-<p class="note">Reminder:  SWFObject&#8217;s static publishing requires setting the the wmode param for each object.</p>
-<p>Demos: <a href="http://demos.learnswfobject.com/html-over-swf/static.html">static publishing</a> | <a href="http://demos.learnswfobject.com/html-over-swf/dynamic.html">dynamic publishing</a></p>
+<p class="note">Reminder:  SWFObject's static publishing requires setting the the wmode param for each object.</p>
+<p>Demos: <a href="http://learnswfobject.com/demos/html-over-swf/static.html">static publishing</a> | <a href="http://learnswfobject.com/demos/html-over-swf/dynamic.html">dynamic publishing</a></p>
 					</div>
 		    
     <div id="comments">
@@ -86,7 +86,7 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
 	<li class="page_item page-item-89"><a href="../../the-basics/using-javascript-with-static-publishing/index.html" title="Using JavaScript with Static Publishing">Using JavaScript with Static Publishing</a></li>
 	<li class="page_item page-item-5"><a href="../../the-basics/dynamic-publishing/index.html" title="Dynamic Publishing">Dynamic Publishing</a></li>
 	<li class="page_item page-item-122"><a href="../../the-basics/advanced-options-with-dynamic-publishing/index.html" title="Advanced Options with Dynamic Publishing">Advanced Options with Dynamic Publishing</a></li>
-	<li class="page_item page-item-9"><a href="../../the-basics/adobes-express-install/index.html" title="Adobe&#8217;s Express Install">Adobe&#8217;s Express Install</a></li>
+	<li class="page_item page-item-9"><a href="../../the-basics/adobes-express-install/index.html" title="Adobe's Express Install">Adobe's Express Install</a></li>
 </ul>
 </li>
 <li class="page_item page-item-12 current_page_ancestor current_page_parent"><a href="../index.html" title="Advanced Topics">Advanced Topics</a>
@@ -103,7 +103,7 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
 	<li class="page_item page-item-21 current_page_item"><a href="index.html" title="Placing HTML Elements Over a Flash Movie">Placing HTML Elements Over a Flash Movie</a></li>
 	<li class="page_item page-item-41"><a href="../provide-swfobject-embed-code-to-your-visitors/index.html" title="Provide SWFObject Embed Code to Your Visitors">Provide SWFObject Embed Code to Your Visitors</a></li>
 	<li class="page_item page-item-38"><a href="../swfobject-and-ajax/index.html" title="SWFObject and Ajax (xmlhttprequest)">SWFObject and Ajax (xmlhttprequest)</a></li>
-	<li class="page_item page-item-241"><a href="../swfobjects-default-css-injection/index.html" title="SWFObject&#8217;s Default CSS Injection">SWFObject&#8217;s Default CSS Injection</a></li>
+	<li class="page_item page-item-241"><a href="../swfobjects-default-css-injection/index.html" title="SWFObject's Default CSS Injection">SWFObject's Default CSS Injection</a></li>
 	<li class="page_item page-item-152"><a href="../the-callback-function/index.html" title="The Callback Function">The Callback Function</a></li>
 	<li class="page_item page-item-316"><a href="../using-a-swf-as-a-background-image/index.html" title="Using a SWF as a Background Image">Using a SWF as a Background Image</a></li>
 </ul>
@@ -126,7 +126,7 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
     
 	<div id="footer">
         <p class="legalese">LearnSWFObject.com is owned and maintained by <a href="http://pipwerks.com">Philip Hutchison</a>, a member of the <a href="http://code.google.com/p/swfobject">SWFObject</a> project team.<br />
-       All code examples are licensed under an <a rel="license" href="http://www.opensource.org/licenses/mit-license.php">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
+       All code examples are licensed under an <a rel="license" href="http://pipwerks.mit-license.org/">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
        All other content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.</p>
         
 	</div><!-- /footer -->

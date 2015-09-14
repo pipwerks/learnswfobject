@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>learnswfobject.com: Stretch the SWF to Fit the Browser Window 100% [static publishing]</title>
+
+<!-- An explanation for this example (and more examples) can be found at http://learnswfobject.com/advanced-topics/100-width-and-height-in-browser/ -->
+
+<!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+<script>
+	swfobject.registerObject("flash", "7.0.0", "/demos/swf/expressinstall.swf");
+</script>
+
+<style>
+html {
+  height: 100%;
+  overflow: hidden; /* Hides scrollbar in IE */
+}
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#flash { height: 100%; }
+</style>
+
+</head>
+
+<body>
+  <object id="flash" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%">
+    <param name="movie" value="/demos/swf/sample.swf" />
+    <!--[if !IE]>-->
+    <object type="application/x-shockwave-flash" data="/demos/swf/sample.swf" width="100%" height="100%">
+    <!--<![endif]-->
+      <p>Place fallback content here for users who don't have Flash<p>
+
+    <!--[if !IE]>-->
+    </object>
+    <!--<![endif]-->
+  </object>
+</body>
+</html>

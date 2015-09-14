@@ -21,11 +21,11 @@
 
 				<div class="post" id="post-29">
 			<h1>Load a SWF Using a JavaScript Onclick Event</h1>
-			<p>SWFObject&#8217;s default behavior is to load a SWF when the DOM is ready. Sometimes you might wish to embed a SWF when a user clicks a link or performs some other action. There are a number of ways to handle this; here is a simple example to get you started.</p>
+			<p>SWFObject's default behavior is to load a SWF when the DOM is ready. Sometimes you might wish to embed a SWF when a user clicks a link or performs some other action. There are a number of ways to handle this; here is a simple example to get you started.</p>
 <ol>
-<li>Create the link in your markup, then add an onclick event that invokes a function we&#8217;ll name &#8220;loadSWF&#8221; (you can use any function name you like).</li>
-<li>Add &#8220;return false;&#8221; to the onclick event to ensure the browser doesn&#8217;t follow the link when it&#8217;s clicked.</li>
-<li>Add a function named &#8220;loadSWF&#8221; to the JavaScript in your document&#8217;s head.</li>
+<li>Create the link in your markup, then add an onclick event that invokes a function we'll name &#8220;loadSWF&#8221; (you can use any function name you like).</li>
+<li>Add &#8220;return false;&#8221; to the onclick event to ensure the browser doesn't follow the link when it's clicked.</li>
+<li>Add a function named &#8220;loadSWF&#8221; to the JavaScript in your document's head.</li>
 </ol>
 <p>The code in your head should look like this:</p>
 
@@ -45,10 +45,10 @@ function loadSWF(url){
 <span style="color: #333;"><span style="color: #33F;">&lt;div</span> <span style="color: #63C;">id</span>=<span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #33F;">&gt;</span><span style="color: #33F;">&lt;/div<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
 
 <p>Notice that the loadSWF function uses the href of the link as an argument.  This is just one of many ways to write the function. You could also hardcode the URL if you prefer.</p>
-<p><strong>Demos</strong>: <a href="http://demos.learnswfobject.com/load-onclick/onclick.html">Load a SWF using an onclick event</a> | <a href="http://demos.learnswfobject.com/load-onclick/onclick-JW.html">Load the JW FLV Player using an onclick event</a></p>
+<p><strong>Demos</strong>: <a href="http://learnswfobject.com/demos/load-onclick/onclick.html">Load a SWF using an onclick event</a> | <a href="http://learnswfobject.com/demos/load-onclick/onclick-JW.html">Load the JW FLV Player using an onclick event</a></p>
 <h2>Replacing a loaded SWF with another SWF</h2>
 <p>This is a slightly trickier proposition than it seems!  Loading and unloading multiple SWFs in the browser can lead to nasty memory leaks that can slow your computer down considerably. In an effort to address this issue, SWFObject 2 includes a new method named <code>swfobject.removeSWF()</code>; this method removes all traces of the embedded SWF, eliminating the memory leak issue.</p>
-<p>What&#8217;s so tricky about using <code>swfobject.removeSWF</code> you ask? Well, SWFObject 2 embeds SWFs by replacing the targeted element with an <code>&lt;object&gt;</code> element. <code>swfobject.removeSWF()</code> completely erases the <code>&lt;object&gt;</code> element from the page. So if you start with this:</p>
+<p>What's so tricky about using <code>swfobject.removeSWF</code> you ask? Well, SWFObject 2 embeds SWFs by replacing the targeted element with an <code>&lt;object&gt;</code> element. <code>swfobject.removeSWF()</code> completely erases the <code>&lt;object&gt;</code> element from the page. So if you start with this:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;body<span style="color: #33F;">&gt;</span></span></span>
 <span style="color: #333;"><span style="color: #33F;">&lt;div</span> <span style="color: #63C;">id</span>=<span style="color: #F06;">&quot;flash&quot;</span><span style="color: #33F;">&gt;</span><span style="color: #33F;">&lt;/div<span style="color: #33F;">&gt;</span></span></span>
@@ -65,7 +65,7 @@ function loadSWF(url){
 <div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;body<span style="color: #33F;">&gt;</span></span></span>
 <span style="color: #333;"><span style="color: #33F;">&lt;/body<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
 
-<p>As you can see from the above code, you will need to <em>recreate</em> your original DIV whenever you use <code>removeSWF</code>, or else you will have no DIV to use with SWFObject. There are a gazillion ways to handle the situation, but here&#8217;s one you might find helpful:</p>
+<p>As you can see from the above code, you will need to <em>recreate</em> your original DIV whenever you use <code>removeSWF</code>, or else you will have no DIV to use with SWFObject. There are a gazillion ways to handle the situation, but here's one you might find helpful:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #AAA;">//Support function: checks to see if target</span>
 <span style="color: #AAA;">//element is an object or embed element</span>
@@ -110,7 +110,7 @@ function loadSWF(url){
    <span style="color: #666;">&#125;</span>
 <span style="color: #666;">&#125;</span></pre></div></div>
 
-<p><strong>Demo</strong>: <a href="http://demos.learnswfobject.com/load-onclick/onclick2.html">Replace a loaded SWF with another one</a></p>
+<p><strong>Demo</strong>: <a href="http://learnswfobject.com/demos/load-onclick/onclick2.html">Replace a loaded SWF with another one</a></p>
 					</div>
 		    
     <div id="comments">
@@ -131,7 +131,7 @@ function loadSWF(url){
 	<li class="page_item page-item-89"><a href="../../the-basics/using-javascript-with-static-publishing/index.html" title="Using JavaScript with Static Publishing">Using JavaScript with Static Publishing</a></li>
 	<li class="page_item page-item-5"><a href="../../the-basics/dynamic-publishing/index.html" title="Dynamic Publishing">Dynamic Publishing</a></li>
 	<li class="page_item page-item-122"><a href="../../the-basics/advanced-options-with-dynamic-publishing/index.html" title="Advanced Options with Dynamic Publishing">Advanced Options with Dynamic Publishing</a></li>
-	<li class="page_item page-item-9"><a href="../../the-basics/adobes-express-install/index.html" title="Adobe&#8217;s Express Install">Adobe&#8217;s Express Install</a></li>
+	<li class="page_item page-item-9"><a href="../../the-basics/adobes-express-install/index.html" title="Adobe's Express Install">Adobe's Express Install</a></li>
 </ul>
 </li>
 <li class="page_item page-item-12 current_page_ancestor current_page_parent"><a href="../index.html" title="Advanced Topics">Advanced Topics</a>
@@ -148,7 +148,7 @@ function loadSWF(url){
 	<li class="page_item page-item-21"><a href="../placing-html-elements-over-a-flash-movie/index.html" title="Placing HTML Elements Over a Flash Movie">Placing HTML Elements Over a Flash Movie</a></li>
 	<li class="page_item page-item-41"><a href="../provide-swfobject-embed-code-to-your-visitors/index.html" title="Provide SWFObject Embed Code to Your Visitors">Provide SWFObject Embed Code to Your Visitors</a></li>
 	<li class="page_item page-item-38"><a href="../swfobject-and-ajax/index.html" title="SWFObject and Ajax (xmlhttprequest)">SWFObject and Ajax (xmlhttprequest)</a></li>
-	<li class="page_item page-item-241"><a href="../swfobjects-default-css-injection/index.html" title="SWFObject&#8217;s Default CSS Injection">SWFObject&#8217;s Default CSS Injection</a></li>
+	<li class="page_item page-item-241"><a href="../swfobjects-default-css-injection/index.html" title="SWFObject's Default CSS Injection">SWFObject's Default CSS Injection</a></li>
 	<li class="page_item page-item-152"><a href="../the-callback-function/index.html" title="The Callback Function">The Callback Function</a></li>
 	<li class="page_item page-item-316"><a href="../using-a-swf-as-a-background-image/index.html" title="Using a SWF as a Background Image">Using a SWF as a Background Image</a></li>
 </ul>
@@ -171,7 +171,7 @@ function loadSWF(url){
     
 	<div id="footer">
         <p class="legalese">LearnSWFObject.com is owned and maintained by <a href="http://pipwerks.com">Philip Hutchison</a>, a member of the <a href="http://code.google.com/p/swfobject">SWFObject</a> project team.<br />
-       All code examples are licensed under an <a rel="license" href="http://www.opensource.org/licenses/mit-license.php">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
+       All code examples are licensed under an <a rel="license" href="http://pipwerks.mit-license.org/">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
        All other content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.</p>
         
 	</div><!-- /footer -->

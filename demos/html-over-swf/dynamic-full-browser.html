@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>learnswfobject.com: Placing HTML elements over a Flash SWF [dynamic publishing]</title>
+
+<!-- simple page styling, unrelated to code example -->
+<link href="/css/simple.css" rel="stylesheet" />
+
+
+<!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+<script>
+	var flashvars = {};
+	var params = { wmode: "opaque", scale: "exactFit" }; //Avoid wmode transparent if possible
+	var attributes = {};
+    swfobject.embedSWF("/demos/swf/sample.swf", "flash", "100%", "100%", "9", "/demos/swf/expressinstall.swf", flashvars, params, attributes);
+</script>
+
+<style>
+
+html { height: 100%; overflow: hidden; position: relative; }
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative; /* establish relationship with child elements */
+}
+
+#flash { height: 100%; }
+
+#wrapper {
+	position: absolute; /* this element will automatically appear overtop of the wmode=opaque SWF without needing z-index */
+	top: 0;
+	left: 0;
+	padding: 2em;
+	color: #000;
+	width: 100%;
+	height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="flash">Alt content if you don't have Flash</div>
+
+<div id="wrapper">
+<!-- everything in div#wrapper will be placed above the SWF -->
+
+<h1>learnswfobject.com/demos</h1>
+<h2>Placing HTML elements over a Flash SWF</h2>
+<p>This example uses SWFObject's <a href="http://learnswfobject.com/the-basics/dynamic-publishing/"><em>dynamic publishing</em></a>. <a href="http://learnswfobject.com/advanced-topics/placing-html-elements-over-a-flash-movie/">See this example's related article</a>.</p>
+
+<p>This is an example of a DOM element overlapping a Flash SWF.</p>
+
+<div id="site-info">
+<p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
+<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+</div>
+
+</div><!-- /wrapper -->
+
+</body>
+</html>
+

@@ -21,14 +21,14 @@
 
 				<div class="post" id="post-15">
 			<h1>External Interface</h1>
-			<p>Flash&#8217;s <em>ExternalInterface</em> class facilitates ActionScript-to-JavaScript communication.</p>
+			<p>Flash's <em>ExternalInterface</em> class facilitates ActionScript-to-JavaScript communication.</p>
 <p><strong>Notes:</strong></p>
 <ul>
-<li>This example uses ActionScript code from an <a href="http://www.adobe.com/cfusion/knowledgebase/index.cfm?id=tn_15683">Adobe External Interface tutorial</a>. If you aren&#8217;t familiar with the inner workings of External Interface, please read Adobe&#8217;s <a href="http://www.adobe.com/cfusion/knowledgebase/index.cfm?id=tn_15683">tutorial</a>.</li>
+<li>This example uses ActionScript code from an <a href="http://www.adobe.com/cfusion/knowledgebase/index.cfm?id=tn_15683">Adobe External Interface tutorial</a>. If you aren't familiar with the inner workings of External Interface, please read Adobe's <a href="http://www.adobe.com/cfusion/knowledgebase/index.cfm?id=tn_15683">tutorial</a>.</li>
 <li>External Interface will NOT work on a local drive (such as your C: drive) unless you edit your <a href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html">Flash Player security settings</a>. This is to prevent malicious SWFs from accessing your hard drive.</li>
 </ul>
 <h2>Using External Interface with Dynamic Publishing</h2>
-<p>ExternalInterface lets you treat your SWF like a JavaScript object; functions (callbacks) made public in the SWF are available through dot notation in JavaScript. In order to use the SWF in this way, we must first &#8216;grab&#8217; it using <code>document.getElementById</code>.</p>
+<p>ExternalInterface lets you treat your SWF like a JavaScript object; functions (callbacks) made public in the SWF are available through dot notation in JavaScript. In order to use the SWF in this way, we must first &#8216;grab' it using <code>document.getElementById</code>.</p>
 <p>Notes: </p>
 <ul>
 <li>You must specify the ID of the SWF.</li>
@@ -47,11 +47,11 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
   swf.<span style="color: #63C;">sendTextToFlash</span><span style="color: #666;">&#40;</span>text<span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
 <span style="color: #666;">&#125;</span></pre></div></div>
 
-<p><strong>Demo</strong>: <a href="http://demos.learnswfobject.com/external-interface/dynamic.html">dynamic publishing</a></p>
+<p><strong>Demo</strong>: <a href="http://learnswfobject.com/demos/external-interface/dynamic.html">dynamic publishing</a></p>
 <h2>Using External Interface with Static Publishing</h2>
-<p>External Interface works the same with static publishing as it does with dynamic publishing, except for one big difference: you can&#8217;t use <code>document.getElementById</code> to access the SWF.</p>
-<p>SWFObject&#8217;s static publishing approach requires nested object elements. Only the <strong>outer</strong> object is given an ID. Since the <strong>inner</strong> object doesn&#8217;t have an ID, <code>document.getElementById</code> won&#8217;t work on the inner object element.</p>
-<p>So how do you deal with this confusing conundrum? Easy! SWFObject includes a special helper function named <code>swfobject.getObjectById</code>. This function works just like <code>document.getElementById</code>, but is designed specifically to deal with SWFObject&#8217;s nested object elements.</p>
+<p>External Interface works the same with static publishing as it does with dynamic publishing, except for one big difference: you can't use <code>document.getElementById</code> to access the SWF.</p>
+<p>SWFObject's static publishing approach requires nested object elements. Only the <strong>outer</strong> object is given an ID. Since the <strong>inner</strong> object doesn't have an ID, <code>document.getElementById</code> won't work on the inner object element.</p>
+<p>So how do you deal with this confusing conundrum? Easy! SWFObject includes a special helper function named <code>swfobject.getObjectById</code>. This function works just like <code>document.getElementById</code>, but is designed specifically to deal with SWFObject's nested object elements.</p>
 <p>The JavaScript will look like something like this:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="javascript">swfobject.<span style="color: #63C;">registerObject</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;ExternalInterfaceExample&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;8&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;/path/to/expressinstall.swf&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
@@ -74,7 +74,7 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
   <span style="color: #AAA;">&lt;!--&lt;![endif]--&gt;</span>
 <span style="color: #333;"><span style="color: #33F;">&lt;/object<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
 
-<p><strong>Demo</strong>: <a href="http://demos.learnswfobject.com/external-interface/static.html">static publishing</a></p>
+<p><strong>Demo</strong>: <a href="http://learnswfobject.com/demos/external-interface/static.html">static publishing</a></p>
 					</div>
 		    
     <div id="comments">
@@ -95,7 +95,7 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
 	<li class="page_item page-item-89"><a href="../../the-basics/using-javascript-with-static-publishing/index.html" title="Using JavaScript with Static Publishing">Using JavaScript with Static Publishing</a></li>
 	<li class="page_item page-item-5"><a href="../../the-basics/dynamic-publishing/index.html" title="Dynamic Publishing">Dynamic Publishing</a></li>
 	<li class="page_item page-item-122"><a href="../../the-basics/advanced-options-with-dynamic-publishing/index.html" title="Advanced Options with Dynamic Publishing">Advanced Options with Dynamic Publishing</a></li>
-	<li class="page_item page-item-9"><a href="../../the-basics/adobes-express-install/index.html" title="Adobe&#8217;s Express Install">Adobe&#8217;s Express Install</a></li>
+	<li class="page_item page-item-9"><a href="../../the-basics/adobes-express-install/index.html" title="Adobe's Express Install">Adobe's Express Install</a></li>
 </ul>
 </li>
 <li class="page_item page-item-12 current_page_ancestor current_page_parent"><a href="../index.html" title="Advanced Topics">Advanced Topics</a>
@@ -112,7 +112,7 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
 	<li class="page_item page-item-21"><a href="../placing-html-elements-over-a-flash-movie/index.html" title="Placing HTML Elements Over a Flash Movie">Placing HTML Elements Over a Flash Movie</a></li>
 	<li class="page_item page-item-41"><a href="../provide-swfobject-embed-code-to-your-visitors/index.html" title="Provide SWFObject Embed Code to Your Visitors">Provide SWFObject Embed Code to Your Visitors</a></li>
 	<li class="page_item page-item-38"><a href="../swfobject-and-ajax/index.html" title="SWFObject and Ajax (xmlhttprequest)">SWFObject and Ajax (xmlhttprequest)</a></li>
-	<li class="page_item page-item-241"><a href="../swfobjects-default-css-injection/index.html" title="SWFObject&#8217;s Default CSS Injection">SWFObject&#8217;s Default CSS Injection</a></li>
+	<li class="page_item page-item-241"><a href="../swfobjects-default-css-injection/index.html" title="SWFObject's Default CSS Injection">SWFObject's Default CSS Injection</a></li>
 	<li class="page_item page-item-152"><a href="../the-callback-function/index.html" title="The Callback Function">The Callback Function</a></li>
 	<li class="page_item page-item-316"><a href="../using-a-swf-as-a-background-image/index.html" title="Using a SWF as a Background Image">Using a SWF as a Background Image</a></li>
 </ul>
@@ -135,7 +135,7 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
     
 	<div id="footer">
         <p class="legalese">LearnSWFObject.com is owned and maintained by <a href="http://pipwerks.com">Philip Hutchison</a>, a member of the <a href="http://code.google.com/p/swfobject">SWFObject</a> project team.<br />
-       All code examples are licensed under an <a rel="license" href="http://www.opensource.org/licenses/mit-license.php">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
+       All code examples are licensed under an <a rel="license" href="http://pipwerks.mit-license.org/">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
        All other content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.</p>
         
 	</div><!-- /footer -->

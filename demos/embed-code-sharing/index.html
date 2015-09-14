@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>learnswfobject.com/demos: Embedding a SWF then displaying markup for visitors to copy</title>
+
+<!-- this CSS stylesheet is unrelated to the example code -->
+<link href="/css/simple.css" rel="stylesheet" />
+
+<style>
+.attention {
+	font-size: small;
+	padding: 1em;
+	margin-top: 2em;
+	border: 1px solid #FFF;
+	background: #09F;
+	color: #FFF;
+}
+
+#displayMarkup {
+	margin-top: 2em;
+	width: 100%;
+	height: 200px;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: small;
+}
+
+</style>
+
+<!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+<script>
+	
+	var swf = {
+		url: "http://learnswfobject.com/demos/swf/sample.swf",
+		id: "flashcontent",
+		w: "550",
+		h: "400",
+		minFlashRequired: "9",
+		embedCode: ""
+	};
+	
+	//Display the SWF
+    swfobject.embedSWF(swf.url, swf.id, swf.w, swf.h, swf.minFlashRequired);
+	
+	//Display the cross-browser embed code
+	swfobject.addLoadEvent(function (){
+									 									 
+		swf.embedcode = "<object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' width='" +swf.w +"' height='" +swf.h +"'>\n"
+					  + "<param name='movie' value='" +swf.url +"' />\n"
+					  + "<!--[if !IE]>-->\n"
+					  + "<object type='application/x-shockwave-flash' data='" +swf.url +"' width='" +swf.w +"' height='" +swf.h +"'>\n"
+					  + "<!--<![endif]-->\n"
+					  + "<p><a href='http://www.adobe.com/go/EN_US-H-GET-FLASH'>Adobe Flash Player is required to view this content.</a></p>\n"
+					  + "<!--[if !IE]>-->\n"
+					  + "</object>\n"
+					  + "<!--<![endif]-->\n"
+					  + "</object>";
+
+		var targetElement = document.getElementById("site-info");
+		
+		var p = document.createElement("p");
+		p.className = "attention";
+		p.innerHTML = "Want to put this movie on your webpage? Copy this code and paste it inside your page's &lt;body&gt; tags!"
+		document.body.insertBefore(p, targetElement);
+		
+		var textarea = document.createElement("textarea");
+		textarea.setAttribute("id", "displayMarkup");
+		textarea.value = swf.embedcode;
+		document.body.insertBefore(textarea, targetElement);
+		
+		var testlink = document.createElement("p");
+		testlink.innerHTML = "<a href='#' onclick='return testGeneratedCode();'>Click here to test the embed code</a> (pastes embed code into a popup window)";
+		document.body.insertBefore(testlink, targetElement);
+		
+	});
+	
+	function testGeneratedCode(){
+		
+		var testmarkup = "<!DOCTYPE html><html>"
+					   + "<head><title>Testing your embed code</title></head>"
+					   + "<body style='margin:0;padding:0'>" +swf.embedcode +"</body>"
+					   + "</html>";
+					   
+		var testwin = window.open("","generatedcodetest", "left=20,top=20,width=" +swf.w +",height=" +swf.h +",toolbar=0,resizable=0");
+		if(testwin){
+			var testwinDoc = testwin.document;
+			testwinDoc.write(testmarkup);
+			testwinDoc.close();
+		}
+		
+		return false;
+		
+	};	
+	
+</script>
+
+</head>
+
+<body>
+<h1>learnswfobject.com/demos</h1>
+<h2>Embedding a SWF then displaying markup for visitors to copy</h2>
+<p>This example uses SWFObject's <a href="http://learnswfobject.com/the-basics/dynamic-publishing/"><em>dynamic publishing</em></a>. <a href="http://learnswfobject.com/advanced-topics/provide-swfobject-embed-code-to-your-visitors/">See this example's related article</a>.</p> 
+
+<div id="flashWrapper">
+  <div id="flashcontent">Place fallback content here for users who don't have Flash</div>
+</div>
+
+<div id="site-info">
+<p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
+<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+</div>
+
+</body>
+</html>

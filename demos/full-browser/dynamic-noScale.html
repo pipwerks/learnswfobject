@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>learnswfobject.com: Stretch the SWF to Fit the Browser Window 100% [dynamic publishing]</title>
+
+<!-- An explanation for this example (and more examples) can be found at http://learnswfobject.com/advanced-topics/100-width-and-height-in-browser/ -->
+
+<!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+<script>
+var flashvars = {};
+var params = { scale: "noScale" };
+var attributes = {};
+
+swfobject.embedSWF("/demos/swf/sample.swf", "flash", "100%", "100%", "9", false, flashvars, params, attributes);
+</script>
+
+
+<style>
+html {
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #eee;
+}
+#flash { height: 100%; }
+</style>
+
+</head>
+
+<body>
+<div id="flash">Place fallback content here for users who don't have Flash Player</div>
+</body>
+</html>

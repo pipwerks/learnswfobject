@@ -21,7 +21,7 @@
 
 				<div class="post" id="post-19">
 			<h1>100% Width and Height in Browser</h1>
-			<p>You can stretch a SWF to fit the browser window by using a value of &#8220;100%&#8221; in the SWFObject embed code. You&#8217;ll also need to set some CSS properties in your HTML page:</p>
+			<p>You can stretch a SWF to fit the browser window by using a value of &#8220;100%&#8221; in the SWFObject embed code. You'll also need to set some CSS properties in your HTML page:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="css">html <span style="color: #666;">&#123;</span>
   <span style="color: #33F;">height</span><span style="color: #00AA00;">:</span> <span style="color: #933;"><span style="color: #F06;">100</span>%</span><span style="color: #00AA00;">;</span>
@@ -38,9 +38,9 @@ body <span style="color: #666;">&#123;</span>
   <span style="color: #33F;">height</span><span style="color: #00AA00;">:</span> <span style="color: #933;"><span style="color: #F06;">100</span>%</span><span style="color: #00AA00;">;</span>
 <span style="color: #666;">&#125;</span></pre></div></div>
 
-<p>The <code>html</code> element&#8217;s height needs to be set to 100% because of inheritance; using 100% height for <code>#flashcontent</code> will only work if its parent (in this case <code>body</code>) is set to 100%, which in turn will only work if its parent (<code>html</code>) is also set to 100%.</p>
+<p>The <code>html</code> element's height needs to be set to 100% because of inheritance; using 100% height for <code>#flashcontent</code> will only work if its parent (in this case <code>body</code>) is set to 100%, which in turn will only work if its parent (<code>html</code>) is also set to 100%.</p>
 <p><strong>Note: </strong>Elements in the example SWF were masked in the FLA file prior to export.</p>
-<p><strong>Working examples</strong>: <a href="http://demos.learnswfobject.com/full-browser/static.html">static publishing</a> | <a href="http://demos.learnswfobject.com/full-browser/dynamic.html">dynamic publishing</a>.</p>
+<p><strong>Working examples</strong>: <a href="http://learnswfobject.com/demos/full-browser/static.html">static publishing</a> | <a href="http://learnswfobject.com/demos/full-browser/dynamic.html">dynamic publishing</a>.</p>
 <h3>exactFit</h3>
 <p>By default, Flash Player will scale a SWF with a fixed aspect ratio (equivalent of setting scale = &#8220;showAll&#8221;). If you want the SWF to fit the browser 100% in <strong>both directions</strong>, you must set the &#8220;scale&#8221; parameter to &#8220;exactFit&#8221;. Note that this will probably distort your SWF.</p>
 <p><strong>Static</strong> publishing requires adding two <code>param</code> elements as follows:</p>
@@ -65,13 +65,13 @@ body <span style="color: #666;">&#123;</span>
 <span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
 swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;100%&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;100%&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;7&quot;</span><span style="color: #333;">,</span> <span style="color: #33F;">false</span><span style="color: #333;">,</span> flashvars<span style="color: #333;">,</span> params<span style="color: #333;">,</span> attributes<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
 
-<p><strong>Working examples for &#8220;exactFit&#8221;</strong>: <a href="http://demos.learnswfobject.com/full-browser/static-exactFit.html">static publishing</a> | <a href="http://demos.learnswfobject.com/full-browser/dynamic-exactFit.html">dynamic publishing</a>.</p>
+<p><strong>Working examples for &#8220;exactFit&#8221;</strong>: <a href="http://learnswfobject.com/demos/full-browser/static-exactFit.html">static publishing</a> | <a href="http://learnswfobject.com/demos/full-browser/dynamic-exactFit.html">dynamic publishing</a>.</p>
 <h3>noScale</h3>
-<p>If you would like the SWF to fit the browser 100%, but <strong>don&#8217;t </strong>want the contents of the SWF to be resized &#8212; no shrinking or enlarging the SWF&#8217;s content &#8212; you must set the &#8220;scale&#8221; parameter to &#8220;noScale&#8221; (see above for code examples). By default, your SWF content will be centered in the browser and the stage background color will fill the unused areas. If you wish, you could use the parameter &#8220;salign&#8221; to align your SWF content (the &#8217;stage&#8217; of the SWF).</p>
-<p><strong>Working examples for &#8220;noScale&#8221;</strong>: <a href="http://demos.learnswfobject.com/full-browser/static-noScale.html">static publishing</a> | <a href="http://demos.learnswfobject.com/full-browser/dynamic-noScale.html">dynamic publishing</a>.</p>
+<p>If you would like the SWF to fit the browser 100%, but <strong>don't </strong>want the contents of the SWF to be resized &#8212; no shrinking or enlarging the SWF's content &#8212; you must set the &#8220;scale&#8221; parameter to &#8220;noScale&#8221; (see above for code examples). By default, your SWF content will be centered in the browser and the stage background color will fill the unused areas. If you wish, you could use the parameter &#8220;salign&#8221; to align your SWF content (the 'stage' of the SWF).</p>
+<p><strong>Working examples for &#8220;noScale&#8221;</strong>: <a href="http://learnswfobject.com/demos/full-browser/static-noScale.html">static publishing</a> | <a href="http://learnswfobject.com/demos/full-browser/dynamic-noScale.html">dynamic publishing</a>.</p>
 <h3>noScale &amp; salign</h3>
-<p>If you would like to use noScale but align your SWF content (the &#8217;stage&#8217; of the SWF) to something other than center, you can use the parameter &#8220;salign&#8221;. Search Adobe&#8217;s Flash documentation for more info about the alignment options. For examples on how to add a parameter using SWFObject, see the <em>exactFit</em> section above.</p>
-<p><strong>Working examples for &#8220;noScale&#8221; with salign set to &#8220;TL&#8221;</strong>: <a href="http://demos.learnswfobject.com/full-browser/static-noScale-salign.html">static publishing</a> | <a href="http://demos.learnswfobject.com/full-browser/dynamic-noScale-salign.html">dynamic publishing</a>.</p>
+<p>If you would like to use noScale but align your SWF content (the 'stage' of the SWF) to something other than center, you can use the parameter &#8220;salign&#8221;. Search Adobe's Flash documentation for more info about the alignment options. For examples on how to add a parameter using SWFObject, see the <em>exactFit</em> section above.</p>
+<p><strong>Working examples for &#8220;noScale&#8221; with salign set to &#8220;TL&#8221;</strong>: <a href="http://learnswfobject.com/demos/full-browser/static-noScale-salign.html">static publishing</a> | <a href="http://learnswfobject.com/demos/full-browser/dynamic-noScale-salign.html">dynamic publishing</a>.</p>
 					</div>
 		    
     <div id="comments">
@@ -92,7 +92,7 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
 	<li class="page_item page-item-89"><a href="../../the-basics/using-javascript-with-static-publishing/index.html" title="Using JavaScript with Static Publishing">Using JavaScript with Static Publishing</a></li>
 	<li class="page_item page-item-5"><a href="../../the-basics/dynamic-publishing/index.html" title="Dynamic Publishing">Dynamic Publishing</a></li>
 	<li class="page_item page-item-122"><a href="../../the-basics/advanced-options-with-dynamic-publishing/index.html" title="Advanced Options with Dynamic Publishing">Advanced Options with Dynamic Publishing</a></li>
-	<li class="page_item page-item-9"><a href="../../the-basics/adobes-express-install/index.html" title="Adobe&#8217;s Express Install">Adobe&#8217;s Express Install</a></li>
+	<li class="page_item page-item-9"><a href="../../the-basics/adobes-express-install/index.html" title="Adobe's Express Install">Adobe's Express Install</a></li>
 </ul>
 </li>
 <li class="page_item page-item-12 current_page_ancestor current_page_parent"><a href="../index.html" title="Advanced Topics">Advanced Topics</a>
@@ -109,7 +109,7 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
 	<li class="page_item page-item-21"><a href="../placing-html-elements-over-a-flash-movie/index.html" title="Placing HTML Elements Over a Flash Movie">Placing HTML Elements Over a Flash Movie</a></li>
 	<li class="page_item page-item-41"><a href="../provide-swfobject-embed-code-to-your-visitors/index.html" title="Provide SWFObject Embed Code to Your Visitors">Provide SWFObject Embed Code to Your Visitors</a></li>
 	<li class="page_item page-item-38"><a href="../swfobject-and-ajax/index.html" title="SWFObject and Ajax (xmlhttprequest)">SWFObject and Ajax (xmlhttprequest)</a></li>
-	<li class="page_item page-item-241"><a href="../swfobjects-default-css-injection/index.html" title="SWFObject&#8217;s Default CSS Injection">SWFObject&#8217;s Default CSS Injection</a></li>
+	<li class="page_item page-item-241"><a href="../swfobjects-default-css-injection/index.html" title="SWFObject's Default CSS Injection">SWFObject's Default CSS Injection</a></li>
 	<li class="page_item page-item-152"><a href="../the-callback-function/index.html" title="The Callback Function">The Callback Function</a></li>
 	<li class="page_item page-item-316"><a href="../using-a-swf-as-a-background-image/index.html" title="Using a SWF as a Background Image">Using a SWF as a Background Image</a></li>
 </ul>
@@ -132,7 +132,7 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
     
 	<div id="footer">
         <p class="legalese">LearnSWFObject.com is owned and maintained by <a href="http://pipwerks.com">Philip Hutchison</a>, a member of the <a href="http://code.google.com/p/swfobject">SWFObject</a> project team.<br />
-       All code examples are licensed under an <a rel="license" href="http://www.opensource.org/licenses/mit-license.php">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
+       All code examples are licensed under an <a rel="license" href="http://pipwerks.mit-license.org/">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
        All other content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.</p>
         
 	</div><!-- /footer -->

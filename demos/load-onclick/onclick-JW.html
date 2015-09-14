@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>learnswfobject.com: Using an onclick event to load the JW FLV Player and play an FLV file [dynamic publishing]</title>
+
+<!-- this CSS stylesheet is unrelated to the example code -->
+<link href="/css/simple.css" rel="stylesheet" />
+
+<!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+<script>
+
+function playFLV(playerURL, flvURL){
+
+	var flashvars = { file: flvURL };
+	var params = {};
+	var attributes = {};
+	
+    swfobject.embedSWF(playerURL, "flashcontent", "550", "400", "9", false, flashvars, params, attributes);
+
+}
+
+</script>
+
+</head>
+
+<body>
+<h1>learnswfobject.com/demos</h1>
+<h2>Using an onclick event to load the JW FLV Player and play an FLV file</h2> 
+<p>This example uses SWFObject's <a href="http://learnswfobject.com/the-basics/dynamic-publishing/"><em>dynamic publishing</em></a>. <a href="http://learnswfobject.com/advanced-topics/load-a-swf-using-javascript-onclick-event/">See this example's related article</a>.</p>
+
+<p><a href="/demos/swf/flvplayer.swf?height=400&amp;width=550&amp;file=/load-onclick/video.flv" onclick="playFLV('/swf/flvplayer.swf', '/load-onclick/video.flv'); return false;">Click here to load the SWF!</a></p>
+
+<div id="flashcontent"></div>
+
+<div id="site-info">
+<p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
+<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+</div>
+
+</body>
+</html>

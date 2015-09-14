@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>SWFObject 2.x (static) &amp; AJAX example: Content</title>
+<link href="/css/simple.css" rel="stylesheet" />
+</head>
+
+<body>
+<p>This text is part of static-swf.html</p>
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" name="flashcontent" width="550" height="400" id="flashcontent">
+    <param name="movie" value="/demos/swf/sample.swf" />
+    <!--[if !IE]>-->
+    <object type="application/x-shockwave-flash" data="/demos/swf/sample.swf" width="550" height="400">
+    <!--<![endif]-->
+        <p>Alternative content</p>
+    <!--[if !IE]>-->
+    </object>
+    <!--<![endif]-->
+</object>
+</body>
+</html>

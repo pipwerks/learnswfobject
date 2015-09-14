@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>learnswfobject.com: Using Ajax to Embed SWF Contained on External HTML Page</title>
+
+<!-- this CSS stylesheet is unrelated to the example code -->
+<link href="/css/simple.css" rel="stylesheet" />
+
+<!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+<script>
+
+// ----- ajax functions --------------
+function getHTTPObject() {
+  var xhr = false;
+  if (window.XMLHttpRequest) {
+    xhr = new XMLHttpRequest();
+  } else if (window.ActiveXObject) {
+    try {
+      xhr = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch(e) {
+      try {
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+      } catch(e) {
+        xhr = false;
+      }
+    }
+  }
+  return xhr;
+}
+
+function grabFile(file) {
+  var request = getHTTPObject();
+  if (request) {
+    request.onreadystatechange = function() {
+      parseResponse(request);
+    };
+    request.open("GET", file, true);
+    request.send(null);
+  }
+}
+
+function parseResponse(request) {
+  if (request.readyState == 4) {
+    if (request.status == 200 || request.status == 304) {
+      
+		loadExternalContent(request.responseText);
+		
+    }
+  }
+}
+
+function loadExternalContent(markup){
+	document.getElementById("ajaxcontent").innerHTML = markup;
+}
+
+</script>
+
+</head>
+
+<body>
+<h1>learnswfobject.com/demos</h1>
+<h2>Using Ajax to Embed SWF Contained on External HTML Page</h2>
+<p><a href="http://learnswfobject.com/advanced-topics/swfobject-and-ajax/">See this example's related article</a>.</p>
+
+<p><a href="static-swf.html" onclick="grabFile(this.href); return false;">Click here to load the HTML page containing the SWF.</a> &nbsp;[<a href="static-swf.html" target="_blank">view target page</a>]</p>
+
+<div id="ajaxcontent"></div>
+
+<div id="site-info">
+<p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
+<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+</div>
+
+</body>
+</html>

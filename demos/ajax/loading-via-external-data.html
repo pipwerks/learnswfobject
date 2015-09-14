@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>learnswfobject.com: Embed SWF Using Data Passed via Ajax</title>
+
+<!-- this CSS stylesheet is unrelated to the example code -->
+<link href="/css/simple.css" rel="stylesheet" />
+
+<!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+<script>
+
+// ----- ajax functions --------------
+
+function getHTTPObject() {
+  var xhr = false;
+  if (window.XMLHttpRequest) {
+    xhr = new XMLHttpRequest();
+  } else if (window.ActiveXObject) {
+    try {
+      xhr = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch(e) {
+      try {
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+      } catch(e) {
+        xhr = false;
+      }
+    }
+  }
+  return xhr;
+}
+
+function grabFile(file) {
+  var request = getHTTPObject();
+  if (request) {
+    request.onreadystatechange = function() {
+      parseResponse(request);
+    };
+    request.open("GET", file, true);
+    request.send(null);
+  }
+}
+
+function parseResponse(request) {
+  if (request.readyState == 4) {
+    if (request.status == 200 || request.status == 304) {
+      
+		var data = request.responseXML;
+		embedSWF(data);
+		
+    }
+  }
+}
+
+// ----- XML shortcut --------------
+
+function getNodeValue(parent, target) {
+	var value = null;
+	var node = parent.getElementsByTagName(target)[0];
+	if(node && node.firstChild && node.firstChild.nodeValue){
+		value = escape(node.firstChild.nodeValue);
+	}
+	return value;
+}
+
+
+// ----- SWF embedding --------------
+
+function embedSWF(xml){
+
+	// ----- Extract data from XML file ------------------
+	var swfData = xml.getElementsByTagName("swfData")[0];
+	
+	//Get SWF params from XML
+	var swf_src = swfData.getAttribute("src");
+	var swf_w = swfData.getAttribute("width");
+	var swf_h = swfData.getAttribute("height");
+	var swfMinVersion = swfData.getAttribute("minflashversion");
+	
+	var flashvars = {
+		myVar1: getNodeValue(swfData, "myVar1"),
+		myVar2: getNodeValue(swfData, "myVar2"),
+		myVar3: getNodeValue(swfData, "myVar3"),
+		myVar4: getNodeValue(swfData, "baseball"),
+		myVar5: getNodeValue(swfData, "someBoolean"),
+		myVar6: getNodeValue(swfData, "goodsong")
+	};
+	
+	var params = {};
+	var attributes = {};
+	
+	// ----- Embed SWF using XML data --------------------
+	
+	swfobject.embedSWF(swf_src, "ajaxcontent", swf_w, swf_h, swfMinVersion, false, flashvars, params, attributes);
+
+}
+</script>
+
+</head>
+
+<body>
+<h1>learnswfobject.com/demos</h1>
+<h2>Embed SWF Using Data Passed via Ajax</h2>
+<p><a href="http://learnswfobject.com/advanced-topics/swfobject-and-ajax/">See this example's related article</a>.</p>
+
+<p><a href="swfData.xml" onclick="grabFile(this.href); return false;">Click here to get the SWF data from XML then use SWFObject to embed the SWF.</a></p>
+
+<div id="ajaxcontent"></div>
+
+<div id="site-info">
+<p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
+<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+</div>
+
+
+</body>
+</html>

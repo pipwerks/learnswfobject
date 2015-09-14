@@ -2,7 +2,7 @@
 <html dir="ltr" lang="en-US">
 
 	<head>
-		<title>Learn SWFObject : Adobe&#8217;s Express Install</title>
+		<title>Learn SWFObject : Adobe's Express Install</title>
 	    <meta charset="utf-8" />
 		<meta name="description" content="Tutorials for using SWFObject &#8212; a standards-friendly SWF embedding system" />
 		<link rel="stylesheet" href="/css/style.css" />
@@ -20,29 +20,29 @@
         <div id="content">
 
 				<div class="post" id="post-9">
-			<h1>Adobe&#8217;s Express Install</h1>
+			<h1>Adobe's Express Install</h1>
 			<p>Flash allows developers to prompt site visitors to upgrade their version of Flash Player if their version is older than the version specified by the developer. This service is called Express Install. SWFObject makes it easy to use Express Install.</p>
 <h2>Important things to understand about Express Install</h2>
 <h3>Feature of Flash Player not SWFObject</h3>
-<p>Express Install is NOT a SWFObject feature; SWFObject simply makes it easier for you to trigger Express Install. The actual Express Install process is controlled by Adobe. You can learn <a href="http://kb2.adobe.com/cps/253/6a253b75.html">more about Express Install</a> at Adobe&#8217;s website.</p>
+<p>Express Install is NOT a SWFObject feature; SWFObject simply makes it easier for you to trigger Express Install. The actual Express Install process is controlled by Adobe. You can learn <a href="http://kb2.adobe.com/cps/253/6a253b75.html">more about Express Install</a> at Adobe's website.</p>
 <h3>Requires an additional SWF file</h3>
-<p>Express Install requires an additional SWF file (expressinstall.swf), which is provided in the SWFObject ZIP file. This SWF contains ActionScript code that trigger&#8217;s Adobe&#8217;s Express Install service. SWFObject does not control the update process at all.</p>
+<p>Express Install requires an additional SWF file (expressinstall.swf), which is provided in the SWFObject ZIP file. This SWF contains ActionScript code that trigger's Adobe's Express Install service. SWFObject does not control the update process at all.</p>
 <p>The SWFObject ZIP also includes the source file for expressInstall.swf, which allows you to customize the look and feel of the Express Install experience.</p>
 <h3>Requires JavaScript</h3>
-<p>SWFObject&#8217;s handling of Express Install requires JavaScript. This is because Express Install will only be invoked if the visitor has an outdated version of Flash Player. The only way to know if the visitor has an outdated version of Flash Player is to use JavaScript to detect the Flash Player version. If SWFObject determines Flash Player is outdated, it will use JavaScript to embed expressInstall.swf and trigger the update process.</p>
+<p>SWFObject's handling of Express Install requires JavaScript. This is because Express Install will only be invoked if the visitor has an outdated version of Flash Player. The only way to know if the visitor has an outdated version of Flash Player is to use JavaScript to detect the Flash Player version. If SWFObject determines Flash Player is outdated, it will use JavaScript to embed expressInstall.swf and trigger the update process.</p>
 <h3>Requires Flash Player to already be installed</h3>
-<p>Express Install will only update an outdated Flash Player &#8212; it cannot install Flash Player in browsers that don&#8217;t already have an older version of Flash Player installed. Express Install requires the visitor to have Flash Player version 6.0.65 or higher (Mac and Windows).</p>
+<p>Express Install will only update an outdated Flash Player &#8212; it cannot install Flash Player in browsers that don't already have an older version of Flash Player installed. Express Install requires the visitor to have Flash Player version 6.0.65 or higher (Mac and Windows).</p>
 <h3>Requires visitor to agree to the update</h3>
-<p>The Express Install feature requires the visitor to agree to upgrade Flash Player; it will not do an automatic upgrade without the visitor&#8217;s consent.</p>
-<h3>Relies on browser&#8217;s handling of Flash Player</h3>
+<p>The Express Install feature requires the visitor to agree to upgrade Flash Player; it will not do an automatic upgrade without the visitor's consent.</p>
+<h3>Relies on browser's handling of Flash Player</h3>
 <p>The smoothness of the upgrade, including whether or not the visitor is forced to restart their browser after upgrading Flash Player, is at the mercy of the browser and how the browser handles the Flash Player plugin. For instance, Internet Explorer uses ActiveX to install Flash Player and does not require a browser restart. Mozilla Firefox uses an external Flash Player installer mechanism and requires the browser to restart after the installation. (Note: Adobe has released a download manager for Firefox that changes this behavior, but the download manager itself is a Firefox extension that requires a browser restart.)</p>
-<p>It&#8217;s important to note that Express Install isn&#8217;t always consistent across browsers and operating systems due to differences in browser plug-in architecture and security. Don&#8217;t expect Express Install to work 100% of the time!</p>
+<p>It's important to note that Express Install isn't always consistent across browsers and operating systems due to differences in browser plug-in architecture and security. Don't expect Express Install to work 100% of the time!</p>
 <h3>Requires a minimum size when embedding your SWF</h3>
 <p>Express Install uses the external SWF expressInstall.swf to present an upgrade prompt to the visitor. This prompt is 310px wide and 137px tall. Therefore, if you use Express Install, you must specify a size of at least 310&#215;137 for the embed or you will encounter errors.</p>
 <h2>Using Express Install</h2>
-<p>The first thing you should do is decide where to keep your expressinstall.swf file. For simplicity&#8217;s sake, the examples on <em>learnswfobject.com</em> will keep expressInstall.swf in the same folder as swfobject.js. You can store the file in another directory if you prefer.</p>
+<p>The first thing you should do is decide where to keep your expressinstall.swf file. For simplicity's sake, the examples on <em>learnswfobject.com</em> will keep expressInstall.swf in the same folder as swfobject.js. You can store the file in another directory if you prefer.</p>
 <h3>SWFObject Static Publishing</h3>
-<p>The key to using Express Install with <strong>static</strong> publishing is to add <code> swfobject.registerObject</code> in the document&#8217;s head, like so:</p>
+<p>The key to using Express Install with <strong>static</strong> publishing is to add <code> swfobject.registerObject</code> in the document's head, like so:</p>
 
 <div class="wp_syntax"><div class="code"><pre class="xml"><span style="color: #333;"><span style="color: #33F;">&lt;script</span> <span style="color: #63C;">src</span>=<span style="color: #F06;">&quot;/path/to/swfobject.js&quot;</span> <span style="color: #63C;">type</span>=<span style="color: #F06;">&quot;text/javascript&quot;</span><span style="color: #33F;">&gt;</span><span style="color: #33F;">&lt;/script<span style="color: #33F;">&gt;</span></span></span>
 <span style="color: #333;"><span style="color: #33F;">&lt;script</span> <span style="color: #63C;">type</span>=<span style="color: #F06;">&quot;text/javascript&quot;</span><span style="color: #33F;">&gt;</span></span>
@@ -51,11 +51,11 @@ swfobject.registerObject(&quot;mySWFId&quot;, &quot;9.0.115&quot;, &quot;/path/t
 
 <p>The first <code>&lt;script&gt;</code> block is the link to the SWFObject JavaScript file. Express Install will not be invoked if this file is missing. The second <code>&lt;script&gt;</code> block is used to register the SWF with SWFObject. There are three parameters being specified:</p>
 <ol>
-<li>ID of the SWF that&#8217;s being embedded. This must match the ID you use in your markup (<code>&lt;object id="mySWFId" ...&gt;</code>)</li>
+<li>ID of the SWF that's being embedded. This must match the ID you use in your markup (<code>&lt;object id="mySWFId" ...&gt;</code>)</li>
 <li>Required minimum version of Flash Player. If the visitor has anything older than the version you specify (but at least 6.0.65), they will be prompted to upgrade their Flash Player. You can specify just a major version (such as &#8220;9&#8243;) or include the full major.minor.release ID (&#8220;9.0.115&#8243;). Be sure to include the quote marks; SWFObject is expecting a string, not a number.</li>
 <li>The location of the expressInstall.swf file, relative to your HTML file.</li>
 </ol>
-<p>In plain English, this means you&#8217;re telling SWFObject that &#8220;hey, when you embed the SWF that has the ID &#8216;mySWFId&#8217;, make sure the visitor has Flash Player version 9.0.115. If they don&#8217;t, use /path/to/expressInstall.swf to ask the visitor to upgrade.&#8221;</p>
+<p>In plain English, this means you're telling SWFObject that &#8220;hey, when you embed the SWF that has the ID &#8216;mySWFId', make sure the visitor has Flash Player version 9.0.115. If they don't, use /path/to/expressInstall.swf to ask the visitor to upgrade.&#8221;</p>
 <h3>SWFObject Dynamic Publishing</h3>
 <p>Using Express Install with <strong>dynamic</strong> publishing is super simple: just add an extra parameter to your SWFObject code:</p>
 <p><strong>Without Express Install</strong></p>
@@ -66,10 +66,10 @@ swfobject.registerObject(&quot;mySWFId&quot;, &quot;9.0.115&quot;, &quot;/path/t
 
 <div class="wp_syntax"><div class="code"><pre class="javascript">swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;/path/to/mymovie.swf&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;9.0.0&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;/path/to/expressInstall.swf&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
 
-<p>Since we&#8217;re already specifying a minimum required version of Flash Player when we write our SWFObject JavaScript code, all we need to do is add the location of the expressInstall.swf file (it should always be the 6th parameter in the statement). That&#8217;s it!</p>
+<p>Since we're already specifying a minimum required version of Flash Player when we write our SWFObject JavaScript code, all we need to do is add the location of the expressInstall.swf file (it should always be the 6th parameter in the statement). That's it!</p>
 <h2>Express Install Examples</h2>
 <p>The following examples check for the non-existent Flash Player version 20; when you load the page, you will be prompted to upgrade your Flash Player.</p>
-<p><strong>Working examples</strong>: <a href="http://demos.learnswfobject.com/express-install/static.html">static publishing</a> | <a href="http://demos.learnswfobject.com/express-install/dynamic.html">dynamic publishing</a>.</p>
+<p><strong>Working examples</strong>: <a href="http://learnswfobject.com/demos/express-install/static.html">static publishing</a> | <a href="http://learnswfobject.com/demos/express-install/dynamic.html">dynamic publishing</a>.</p>
 					</div>
 		    
     <div id="comments">
@@ -90,7 +90,7 @@ swfobject.registerObject(&quot;mySWFId&quot;, &quot;9.0.115&quot;, &quot;/path/t
 	<li class="page_item page-item-89"><a href="../using-javascript-with-static-publishing/index.html" title="Using JavaScript with Static Publishing">Using JavaScript with Static Publishing</a></li>
 	<li class="page_item page-item-5"><a href="../dynamic-publishing/index.html" title="Dynamic Publishing">Dynamic Publishing</a></li>
 	<li class="page_item page-item-122"><a href="../advanced-options-with-dynamic-publishing/index.html" title="Advanced Options with Dynamic Publishing">Advanced Options with Dynamic Publishing</a></li>
-	<li class="page_item page-item-9 current_page_item"><a href="index.html" title="Adobe&#8217;s Express Install">Adobe&#8217;s Express Install</a></li>
+	<li class="page_item page-item-9 current_page_item"><a href="index.html" title="Adobe's Express Install">Adobe's Express Install</a></li>
 </ul>
 </li>
 <li class="page_item page-item-12"><a href="../../advanced-topics/index.html" title="Advanced Topics">Advanced Topics</a>
@@ -107,7 +107,7 @@ swfobject.registerObject(&quot;mySWFId&quot;, &quot;9.0.115&quot;, &quot;/path/t
 	<li class="page_item page-item-21"><a href="../../advanced-topics/placing-html-elements-over-a-flash-movie/index.html" title="Placing HTML Elements Over a Flash Movie">Placing HTML Elements Over a Flash Movie</a></li>
 	<li class="page_item page-item-41"><a href="../../advanced-topics/provide-swfobject-embed-code-to-your-visitors/index.html" title="Provide SWFObject Embed Code to Your Visitors">Provide SWFObject Embed Code to Your Visitors</a></li>
 	<li class="page_item page-item-38"><a href="../../advanced-topics/swfobject-and-ajax/index.html" title="SWFObject and Ajax (xmlhttprequest)">SWFObject and Ajax (xmlhttprequest)</a></li>
-	<li class="page_item page-item-241"><a href="../../advanced-topics/swfobjects-default-css-injection/index.html" title="SWFObject&#8217;s Default CSS Injection">SWFObject&#8217;s Default CSS Injection</a></li>
+	<li class="page_item page-item-241"><a href="../../advanced-topics/swfobjects-default-css-injection/index.html" title="SWFObject's Default CSS Injection">SWFObject's Default CSS Injection</a></li>
 	<li class="page_item page-item-152"><a href="../../advanced-topics/the-callback-function/index.html" title="The Callback Function">The Callback Function</a></li>
 	<li class="page_item page-item-316"><a href="../../advanced-topics/using-a-swf-as-a-background-image/index.html" title="Using a SWF as a Background Image">Using a SWF as a Background Image</a></li>
 </ul>
@@ -130,7 +130,7 @@ swfobject.registerObject(&quot;mySWFId&quot;, &quot;9.0.115&quot;, &quot;/path/t
     
 	<div id="footer">
         <p class="legalese">LearnSWFObject.com is owned and maintained by <a href="http://pipwerks.com">Philip Hutchison</a>, a member of the <a href="http://code.google.com/p/swfobject">SWFObject</a> project team.<br />
-       All code examples are licensed under an <a rel="license" href="http://www.opensource.org/licenses/mit-license.php">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
+       All code examples are licensed under an <a rel="license" href="http://pipwerks.mit-license.org/">MIT-style</a> license, and are provided as-is with no warranties or guarantees.<br/>
        All other content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.</p>
         
 	</div><!-- /footer -->

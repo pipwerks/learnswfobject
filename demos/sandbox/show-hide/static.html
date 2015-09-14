@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>learnswfobject.com: Using CSS to hide a SWF (width/height: 0) [static publishing]</title>
+
+<!-- An explanation for this example (and more examples) can be found at http://learnswfobject.com -->
+
+<!-- this CSS stylesheet is unrelated to the example code -->
+<link href="/css/simple.css" rel="stylesheet" />
+
+<!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+<script>
+
+swfobject.registerObject("flashcontent", "7.0.0", "/demos/swf/expressinstall.swf");
+
+//Using a CSS class doesn't seem to work; only direct assignment
+//of inline styles works with this example.
+function toggleSWF(){
+	var swf = swfobject.getObjectById("flashcontent");
+	var outer = document.getElementById("flashcontent");
+	var getMethodsMatch = (outer === swf);
+	alert("swfobject.getObjectById and document.getElementById same thing? " +getMethodsMatch);
+	
+	var main = (getMethodsMatch) ? swf : outer;
+	
+	if(main.style.visibility === "visible"){
+		swf.style.width = "0";
+		swf.style.height = "0";
+		swf.style.visibility = "hidden";
+		if(!getMethodsMatch){ outer.style.visibility = "hidden"; }
+	} else {
+		swf.style.width = "550px";
+		swf.style.height = "400px";
+		swf.style.visibility = "visible";
+		if(!getMethodsMatch){ outer.style.visibility = "visible"; }
+	}
+}
+
+</script>
+
+</head>
+
+<body>
+<h1>learnswfobject.com/demos</h1>
+<h2>Using CSS to hide a SWF (width/height: 0)</h2>
+<p>This example uses SWFObject's <a href="http://learnswfobject.com/the-basics/static-publishing/"><em>static publishing</em></a>.</p>
+
+  <object id="flashcontent" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="550" height="400">
+    <param name="movie" value="/demos/swf/sample.swf" />
+    <!--[if !IE]>-->
+    <object type="application/x-shockwave-flash" data="/demos/swf/sample.swf" width="550" height="400">
+    <!--<![endif]-->
+      <p>Place fallback content here for users who don't have Flash<p>
+    <!--[if !IE]>-->
+    </object>
+    <!--<![endif]-->
+  </object>
+
+<p><a href="#" onclick="toggleSWF(); return false;">Click to toggle SWF</a></p>
+
+<div id="site-info">
+<p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
+<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+</div>
+
+</body>
+</html>

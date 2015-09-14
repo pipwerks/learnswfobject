@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>learnswfobject.com: Check for successful SWF embed [dynamic publishing]</title>
+
+<!-- this CSS stylesheet is unrelated to the example code -->
+<link href="/css/simple.css" rel="stylesheet" />
+
+<!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+<script>
+
+swfobject.customEmbed = function (swfLoc, id, w, h, version, color){
+
+   if (swfobject.hasFlashPlayerVersion(version)){
+      var so = swfobject.createSWF({data:swfLoc,width:w,height:h},{bgcolor:color},id);
+      if(so){ return true; }
+   }
+   
+   return false;
+
+};
+
+
+function loadSWF(){
+
+   var success = swfobject.customEmbed("/demos/swf/sample.swf", "flashcontent", "550", "400", "9", "#FFFFFF");
+   
+   var status_p = document.getElementById("status");
+   
+   if(success){
+   	  status_p.innerHTML = "Embed was successful!";
+	  status_p.className = "success";
+   } else {
+      document.getElementById("flashcontent").innerHTML = "SWFObject was unable to load the SWF!";
+   	  status_p.innerHTML = "Embed FAILED!";
+	  status_p.className = "fail";
+   }
+
+}
+
+swfobject.addDomLoadEvent(loadSWF);
+   
+</script>
+
+<style>
+#status {
+	font-weight: bold;
+	font-size: medium;
+}
+.success { color: #00CC00; }
+.fail { color: #FF0000; }
+</style>
+
+</head>
+
+<body>
+<h1>learnswfobject.com/demos</h1>
+<h2>Check for successful SWF embed</h2> 
+<p>This example uses SWFObject's <a href="http://learnswfobject.com/the-basics/dynamic-publishing/"><em>dynamic publishing</em></a>. <a href="http://learnswfobject.com/advanced-topics/detecting-success-of-dynamic-embedding/">See this example's related article</a>.</p>
+
+<p id="status">&nbsp;</p>
+
+<div id="flashcontent">Place fallback content here for users who don't have Flash</div>
+
+<div id="site-info">
+<p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
+<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+</div>
+
+</body>
+</html>
