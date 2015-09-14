@@ -96,10 +96,10 @@
 
 <p>Note that the last four items are JavaScript <em>variables</em>, not strings. Since we haven't defined those variables yet, the above example would throw an error. Here's the same example, but with the variables properly defined:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> callback <span style="color: #333;">=</span> <span style="color: #33F;">function</span> <span style="color: #666;">&#40;</span><span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span> <span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">{</span><span style="color: #666;">}</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">{</span><span style="color: #666;">}</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">{</span><span style="color: #666;">}</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> callback <span style="color: #333;">=</span> <span style="color: #33F;">function</span> <span style="color: #666;">&#40;</span><span style="color: #666;">&#41;</span><span style="color: #666;">{</span> <span style="color: #666;">}</span><span style="color: #333;">;</span>
 &nbsp;
 swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> 
@@ -114,24 +114,24 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
 
 <p>Now that the variables are defined, we won't see any JavaScript errors. But&#8230; the variables are <em>empty</em>, which does us no good at all!  Here are some common ways these variables could be used:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span>
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">{</span>
     foo<span style="color: #333;">:</span> <span style="color: #F06;">&quot;bar&quot;</span><span style="color: #333;">,</span>
     someInternalVariable<span style="color: #333;">:</span> <span style="color: #F06;">&quot;some string&quot;</span><span style="color: #333;">,</span>
     username<span style="color: #333;">:</span> <span style="color: #F06;">&quot;Bugs Bunny&quot;</span>
-<span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span>
+<span style="color: #666;">}</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">{</span>
     wmode<span style="color: #333;">:</span> <span style="color: #F06;">&quot;opaque&quot;</span><span style="color: #333;">,</span>
     bgcolor<span style="color: #333;">:</span> <span style="color: #F06;">&quot;#F8F8F8&quot;</span>
-<span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span>
+<span style="color: #666;">}</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">{</span>
     <span style="color: #F06;">&quot;class&quot;</span><span style="color: #333;">:</span> <span style="color: #F06;">&quot;my-css-classname&quot;</span>
     <span style="color: #AAA;">//&quot;class&quot; is in quotes because it is a JavaScript reserved keyword</span>
-<span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> callback <span style="color: #333;">=</span> <span style="color: #33F;">function</span> <span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span>
-    <span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>e.<span style="color: #63C;">success</span><span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span> 
+<span style="color: #666;">}</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> callback <span style="color: #333;">=</span> <span style="color: #33F;">function</span> <span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">{</span>
+    <span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>e.<span style="color: #63C;">success</span><span style="color: #666;">&#41;</span><span style="color: #666;">{</span> 
         <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;The SWF was successfully embedded&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
-    <span style="color: #666;">&#125;</span>
-<span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+    <span style="color: #666;">}</span>
+<span style="color: #666;">}</span><span style="color: #333;">;</span>
 &nbsp;
 swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> 
@@ -151,9 +151,9 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
 <p>In this example, you'd need to specify <em>something</em> for the sixth argument (the spot required for Express Install), because FlashVars is always the <strong>seventh</strong> argument. </p>
 <p>Luckily, if you don't plan to use an optional item, you can simply pass a boolean <code>false</code> in its place (see descriptions for the 10 arguments above). For our example, if you'd like to use FlashVars without specifying an Express Install SWF URL, simply pass a <code>false</code> where the Express Install URL would normally go, like so <em>(linebreaks added for legibility)</em>:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span> 
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">{</span> 
     foo<span style="color: #333;">:</span> <span style="color: #F06;">&quot;bar&quot;</span>
-<span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+<span style="color: #666;">}</span><span style="color: #333;">;</span>
 swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;/path/to/mymovie.swf&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span>
@@ -164,9 +164,9 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
 
 <p>For another example, let's say you'd like to pass a callback function, but you don't need any of the other optional arguments&#8230; no Express Install, no FlashVars, no parameters, and no attributes.  Easy! Just pass <code>false</code> for each of the items you don't want to use <em>(linebreaks added for legibility)</em>:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> callbackHandler <span style="color: #333;">=</span> <span style="color: #33F;">function</span><span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span> 
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> callbackHandler <span style="color: #333;">=</span> <span style="color: #33F;">function</span><span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">{</span> 
     <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;Was embedding successful: &quot;</span> <span style="color: #333;">+</span>e.<span style="color: #63C;">success</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
-<span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+<span style="color: #666;">}</span><span style="color: #333;">;</span>
 swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;/path/to/mymovie.swf&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> 
                    <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span>
@@ -187,12 +187,12 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
                    <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span>
                    <span style="color: #F06;">&quot;9.0.0&quot;</span><span style="color: #333;">,</span>
                    <span style="color: #F06;">&quot;expressinstall.swf&quot;</span><span style="color: #333;">,</span> <span style="color: #AAA;">//Express Install</span>
-                   <span style="color: #666;">&#123;</span> username<span style="color: #333;">:</span> <span style="color: #F06;">&quot;Bugs Bunny&quot;</span> <span style="color: #666;">&#125;</span><span style="color: #333;">,</span> <span style="color: #AAA;">//FlashVars</span>
-                   <span style="color: #666;">&#123;</span> wmode<span style="color: #333;">:</span> <span style="color: #F06;">&quot;opaque&quot;</span><span style="color: #333;">,</span> bgcolor<span style="color: #333;">:</span> <span style="color: #F06;">&quot;#F8F8F8&quot;</span> <span style="color: #666;">&#125;</span><span style="color: #333;">,</span> <span style="color: #AAA;">//Parameters</span>
-                   <span style="color: #666;">&#123;</span> <span style="color: #F06;">&quot;class&quot;</span><span style="color: #333;">:</span> <span style="color: #F06;">&quot;my-css-classname&quot;</span> <span style="color: #666;">&#125;</span><span style="color: #333;">,</span> <span style="color: #AAA;">//Attributes</span>
-                   <span style="color: #33F;">function</span><span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span> 
+                   <span style="color: #666;">{</span> username<span style="color: #333;">:</span> <span style="color: #F06;">&quot;Bugs Bunny&quot;</span> <span style="color: #666;">}</span><span style="color: #333;">,</span> <span style="color: #AAA;">//FlashVars</span>
+                   <span style="color: #666;">{</span> wmode<span style="color: #333;">:</span> <span style="color: #F06;">&quot;opaque&quot;</span><span style="color: #333;">,</span> bgcolor<span style="color: #333;">:</span> <span style="color: #F06;">&quot;#F8F8F8&quot;</span> <span style="color: #666;">}</span><span style="color: #333;">,</span> <span style="color: #AAA;">//Parameters</span>
+                   <span style="color: #666;">{</span> <span style="color: #F06;">&quot;class&quot;</span><span style="color: #333;">:</span> <span style="color: #F06;">&quot;my-css-classname&quot;</span> <span style="color: #666;">}</span><span style="color: #333;">,</span> <span style="color: #AAA;">//Attributes</span>
+                   <span style="color: #33F;">function</span><span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">{</span> 
                        <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;Was embedding successful: &quot;</span> <span style="color: #333;">+</span>e.<span style="color: #63C;">success</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
-                   <span style="color: #666;">&#125;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
+                   <span style="color: #666;">}</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
 
 <p>This approach isn't recommended because it's harder to read, but it is an option for those who are interested in cutting down on <code>var</code> statements.</p>
 					</div>

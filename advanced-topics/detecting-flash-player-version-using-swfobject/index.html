@@ -38,11 +38,11 @@
 
 <div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> meetsMinimumFlashRequirement <span style="color: #333;">=</span> swfobject.<span style="color: #63C;">hasFlashPlayerVersion</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;10&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
 &nbsp;
-<span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>meetsMinimumFlashRequirement<span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span>
+<span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>meetsMinimumFlashRequirement<span style="color: #666;">&#41;</span><span style="color: #666;">{</span>
    <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;Congrats, your version of Flash Player meets the minimum requirement for our site.&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
-<span style="color: #666;">&#125;</span> <span style="color: #33F;">else</span> <span style="color: #666;">&#123;</span>
+<span style="color: #666;">}</span> <span style="color: #33F;">else</span> <span style="color: #666;">{</span>
    <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;Sorry, your version of Flash Player does not meet the minimum requirement for our site.&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
-<span style="color: #666;">&#125;</span></pre></div></div>
+<span style="color: #666;">}</span></pre></div></div>
 
 <p>When using <code>swfobject.hasFlashPlayerVersion</code>, you can be as specific about the version of Flash Player as you like. For example, if you'd like to ensure every visitor has version 9.0.18 or greater, you'd do the following:</p>
 

@@ -48,9 +48,9 @@
 <li><strong>Express Install SWF location</strong> (optional): The path to your Express Install SWF (this SWF is included in the SWFObject ZIP package). This SWF contains code that triggers Adobe's Express Install updater if the required version of Flash Player is not found.<br/><em>Note: Express Install is only supported by Flash Player 6.0.65 and higher in both Windows and OS X, and requires a minimal SWF size of 310 x 137 pixels.</em></li>
 <li><strong>Callback function</strong> (optional): SWFObject allows you to invoke a callback function when embedding has succeeded or failed (see the <a href="http://code.google.com/p/swfobject/wiki/api">official SWFObject API documentation</a> for details). <br/><em>Note: if you intend to include a callback function but you <em>don't</em> want to use Express Install, you can simple pass a boolean <code>false</code> where the path to the Express Install SWF is required:</em><br/><br/>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">function</span> myCallbackFunction<span style="color: #666;">&#40;</span><span style="color: #666;">&#41;</span> <span style="color: #666;">&#123;</span>
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">function</span> myCallbackFunction<span style="color: #666;">&#40;</span><span style="color: #666;">&#41;</span> <span style="color: #666;">{</span>
   <span style="color: #AAA;">//do something</span>
-<span style="color: #666;">&#125;</span>
+<span style="color: #666;">}</span>
 swfobject.<span style="color: #63C;">registerObject</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;9&quot;</span><span style="color: #333;">,</span> <span style="color: #33F;">false</span><span style="color: #333;">,</span> myCallbackFunction<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
 
 </li>

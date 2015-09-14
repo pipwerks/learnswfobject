@@ -31,26 +31,26 @@
 <h2>Using the callback function with dynamic publishing</h2>
 <p><code>swfobject.embedSWF</code> takes the callback function as a parameter (it is passed as the last parameter). Here's a typical example of a dynamic embed:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">{</span><span style="color: #666;">}</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">{</span><span style="color: #666;">}</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">{</span><span style="color: #666;">}</span><span style="color: #333;">;</span>
 &nbsp;
 swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;/path/to/sample.swf&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;7&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;/path/to/expressInstall.swf&quot;</span><span style="color: #333;">,</span> flashvars<span style="color: #333;">,</span> params<span style="color: #333;">,</span> attributes<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
 
 <p>Here's the same code, but with a callback function that displays a message indicating the success status of the embed:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> embedHandler <span style="color: #333;">=</span> <span style="color: #33F;">function</span> <span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span>
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">{</span><span style="color: #666;">}</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">{</span><span style="color: #666;">}</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">{</span><span style="color: #666;">}</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> embedHandler <span style="color: #333;">=</span> <span style="color: #33F;">function</span> <span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">{</span>
 &nbsp;
-   <span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>e.<span style="color: #63C;">success</span><span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span>
+   <span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>e.<span style="color: #63C;">success</span><span style="color: #666;">&#41;</span><span style="color: #666;">{</span>
       <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;The embed was successful!&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
-   <span style="color: #666;">&#125;</span> <span style="color: #33F;">else</span> <span style="color: #666;">&#123;</span>
+   <span style="color: #666;">}</span> <span style="color: #33F;">else</span> <span style="color: #666;">{</span>
       <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;The embed failed!&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
-   <span style="color: #666;">&#125;</span>
+   <span style="color: #666;">}</span>
 &nbsp;
-<span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+<span style="color: #666;">}</span><span style="color: #333;">;</span>
 &nbsp;
 swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;/path/to/sample.swf&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;7&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;/path/to/expressInstall.swf&quot;</span><span style="color: #333;">,</span> flashvars<span style="color: #333;">,</span> params<span style="color: #333;">,</span> attributes<span style="color: #333;">,</span> embedHandler<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
 
@@ -62,15 +62,15 @@ swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&
 
 <p>Here's the same code, but with a callback function that displays a message if the SWF fails to embed:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> embedHandler <span style="color: #333;">=</span> <span style="color: #33F;">function</span> <span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span>
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> embedHandler <span style="color: #333;">=</span> <span style="color: #33F;">function</span> <span style="color: #666;">&#40;</span>e<span style="color: #666;">&#41;</span><span style="color: #666;">{</span>
 &nbsp;
-   <span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>e.<span style="color: #63C;">success</span><span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span>
+   <span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>e.<span style="color: #63C;">success</span><span style="color: #666;">&#41;</span><span style="color: #666;">{</span>
       <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;The embed was successful!&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
-   <span style="color: #666;">&#125;</span> <span style="color: #33F;">else</span> <span style="color: #666;">&#123;</span>
+   <span style="color: #666;">}</span> <span style="color: #33F;">else</span> <span style="color: #666;">{</span>
       <span style="color: #33F;">alert</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;The embed failed!&quot;</span><span style="color: #666;">&#41;</span><span style="color: #333;">;</span>
-   <span style="color: #666;">&#125;</span>
+   <span style="color: #666;">}</span>
 &nbsp;
-<span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+<span style="color: #666;">}</span><span style="color: #333;">;</span>
 &nbsp;
 swfobject.<span style="color: #63C;">registerObject</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;9&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;/path/to/expressinstall.swf&quot;</span><span style="color: #333;">,</span> embedHandler<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
 

@@ -23,19 +23,19 @@
 			<h1>Detecting SWFObject Version</h1>
 			<p>Some people are in the curious position of needing to  programmatically check to see which version of SWFObject is available  (if any). The easiest way to do it is to check for the existence of the  SWFObject JavaScript object:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">function</span> getSwfObjectVersion<span style="color: #666;">&#40;</span><span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span>	
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">function</span> getSwfObjectVersion<span style="color: #666;">&#40;</span><span style="color: #666;">&#41;</span><span style="color: #666;">{</span>	
     <span style="color: #33F;">var</span> version <span style="color: #333;">=</span> <span style="color: #666;">&#40;</span>window.<span style="color: #63C;">swfobject</span><span style="color: #666;">&#41;</span> <span style="color: #333;">?</span> <span style="color: #F06;">&quot;2&quot;</span> <span style="color: #333;">:</span> <span style="color: #666;">&#40;</span>window.<span style="color: #63C;">SWFObject</span><span style="color: #666;">&#41;</span> <span style="color: #333;">?</span> <span style="color: #F06;">&quot;1&quot;</span> <span style="color: #333;">:</span> <span style="color: #33F;">false</span><span style="color: #333;">;</span>
-    <span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>version <span style="color: #333;">===</span> <span style="color: #F06;">&quot;2&quot;</span><span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span>
-        <span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>swfobject.<span style="color: #63C;">switchOffAutoHideShow</span><span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span>
+    <span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>version <span style="color: #333;">===</span> <span style="color: #F06;">&quot;2&quot;</span><span style="color: #666;">&#41;</span><span style="color: #666;">{</span>
+        <span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>swfobject.<span style="color: #63C;">switchOffAutoHideShow</span><span style="color: #666;">&#41;</span><span style="color: #666;">{</span>
             version <span style="color: #333;">=</span> <span style="color: #F06;">&quot;2.2&quot;</span><span style="color: #333;">;</span>
-        <span style="color: #666;">&#125;</span> <span style="color: #33F;">else</span> <span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>swfobject.<span style="color: #63C;">removeSWF</span><span style="color: #666;">&#41;</span><span style="color: #666;">&#123;</span>
+        <span style="color: #666;">}</span> <span style="color: #33F;">else</span> <span style="color: #33F;">if</span><span style="color: #666;">&#40;</span>swfobject.<span style="color: #63C;">removeSWF</span><span style="color: #666;">&#41;</span><span style="color: #666;">{</span>
             version <span style="color: #333;">=</span> <span style="color: #F06;">&quot;2.1&quot;</span><span style="color: #333;">;</span>
-        <span style="color: #666;">&#125;</span> <span style="color: #33F;">else</span> <span style="color: #666;">&#123;</span>
+        <span style="color: #666;">}</span> <span style="color: #33F;">else</span> <span style="color: #666;">{</span>
             version <span style="color: #333;">=</span> <span style="color: #F06;">&quot;2.0&quot;</span><span style="color: #333;">;</span>	
-        <span style="color: #666;">&#125;</span>
-    <span style="color: #666;">&#125;</span>
+        <span style="color: #666;">}</span>
+    <span style="color: #666;">}</span>
     <span style="color: #33F;">return</span> version<span style="color: #333;">;</span>
-<span style="color: #666;">&#125;</span></pre></div></div>
+<span style="color: #666;">}</span></pre></div></div>
 
 <p>This function works by checking the global <code>window</code> object  for the existence of objects named <code>swfobject</code> and <code>SWFObject</code>.  There are four things going on here:</p>
 <p>1. The code checks the <code>window</code> object for the <code>swfobject</code> variable, which allows us to skip checking for null values <code>(swfobject !== null)</code>. Browsers won't throw a "swfobject is undefined" error if <code>swfobject</code> isn't found.</p>

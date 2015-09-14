@@ -26,21 +26,21 @@
 <p>Start by establishing the <em>position</em> relationship between the element you want to place over the SWF (we'll call this the <em>overlay</em> element) and its parent. I won't get into how CSS positioning works; it's covered well enough on other sites, such as <a href="http://css-tricks.com/absolute-positioning-inside-relative-positioning/">CSS-Tricks</a>.</p>
 <p>In the examples presented here, the SWF will be embedded in a div that has a wrapper div. This wrapper div has established its position through the declaration <code>position: relative;</code> which allows us to control the overlay's placement via <code>position: absolute</code>.</p>
 
-<div class="wp_syntax"><div class="code"><pre class="css"><span style="color: #cc00cc;">#wrapper</span> <span style="color: #666;">&#123;</span> <span style="color: #33F;">position</span><span style="color: #00AA00;">:</span> <span style="color: #F06;">relative</span><span style="color: #00AA00;">;</span> <span style="color: #666;">&#125;</span>
-<span style="color: #cc00cc;">#overlay</span> <span style="color: #666;">&#123;</span> <span style="color: #33F;">position</span><span style="color: #00AA00;">:</span> <span style="color: #F06;">absolute</span><span style="color: #00AA00;">;</span> <span style="color: #666;">&#125;</span>
+<div class="wp_syntax"><div class="code"><pre class="css"><span style="color: #cc00cc;">#wrapper</span> <span style="color: #666;">{</span> <span style="color: #33F;">position</span><span style="color: #00AA00;">:</span> <span style="color: #F06;">relative</span><span style="color: #00AA00;">;</span> <span style="color: #666;">}</span>
+<span style="color: #cc00cc;">#overlay</span> <span style="color: #666;">{</span> <span style="color: #33F;">position</span><span style="color: #00AA00;">:</span> <span style="color: #F06;">absolute</span><span style="color: #00AA00;">;</span> <span style="color: #666;">}</span>
 &nbsp;
 <span style="color: #CCC;">/* 
     Look ma, no code!
     We don't need to specify any
     CSS for the Flash SWF's &lt;object&gt;.
 */</span>
-<span style="color: #cc00cc;">#flash</span> <span style="color: #666;">&#123;</span> <span style="color: #666;">&#125;</span></pre></div></div>
+<span style="color: #cc00cc;">#flash</span> <span style="color: #666;">{</span> <span style="color: #666;">}</span></pre></div></div>
 
 <p>Next, make sure the wmode is set to "opaque". SWFObject 2.x's dynamic publishing method makes this a breeze; just add the parameter to the "params" object:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span> wmode<span style="color: #333;">:</span> <span style="color: #F06;">&quot;opaque&quot;</span> <span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">{</span><span style="color: #666;">}</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">{</span> wmode<span style="color: #333;">:</span> <span style="color: #F06;">&quot;opaque&quot;</span> <span style="color: #666;">}</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">{</span><span style="color: #666;">}</span><span style="color: #333;">;</span>
 &nbsp;
 swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;movie.swf&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;flash&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;550&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;400&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;7&quot;</span><span style="color: #333;">,</span>
                   <span style="color: #F06;">&quot;expressinstall.swf&quot;</span><span style="color: #333;">,</span> flashvars<span style="color: #333;">,</span> params<span style="color: #333;">,</span> attributes<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>

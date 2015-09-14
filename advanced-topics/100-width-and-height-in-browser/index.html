@@ -23,20 +23,20 @@
 			<h1>100% Width and Height in Browser</h1>
 			<p>You can stretch a SWF to fit the browser window by using a value of "100%" in the SWFObject embed code. You'll also need to set some CSS properties in your HTML page:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="css">html <span style="color: #666;">&#123;</span>
+<div class="wp_syntax"><div class="code"><pre class="css">html <span style="color: #666;">{</span>
   <span style="color: #33F;">height</span><span style="color: #00AA00;">:</span> <span style="color: #933;"><span style="color: #F06;">100</span>%</span><span style="color: #00AA00;">;</span>
   <span style="color: #33F;">overflow</span><span style="color: #00AA00;">:</span> <span style="color: #F06;">hidden</span><span style="color: #00AA00;">;</span> <span style="color: #CCC;">/* Hides scrollbar in IE */</span>
-<span style="color: #666;">&#125;</span>
+<span style="color: #666;">}</span>
 &nbsp;
-body <span style="color: #666;">&#123;</span>
+body <span style="color: #666;">{</span>
   <span style="color: #33F;">height</span><span style="color: #00AA00;">:</span> <span style="color: #933;"><span style="color: #F06;">100</span>%</span><span style="color: #00AA00;">;</span>
   <span style="color: #33F;">margin</span><span style="color: #00AA00;">:</span> <span style="color: #F06;">0</span><span style="color: #00AA00;">;</span>
   <span style="color: #33F;">padding</span><span style="color: #00AA00;">:</span> <span style="color: #F06;">0</span><span style="color: #00AA00;">;</span>
-<span style="color: #666;">&#125;</span>
+<span style="color: #666;">}</span>
 &nbsp;
-<span style="color: #cc00cc;">#flashcontent</span> <span style="color: #666;">&#123;</span>
+<span style="color: #cc00cc;">#flashcontent</span> <span style="color: #666;">{</span>
   <span style="color: #33F;">height</span><span style="color: #00AA00;">:</span> <span style="color: #933;"><span style="color: #F06;">100</span>%</span><span style="color: #00AA00;">;</span>
-<span style="color: #666;">&#125;</span></pre></div></div>
+<span style="color: #666;">}</span></pre></div></div>
 
 <p>The <code>html</code> element's height needs to be set to 100% because of inheritance; using 100% height for <code>#flashcontent</code> will only work if its parent (in this case <code>body</code>) is set to 100%, which in turn will only work if its parent (<code>html</code>) is also set to 100%.</p>
 <p><strong>Note: </strong>Elements in the example SWF were masked in the FLA file prior to export.</p>
@@ -60,9 +60,9 @@ body <span style="color: #666;">&#123;</span>
 
 <p><strong>Dynamic</strong> publishing requires adding the scale parameter as follows:</p>
 
-<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span> scale<span style="color: #333;">:</span> <span style="color: #F06;">&quot;exactFit&quot;</span> <span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
-<span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">&#123;</span><span style="color: #666;">&#125;</span><span style="color: #333;">;</span>
+<div class="wp_syntax"><div class="code"><pre class="javascript"><span style="color: #33F;">var</span> flashvars <span style="color: #333;">=</span> <span style="color: #666;">{</span><span style="color: #666;">}</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> params <span style="color: #333;">=</span> <span style="color: #666;">{</span> scale<span style="color: #333;">:</span> <span style="color: #F06;">&quot;exactFit&quot;</span> <span style="color: #666;">}</span><span style="color: #333;">;</span>
+<span style="color: #33F;">var</span> attributes <span style="color: #333;">=</span> <span style="color: #666;">{</span><span style="color: #666;">}</span><span style="color: #333;">;</span>
 swfobject.<span style="color: #63C;">embedSWF</span><span style="color: #666;">&#40;</span><span style="color: #F06;">&quot;mymovie.swf&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;100%&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;100%&quot;</span><span style="color: #333;">,</span> <span style="color: #F06;">&quot;7&quot;</span><span style="color: #333;">,</span> <span style="color: #33F;">false</span><span style="color: #333;">,</span> flashvars<span style="color: #333;">,</span> params<span style="color: #333;">,</span> attributes<span style="color: #666;">&#41;</span><span style="color: #333;">;</span></pre></div></div>
 
 <p><strong>Working examples for "exactFit"</strong>: <a href="http://learnswfobject.com/demos/full-browser/static-exactFit.html">static publishing</a> | <a href="http://learnswfobject.com/demos/full-browser/dynamic-exactFit.html">dynamic publishing</a>.</p>
