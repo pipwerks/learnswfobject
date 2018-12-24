@@ -142,7 +142,7 @@ var gen = {
 	setGoogleAPI: function (){
 		var swfobject_js = $("swfobject_js");
 		if(gen.dom.google_api.value === "true"){
-			swfobject_js.value = "http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js";
+			swfobject_js.value = "//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js";
 			swfobject_js.disabled = "disabled";
 		} else {
 			swfobject_js.disabled = false;
