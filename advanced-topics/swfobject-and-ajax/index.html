@@ -23,17 +23,17 @@
 			<h1>SWFObject and Ajax (xmlhttprequest)</h1>
 			<p>Here's a common scenario: A developer has two pages: a pure HTML page and a page that contains a SWF. The developer's goal is to use ajax to load the SWF page into the HTML page. Can it be done? Yes, but there are certain restrictions to be aware of, most notably that <strong>any content loaded via ajax will <em>not</em> include JavaScript functionality</strong>. </p>
 <p>Simply put, if you want to make your life easier, use static publishing for your SWF content, ensuring your SWF is embedded using HTML markup and not using JavaScript. Then your ajax (<code>xmlhttprequest</code>) script can simply copy the markup over to the new HTML page. Be sure to use <code>request.responseText</code> in your <code>xmlhttprequest</code> code.</p>
-<p><strong>Demo</strong>: <a href="http://learnswfobject.com/demos/ajax/loading-static-embed.html">ajax page</a>,  which loads this <a href="http://learnswfobject.com/demos/ajax/static-swf.html">HTML page containing a SWF</a>.</p>
+<p><strong>Demo</strong>: <a href="https://pipwerks.github.io/learnswfobject/demos/ajax/loading-static-embed.html">ajax page</a>,  which loads this <a href="https://pipwerks.github.io/learnswfobject/demos/ajax/static-swf.html">HTML page containing a SWF</a>.</p>
 <p>If you want to push the boundaries a little more, you can use  xmlhttprequest to load <em>data</em> about a SWF from an external XML file (including any variables that need to be passed into the SWF using  flashvars). </p>
 <p><strong>Steps:</strong></p>
 <ol>
-<li>Create <a href="http://learnswfobject.com/demos/ajax/loading-via-external-data.html">the page you'd like to load a SWF into</a></li>
-<li>Create the <a href="http://learnswfobject.com/demos/ajax/sample_flashvars.swf">SWF</a></li>
-<li>Create an <a href="http://learnswfobject.com/demos/ajax/swfData.xml">XML file</a> containing the information needed for the SWF, including any optional parameters you'd like to pass via FlashVars. This includes the SWF file path, width, height, minimum  version of Flash Player, etc.</li>
-<li>Add an <code>xmlhttprequest</code> to the <a href="http://learnswfobject.com/demos/ajax/loading-via-external-data.html">requesting page</a>. The <code>xmlhttprequest</code> will load the <code>swfData.xml</code> file, then we use a little bit  of JavaScript to extract the data.</li>
+<li>Create <a href="https://pipwerks.github.io/learnswfobject/demos/ajax/loading-via-external-data.html">the page you'd like to load a SWF into</a></li>
+<li>Create the <a href="https://pipwerks.github.io/learnswfobject/demos/ajax/sample_flashvars.swf">SWF</a></li>
+<li>Create an <a href="https://pipwerks.github.io/learnswfobject/demos/ajax/swfData.xml">XML file</a> containing the information needed for the SWF, including any optional parameters you'd like to pass via FlashVars. This includes the SWF file path, width, height, minimum  version of Flash Player, etc.</li>
+<li>Add an <code>xmlhttprequest</code> to the <a href="https://pipwerks.github.io/learnswfobject/demos/ajax/loading-via-external-data.html">requesting page</a>. The <code>xmlhttprequest</code> will load the <code>swfData.xml</code> file, then we use a little bit  of JavaScript to extract the data.</li>
 <li>When the data has been extracted, it's used to populate an  instance of SWFObject, which is then used to write the SWF to the page.</li>
 </ol>
-<p><strong>Demo</strong>: <a href="http://learnswfobject.com/demos/ajax/loading-via-external-data.html">Loading external data</a>. <a href="http://learnswfobject.com/demos/ajax/sample_flashvars.fla">source  FLA</a>.</p>
+<p><strong>Demo</strong>: <a href="https://pipwerks.github.io/learnswfobject/demos/ajax/loading-via-external-data.html">Loading external data</a>. <a href="https://pipwerks.github.io/learnswfobject/demos/ajax/sample_flashvars.fla">source  FLA</a>.</p>
 					</div>
 		    
     <div id="comments">

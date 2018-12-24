@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>learnswfobject.com: Check for successful SWF embed [dynamic publishing]</title>
+<title>Learn SWFObject: Check for successful SWF embed [dynamic publishing]</title>
 
 <!-- this CSS stylesheet is unrelated to the example code -->
 <link href="/learnswfobject/css/simple.css" rel="stylesheet" />
@@ -26,7 +26,7 @@ swfobject.customEmbed = function (swfLoc, id, w, h, version, color){
 
 function loadSWF(){
 
-   var success = swfobject.customEmbed("/demos/swf/sample.swf", "flashcontent", "550", "400", "9", "#FFFFFF");
+   var success = swfobject.customEmbed("/learnswfobject/demos/swf/sample.swf", "flashcontent", "550", "400", "9", "#FFFFFF");
    
    var status_p = document.getElementById("status");
    
@@ -57,9 +57,9 @@ swfobject.addDomLoadEvent(loadSWF);
 </head>
 
 <body>
-<h1>learnswfobject.com/demos</h1>
+<h1>Learn SWFObject Demos</h1>
 <h2>Check for successful SWF embed</h2> 
-<p>This example uses SWFObject's <a href="http://learnswfobject.com/the-basics/dynamic-publishing/"><em>dynamic publishing</em></a>. <a href="http://learnswfobject.com/advanced-topics/detecting-success-of-dynamic-embedding/">See this example's related article</a>.</p>
+<p>This example uses SWFObject's <a href="https://pipwerks.github.io/learnswfobject/the-basics/dynamic-publishing/"><em>dynamic publishing</em></a>. <a href="https://pipwerks.github.io/learnswfobject/advanced-topics/detecting-success-of-dynamic-embedding/">See this example's related article</a>.</p>
 
 <p id="status">&nbsp;</p>
 
@@ -67,7 +67,7 @@ swfobject.addDomLoadEvent(loadSWF);
 
 <div id="site-info">
 <p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
-<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+<p>More examples can be found at <a href="https://pipwerks.github.io/learnswfobject/">https://pipwerks.github.io/learnswfobject</a></p>
 </div>
 
 </body>

@@ -45,7 +45,7 @@ function loadSWF(url){
 <span style="color: #333;"><span style="color: #33F;">&lt;div</span> <span style="color: #63C;">id</span>=<span style="color: #F06;">&quot;flashcontent&quot;</span><span style="color: #33F;">&gt;</span><span style="color: #33F;">&lt;/div<span style="color: #33F;">&gt;</span></span></span></pre></div></div>
 
 <p>Notice that the loadSWF function uses the href of the link as an argument.  This is just one of many ways to write the function. You could also hardcode the URL if you prefer.</p>
-<p><strong>Demos</strong>: <a href="http://learnswfobject.com/demos/load-onclick/onclick.html">Load a SWF using an onclick event</a> | <a href="http://learnswfobject.com/demos/load-onclick/onclick-JW.html">Load the JW FLV Player using an onclick event</a></p>
+<p><strong>Demos</strong>: <a href="https://pipwerks.github.io/learnswfobject/demos/load-onclick/onclick.html">Load a SWF using an onclick event</a> | <a href="https://pipwerks.github.io/learnswfobject/demos/load-onclick/onclick-JW.html">Load the JW FLV Player using an onclick event</a></p>
 <h2>Replacing a loaded SWF with another SWF</h2>
 <p>This is a slightly trickier proposition than it seems!  Loading and unloading multiple SWFs in the browser can lead to nasty memory leaks that can slow your computer down considerably. In an effort to address this issue, SWFObject 2 includes a new method named <code>swfobject.removeSWF()</code>; this method removes all traces of the embedded SWF, eliminating the memory leak issue.</p>
 <p>What's so tricky about using <code>swfobject.removeSWF</code> you ask? Well, SWFObject 2 embeds SWFs by replacing the targeted element with an <code>&lt;object&gt;</code> element. <code>swfobject.removeSWF()</code> completely erases the <code>&lt;object&gt;</code> element from the page. So if you start with this:</p>
@@ -110,7 +110,7 @@ function loadSWF(url){
    <span style="color: #666;">}</span>
 <span style="color: #666;">}</span></pre></div></div>
 
-<p><strong>Demo</strong>: <a href="http://learnswfobject.com/demos/load-onclick/onclick2.html">Replace a loaded SWF with another one</a></p>
+<p><strong>Demo</strong>: <a href="https://pipwerks.github.io/learnswfobject/demos/load-onclick/onclick2.html">Replace a loaded SWF with another one</a></p>
 					</div>
 		    
     <div id="comments">

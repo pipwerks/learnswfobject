@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>learnswfobject.com: Z-Index with Suckerfish menus [static publishing]</title>
+<title>Learn SWFObject: Z-Index with Suckerfish menus [static publishing]</title>
 
 <!-- simple page styling, unrelated to code example -->
 <link href="/learnswfobject/css/simple.css" rel="stylesheet" />
@@ -17,8 +17,8 @@
 <!-- Loading SWFObject from the Google repository; only works if you have an internet connection! -->
 <script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
 <script>
-	swfobject.registerObject("example_1_wrapper", "7.0.0", "/demos/swf/expressinstall.swf");
-	swfobject.registerObject("example_2_wrapper", "7.0.0", "/demos/swf/expressinstall.swf");
+	swfobject.registerObject("example_1_wrapper", "7.0.0", "/learnswfobject/demos/swf/expressinstall.swf");
+	swfobject.registerObject("example_2_wrapper", "7.0.0", "/learnswfobject/demos/swf/expressinstall.swf");
 </script>
 
 <style>
@@ -78,10 +78,10 @@ div.overlay {
 
 
 <body>
-<h1>learnswfobject.com/demos</h1>
+<h1>Learn SWFObject Demos</h1>
 <h2>Placing HTML elements over a Flash SWF</h2>
-<p>This is an example of a DOM element overlapping a Flash SWF. <a href="http://learnswfobject.com/advanced-topics/placing-html-elements-over-a-flash-movie/">See this example's related article</a>.</p>
-<p>This example uses SWFObject's <a href="http://learnswfobject.com/the-basics/static-publishing/"><em>static publishing</em></a>.</p>
+<p>This is an example of a DOM element overlapping a Flash SWF. <a href="https://pipwerks.github.io/learnswfobject/advanced-topics/placing-html-elements-over-a-flash-movie/">See this example's related article</a>.</p>
+<p>This example uses SWFObject's <a href="https://pipwerks.github.io/learnswfobject/the-basics/static-publishing/"><em>static publishing</em></a>.</p>
 
 <!-- example 1: overlay div preceeds Flash object -->
 <div id="example_1_wrapper" class="wrapper">
@@ -89,13 +89,13 @@ div.overlay {
     <div id="example_1_div" class="overlay">This is a DIV. It uses absolute positioning without specifying z-index. Markup order is div then flash object.</div>
     
     <object id="example_1_flash" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="550" height="400">
-        <param name="movie" value="/demos/swf/sample.swf" />
+        <param name="movie" value="/learnswfobject/demos/swf/sample.swf" />
         
     <!-- this param enables the overlay to work -->
         <param name="wmode" value="opaque" />
         
         <!--[if !IE]>-->
-        <object type="application/x-shockwave-flash" data="/demos/swf/sample.swf" width="550" height="400">
+        <object type="application/x-shockwave-flash" data="/learnswfobject/demos/swf/sample.swf" width="550" height="400">
         	
         <!-- this param enables the overlay to work -->
             <param name="wmode" value="opaque" />
@@ -114,13 +114,13 @@ div.overlay {
 <div id="example_2_wrapper" class="wrapper">
 
     <object id="example_2_flash" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="550" height="400">
-        <param name="movie" value="/demos/swf/sample.swf" />
+        <param name="movie" value="/learnswfobject/demos/swf/sample.swf" />
         
     <!-- this param enables the overlay to work -->
         <param name="wmode" value="opaque" />
         
         <!--[if !IE]>-->
-        <object type="application/x-shockwave-flash" data="/demos/swf/sample.swf" width="550" height="400">
+        <object type="application/x-shockwave-flash" data="/learnswfobject/demos/swf/sample.swf" width="550" height="400">
         	
         <!-- this param enables the overlay to work -->
             <param name="wmode" value="opaque" />
@@ -140,7 +140,7 @@ div.overlay {
 
 <div id="site-info">
 <p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
-<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+<p>More examples can be found at <a href="https://pipwerks.github.io/learnswfobject/">https://pipwerks.github.io/learnswfobject</a></p>
 </div>
 
 

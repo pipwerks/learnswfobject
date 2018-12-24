@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>learnswfobject.com: Using CSS to hide a SWF (width/height: 0) [static publishing]</title>
+<title>Learn SWFObject: Using CSS to hide a SWF (width/height: 0) [static publishing]</title>
 
-<!-- An explanation for this example (and more examples) can be found at http://learnswfobject.com -->
+<!-- An explanation for this example (and more examples) can be found at https://pipwerks.github.io/learnswfobject/ -->
 
 <!-- this CSS stylesheet is unrelated to the example code -->
 <link href="/learnswfobject/css/simple.css" rel="stylesheet" />
@@ -14,7 +14,7 @@
 
 <script>
 
-swfobject.registerObject("flashcontent", "7.0.0", "/demos/swf/expressinstall.swf");
+swfobject.registerObject("flashcontent", "7.0.0", "/learnswfobject/demos/swf/expressinstall.swf");
 
 //Using a CSS class doesn't seem to work; only direct assignment
 //of inline styles works with this example.
@@ -44,14 +44,14 @@ function toggleSWF(){
 </head>
 
 <body>
-<h1>learnswfobject.com/demos</h1>
+<h1>Learn SWFObject Demos</h1>
 <h2>Using CSS to hide a SWF (width/height: 0)</h2>
-<p>This example uses SWFObject's <a href="http://learnswfobject.com/the-basics/static-publishing/"><em>static publishing</em></a>.</p>
+<p>This example uses SWFObject's <a href="https://pipwerks.github.io/learnswfobject/the-basics/static-publishing/"><em>static publishing</em></a>.</p>
 
   <object id="flashcontent" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="550" height="400">
-    <param name="movie" value="/demos/swf/sample.swf" />
+    <param name="movie" value="/learnswfobject/demos/swf/sample.swf" />
     <!--[if !IE]>-->
-    <object type="application/x-shockwave-flash" data="/demos/swf/sample.swf" width="550" height="400">
+    <object type="application/x-shockwave-flash" data="/learnswfobject/demos/swf/sample.swf" width="550" height="400">
     <!--<![endif]-->
       <p>Place fallback content here for users who don't have Flash<p>
     <!--[if !IE]>-->
@@ -63,7 +63,7 @@ function toggleSWF(){
 
 <div id="site-info">
 <p class="license">This example is &copy; Philip Hutchison. Licensed under an <a href="http://pipwerks.mit-license.org/">MIT-style license</a>.</p>
-<p>More examples can be found at <a href="http://learnswfobject.com/">http://learnswfobject.com</a></p>
+<p>More examples can be found at <a href="https://pipwerks.github.io/learnswfobject/">https://pipwerks.github.io/learnswfobject</a></p>
 </div>
 
 </body>

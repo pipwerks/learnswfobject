@@ -8,6 +8,6 @@ Author URI: http://pipwerks.com
 Tags: clean, simple, basic
 */
 
-@import "/css/reset.css";
-@import "/css/typography.css";
-@import "/css/layout.css";
+@import "/learnswfobject/css/reset.css";
+@import "/learnswfobject/css/typography.css";
+@import "/learnswfobject/css/layout.css";
